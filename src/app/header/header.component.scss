@@ -1,0 +1,27 @@
+.header-wrapper {
+  padding: 20px;
+  background-color: darkblue;
+  color: white;
+
+  .title {
+    margin: 40px 3%;
+    font-weight: bolder;
+    font-size: 4em;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 3em;
+      margin: 40px auto;
+    }
+  }
+
+  .search-bar {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
