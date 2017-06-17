@@ -1,0 +1,16 @@
+<div class="search-wrapper row">
+  <form [formGroup]="searchForm">
+    <div class="search-bar input-group input-group-lg">
+      <input type="text" class="form-control" placeholder="Search Medications" aria-describedby="lookup"
+             formControlName="search" (keyup.enter)="search()"
+             [typeahead]="mockData" [typeaheadOptionField]="'item'"
+             [typeaheadGroupField]="'suggestion'"
+             (typeaheadOnSelect)="onSelect($event)"
+             autofocus>
+
+      <span (click)="search()" class="input-group-addon" id="lookup">
+          <i class="fa fa-search" aria-hidden="true"></i>
+      </span>
+    </div>
+  </form>
+</div>

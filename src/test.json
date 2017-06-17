@@ -1,0 +1,79 @@
+[
+  {
+    "id":0,
+    "item":"<b>Tylenol</b> Extra Strength Nighttime",
+    "suggestionType":1,
+    "docId":"TylenolNighttimeES",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolNighttimeES",
+    "manufacturers":"McNeil Consumer Healthcare"
+  },
+  {
+    "id":1,
+    "item":"<b>Tylenol</b> with Codeine No. 4",
+    "suggestionType":1,
+    "docId":"TylenolCodeineNo4",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolCodeineNo4",
+    "manufacturers":"Janssen"
+  },
+  {
+    "id":2,
+    "item":"<b>Tylenol</b> Regular Strength Tablets, Caplets, Liquid Gels",
+    "suggestionType":1,
+    "docId":"Tylenol",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/Tylenol",
+    "manufacturers":"McNeil Consumer Healthcare"
+  },
+  {
+    "id":3,
+    "item":"<b>Tylenol</b> with Codeine No. 2",
+    "suggestionType":1,
+    "docId":"TylenolNo1",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolNo1",
+    "manufacturers":"Janssen"
+  },
+  {
+    "id":4,
+    "item":"<b>Tylenol</b> Cough",
+    "suggestionType":1,
+    "docId":"TylenolCough",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolCough",
+    "manufacturers":"McNeil Consumer Healthcare"
+  },
+  {
+    "id":5,
+    "item":"<b>Tylenol</b> Children's Cold & Stuffy Nose",
+    "suggestionType":1,
+    "docId":"TylenolChildrens",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolChildrens",
+    "manufacturers":"McNeil Consumer Healthcare"
+  },
+  {
+    "id":6,
+    "item":"<b>Tylenol</b> Sinus Extra Strength Daytime",
+    "suggestionType":1,
+    "docId":"TylenolSinusExtraStrength",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolSinusExtraStrength",
+    "manufacturers":"McNeil Consumer Healthcare"
+  },
+  {
+    "id":7,
+    "item":"<b>Tylenol</b> Flu Extra Strength Daytime",
+    "suggestionType":1,
+    "docId":"TylenolFlu",
+    "type":"MONOGRAPH",
+    "locator":"MONOGRAPH/en/TylenolFlu",
+    "manufacturers":"McNeil Consumer Healthcare"
+  },
+  {
+    "id":1000,
+    "item":"<b>tyle</b>nol",
+    "suggestionType":0
+  }
+]

@@ -3,24 +3,44 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
-import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { DrugLookupService } from '../services/drug-lookup.service';
+import { QueryComponent } from './query/query.component';
+import { QueryDetailComponent } from './query/detail/query-detail.component';
+import { SearchComponent } from './search/search.component';
+import { SearchHelper } from '../services/search-helper';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { TypeaheadModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
+    HomeComponent,
     HeaderComponent,
     TopMenuComponent,
-    FooterComponent
+    FooterComponent,
+    QueryComponent,
+    QueryDetailComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
+    RouterModule,
+    ReactiveFormsModule,
     APP_ROUTES,
+    HttpModule,
+    JsonpModule,
+    TypeaheadModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    DrugLookupService,
+    SearchHelper,
+  ],
   bootstrap: [
     AppComponent
   ]

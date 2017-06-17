@@ -1,0 +1,13 @@
+.search-bar {
+  margin: 0 auto 40px;
+  width: 50%;
+  text-align: center;
+
+  //.input-group-lg > .input-group-addon {
+  //  height: 47px !important;
+  //}
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}

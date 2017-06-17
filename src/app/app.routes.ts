@@ -3,18 +3,29 @@
  */
 
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { QueryComponent } from './query/query.component';
+import { QueryDetailComponent } from './query/detail/query-detail.component';
 
 const ROUTES: Routes = [
   {
     path: '',
-    redirectTo : '/about',
-    pathMatch: 'full',
+    component: HomeComponent
   },
   {
-    path: 'about',
-    component: AboutComponent,
-  }
+    path: 'query',
+    children: [
+      {
+        path: '',
+        component: QueryComponent,
+      },
+      {
+        path: 'detail',
+        component: QueryDetailComponent,
+      },
+    ]
+
+  },
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(ROUTES);
