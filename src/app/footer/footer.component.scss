@@ -1,0 +1,28 @@
+.footer-wrapper {
+  color: gray;
+  background-color: lightgray;
+  padding: 15px;
+
+  .footer-menu {
+    margin-bottom: 5px;
+
+    ul {
+      li {
+        border-right: 1px solid gray;
+        padding: 0 15px;
+      }
+
+      li:first-child {
+        padding: 0 15px 0 0;
+      }
+
+      li:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .footer-logo {
+    padding-left: 15px;
+  }
+}
