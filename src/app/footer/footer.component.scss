@@ -2,6 +2,7 @@
   color: gray;
   background-color: lightgray;
   padding: 15px;
+  font-size: 12px;
 
   .footer-menu {
     margin-bottom: 5px;
@@ -10,10 +11,18 @@
       li {
         border-right: 1px solid gray;
         padding: 0 15px;
+
+        @media (max-width: 768px) {
+          padding: 0 10px 0 5px;
+        }
       }
 
       li:first-child {
         padding: 0 15px 0 0;
+
+        @media (max-width: 768px) {
+          padding: 0 10px 0 5px;
+        }
       }
 
       li:last-child {
@@ -23,6 +32,24 @@
   }
 
   .footer-logo {
-    padding-left: 15px;
+    // padding-left: 15px;
+    @media (max-width: 768px) {
+      float: none !important;
+    }
+
+    > div {
+      @media (max-width: 768px) {
+        float: none !important;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .footer-content {
+    > div {
+      @media (max-width: 768px) {
+        margin-bottom: 15px;
+      }
+    }
   }
 }

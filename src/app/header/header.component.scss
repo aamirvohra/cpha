@@ -3,8 +3,14 @@
   background-color: darkblue;
   color: white;
 
+  > div {
+    margin-bottom: 15px;
+  }
+
   .title {
-    margin: 40px 3%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    // margin: 40px 3%;
     font-weight: bolder;
     font-size: 4em;
     text-align: center;
@@ -16,9 +22,13 @@
   }
 
   .search-bar {
-    margin: auto;
+    margin: 0 auto 40px;
     width: 50%;
     text-align: center;
+
+    //.input-group-lg > .input-group-addon {
+    //  height: 47px !important;
+    //}
 
     @media (max-width: 768px) {
       width: 100%;
