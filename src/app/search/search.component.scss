@@ -3,6 +3,11 @@
   width: 50%;
   text-align: center;
 
+  &.skinny-search {
+    margin: 0;
+    width: 100%;
+  }
+
   //.input-group-lg > .input-group-addon {
   //  height: 47px !important;
   //}

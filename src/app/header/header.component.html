@@ -1,5 +1,6 @@
-<div class="header-wrapper row">
-  <div class="col-sm-12 pull-right hidden-xs">
+<div #headerWrapper class="header-wrapper row">
+  <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'"
+       class="pull-right hidden-xs">
     <app-top-menu></app-top-menu>
   </div>
 
@@ -7,11 +8,11 @@
     <i class="fa fa-bars" aria-hidden="true"></i>
   </div>
 
-  <div class="col-sm-12 title">
-    CanadianDrugs.ca
+  <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'" class="title">
+    <a routerLink="/">CanadianDrugs.ca</a>
   </div>
 
-  <div class="col-sm-12">
-    <app-search></app-search>
+  <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'">
+    <app-search [skinnyHeader]="skinnyHeader"></app-search>
   </div>
 </div>

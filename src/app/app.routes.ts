@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { QueryComponent } from './query/query.component';
 import { QueryDetailComponent } from './query/detail/query-detail.component';
+import { QueryListComponent } from './query/list/query-list.component';
 
 const ROUTES: Routes = [
   {
@@ -18,6 +19,10 @@ const ROUTES: Routes = [
       {
         path: '',
         component: QueryComponent,
+      },
+      {
+        path: 'list',
+        component: QueryListComponent,
       },
       {
         path: 'detail',

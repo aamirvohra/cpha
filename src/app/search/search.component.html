@@ -1,6 +1,6 @@
 <div class="search-wrapper row">
   <form [formGroup]="searchForm">
-    <div class="search-bar input-group input-group-lg">
+    <div [ngClass]="skinnyHeader ? 'input-group-md skinny-search' : 'input-group-lg'" class="search-bar input-group">
       <input type="text" class="form-control" placeholder="Search Medications" aria-describedby="lookup"
              formControlName="search" (keyup.enter)="search()"
              [typeahead]="mockData" [typeaheadOptionField]="'item'"

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SearchHelper } from '../../services/search-helper';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { DrugLookupService } from '../../services/drug-lookup.service';
 import { TypeaheadMatch } from 'ngx-bootstrap';
-import { Router } from '@angular/router';
+import { Event, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,6 +17,9 @@ export class SearchComponent implements OnInit {
   // protected autoCompleteDS: Observable<any>;
   protected mockData: any;
 
+  @Input('skinnyHeader')
+  protected skinnyHeader: boolean;
+
   constructor(private searchHelper: SearchHelper,
               private formBuilder: FormBuilder,
               private drugLookup: DrugLookupService,
@@ -28,6 +31,17 @@ export class SearchComponent implements OnInit {
     // ).mergeMap(
     //   this.drugLookup.autoComplete()
     // );
+
+    // this.router.events
+    //   .filter(event => event instanceof NavigationEnd)
+    //   .subscribe(
+    //     (event: NavigationEnd) => {
+    //       if (event.url !== '/') {
+    //         this.skinnyHeader = true;
+    //         console.log(this.skinnyHeader);
+    //       }
+    //     }
+    // )
   }
 
   ngOnInit() {
@@ -42,17 +56,47 @@ export class SearchComponent implements OnInit {
     )
   }
 
-  search(item) {
+  search(autoCompleteItem?: TypeaheadMatch) {
     if (this.searchForm.valid) {
-      console.log(this.searchForm.controls['search'].value);
-      this.searchHelper.broadcastSearchEvent(item.item);
-      this.router.navigate(['/query/detail'])
+
+      if (autoCompleteItem) {
+        // item could also have a suggestion search
+        if (autoCompleteItem.item.locator) {
+          this.navigateToDetailPage();
+        }
+        else {
+          this.navigateToListPage();
+        }
+      }
+      else {
+        // this a suggestion search as no auto complete is provided
+        this.navigateToListPage();
+      }
+
+      // this.searchHelper.broadcastSearchEvent(item.item);
+      // this.router.navigate(['/query/detail'])
     }
   }
 
-  onSelect(item: TypeaheadMatch) {
-    console.log(item);
-    this.search(item);
+  navigateToDetailPage() {
+    // if a suggestion search then navigate to query list
+    // else navigate to the detail page
+    this.navigate('query/detail');
+  }
+
+  navigateToListPage() {
+    this.navigate('query/list');
+  }
+
+  navigate(url: string) {
+   this.router.navigate([url]);
+  }
+
+  onSelect(item?: TypeaheadMatch) {
+    // we need to know if this is an exact search or suggestion search??
+    if (item) {
+      this.search(item);
+    }
   }
 
 }

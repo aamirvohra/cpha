@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { TypeaheadModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
+import { QueryListComponent } from './query/list/query-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RouterModule } from '@angular/router';
     QueryComponent,
     QueryDetailComponent,
     SearchComponent,
+    QueryListComponent,
   ],
   imports: [
     BrowserModule,

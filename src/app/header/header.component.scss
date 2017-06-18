@@ -15,9 +15,28 @@
     font-size: 4em;
     text-align: center;
 
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
     @media (max-width: 768px) {
       font-size: 3em;
       margin: 40px auto;
+    }
+  }
+
+  &.skinny-search {
+
+    > div {
+      margin-bottom: 0;
+    }
+
+    .title {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 1.6em;
+      text-align: left;
     }
   }
 }
