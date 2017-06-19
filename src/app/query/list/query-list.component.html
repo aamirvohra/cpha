@@ -1,3 +1,51 @@
-<p>
-  query-list works!
-</p>
+<div class="list-wrapper row">
+  <div class="col-sm-offset-2 col-sm-8">
+    <div class="results-info">
+      <div class="count">
+      <span>
+        {{queryListData.totalCount}} results
+      </span>
+      </div>
+
+      <div class="sort">
+        Sort by: &nbsp;
+        <select>
+          <option value="relevance">Relevance</option>
+        </select>
+      </div>
+
+      <div class="action-list">
+        <button>
+          <i class="fa fa-minus-square-o" aria-hidden="true"></i> Collapse all
+        </button>
+
+        <button>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+
+        <button>
+          <i class="fa fa-print" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="list-content">
+      <div *ngFor="let query of queryListData.results">
+        <div class="title">
+          <a>{{ query.documentTitle }}</a>
+        </div>
+
+        <div class="sub-title" [innerHtml]="query.documentChunk">
+        </div>
+
+        <div *ngIf="query.otherSections" class="additional-info row">
+          <div *ngFor="let sections of query.otherSections">
+            <div class="col-sm-2">
+              <a>{{sections.title}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

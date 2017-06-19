@@ -5,6 +5,7 @@ import data from '../test.json';
 import { Observable } from 'rxjs/Observable';
 import htmlData from '../test.html';
 import { observable } from 'rxjs/symbol/observable';
+import suggestionData from '../suggestion-search-response.json';
 
 @Injectable()
 export class DrugLookupService {
@@ -40,6 +41,14 @@ export class DrugLookupService {
         observer.next(htmlData);
       }
     )
+  }
+
+  public getListInfo() {
+    return Observable.create(
+      observer => {
+        observer.next(suggestionData);
+      }
+    );
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DrugLookupService } from '../../../services/drug-lookup.service';
 
 @Component({
   selector: 'app-query-list',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueryListComponent implements OnInit {
 
-  constructor() { }
+  private queryListData: any;
+
+  constructor(private lookupService: DrugLookupService) { }
 
   ngOnInit() {
+    // fetch query list info
+    this.lookupService.getListInfo().subscribe(
+      data => {
+        this.queryListData = data;
+      }
+    )
   }
 
 }
