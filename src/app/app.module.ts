@@ -17,6 +17,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { TypeaheadModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { QueryListComponent } from './query/list/query-list.component';
+import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-nav.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { QueryListComponent } from './query/list/query-list.component';
     QueryDetailComponent,
     SearchComponent,
     QueryListComponent,
+    MobileSidebarNavComponent,
   ],
   imports: [
     BrowserModule,

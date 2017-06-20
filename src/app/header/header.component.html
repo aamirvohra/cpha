@@ -4,8 +4,8 @@
     <app-top-menu></app-top-menu>
   </div>
 
-  <div class="visible-xs-block see-more">
-    <i class="fa fa-bars" aria-hidden="true"></i>
+  <div class="visible-xs-block see-more" (click)="toggleMobilNav()">
+    <i class="fa fa-ellipsis-h fa-2x" aria-hidden="true"></i>
   </div>
 
   <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'" class="title">
@@ -15,4 +15,8 @@
   <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'">
     <app-search [skinnyHeader]="skinnyHeader"></app-search>
   </div>
+</div>
+
+<div class="mobile-nav" *ngIf="isMobileNavVisible">
+  <app-mobile-sidebar-nav></app-mobile-sidebar-nav>
 </div>

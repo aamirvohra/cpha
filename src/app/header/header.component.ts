@@ -13,7 +13,11 @@ export class HeaderComponent implements OnInit {
   @ViewChild('headerWrapper')
   private headerWrapper: ElementRef;
 
-  constructor(private router: Router) { }
+  private isMobileNavVisible: boolean;
+
+  constructor(private router: Router) {
+    this.isMobileNavVisible = false;
+  }
 
   ngOnInit() {
     this.router.events
@@ -30,6 +34,10 @@ export class HeaderComponent implements OnInit {
           }
         }
       )
+  }
+
+  toggleMobilNav() {
+    this.isMobileNavVisible = !this.isMobileNavVisible;
   }
 
 }

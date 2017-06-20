@@ -1,0 +1,45 @@
+.nav-bar-wrapper {
+  background-color: darkblue;
+  color: white;
+  font-size: 0.9em;
+
+  .cpa-logo {
+    background-color: #D8D8D8;
+    padding: 20px;
+  }
+
+  .nav-links {
+    padding: 15px;
+
+    > div {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #D8D8D8;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .nav {
+      li {
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    padding: 15px;
+    text-align: center;
+    color: #C0C0C0;
+  }
+
+  .nav {
+    li {
+
+    }
+  }
+
+}
