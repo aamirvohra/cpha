@@ -3,3 +3,30 @@ body {
   font-size: 14px;
   overflow-x: hidden;
 }
+
+.mobile-nav {
+  position: fixed;
+  width: 50%;
+  left: 0;
+  top: 0;
+  // z-index: 1000;
+  min-height: 100%;
+}
+
+.with-sidebar {
+  margin-left: 50%;
+  opacity: 0.5;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    // display: none;
+  }
+
+  .close-nav {
+    position: absolute;
+    left: 55%;
+    top: 5%;
+    z-index: 1001;
+  }
+}

@@ -1,6 +1,19 @@
 <!--The whole content below can be removed with the new code.-->
 <div class="container-fluid no-padding">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
+  <div class="mobile-nav" *ngIf="mobileSidebarVisiblity">
+    <app-mobile-sidebar-nav></app-mobile-sidebar-nav>
+  </div>
+
+  <div [ngClass]="mobileSidebarVisiblity ? 'with-sidebar' : ''">
+    <div (click)="toggleMobileSidebarVisiblity(false)" *ngIf="mobileSidebarVisiblity" class="close-nav">
+      <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+    </div>
+    
+    <app-header [isMobileNavVisible]="mobileSidebarVisiblity" (mobileSidebarVisibility)="toggleMobileSidebarVisiblity($event)"></app-header>
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<app-footer></app-footer>
+
+<div [ngClass]="mobileSidebarVisiblity ? 'with-sidebar' : ''">
+  <app-footer></app-footer>
+</div>

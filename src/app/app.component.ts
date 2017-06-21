@@ -9,4 +9,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  protected mobileSidebarVisiblity: boolean;
+
+  constructor() {
+    this.mobileSidebarVisiblity = false;
+  }
+
+  public toggleMobileSidebarVisiblity(value) {
+    this.mobileSidebarVisiblity = value;
+  }
+
+
 }

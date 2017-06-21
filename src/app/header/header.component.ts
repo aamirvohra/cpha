@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -8,15 +8,20 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output()
+  protected mobileSidebarVisibility: EventEmitter<boolean>;
+
   protected skinnyHeader: boolean;
 
   @ViewChild('headerWrapper')
   private headerWrapper: ElementRef;
 
-  private isMobileNavVisible: boolean;
+  @Input('isMobileNavVisible')
+  protected isMobileNavVisible: boolean;
 
   constructor(private router: Router) {
     this.isMobileNavVisible = false;
+    this.mobileSidebarVisibility = new EventEmitter();
   }
 
   ngOnInit() {
@@ -36,8 +41,9 @@ export class HeaderComponent implements OnInit {
       )
   }
 
-  toggleMobilNav() {
+  toggleMobileNav() {
     this.isMobileNavVisible = !this.isMobileNavVisible;
+    this.mobileSidebarVisibility.emit(this.isMobileNavVisible);
   }
 
 }
