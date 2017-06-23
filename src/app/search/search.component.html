@@ -1,16 +1,13 @@
 <div class="search-wrapper row">
   <form [formGroup]="searchForm">
-    <div [ngClass]="skinnyHeader ? 'input-group-md skinny-search' : 'input-group-lg'" class="search-bar input-group">
-      <input type="text" class="form-control" placeholder="Search Medications" aria-describedby="lookup"
+    <div [ngClass]="skinnyHeader ? 'skinny-search' : ''" class="search-bar form-group">
+      <input type="text" class="form-control" placeholder="Search Medications"
              formControlName="search" (keyup.enter)="search()"
              [typeahead]="mockData" [typeaheadOptionField]="'item'"
              [typeaheadGroupField]="'suggestion'"
              (typeaheadOnSelect)="onSelect($event)"
              autofocus>
-
-      <span (click)="search()" class="input-group-addon" id="lookup">
-          <i class="fa fa-search" aria-hidden="true"></i>
-      </span>
+      <!--<i [ngClass]="!skinnyHeader ? 'fa-2x' : ''" (click)="search()" class="fa fa-search"></i>-->
     </div>
   </form>
 </div>

@@ -8,7 +8,7 @@
     <div (click)="toggleMobileSidebarVisiblity(false)" *ngIf="mobileSidebarVisiblity" class="close-nav">
       <i class="fa fa-2x fa-times" aria-hidden="true"></i>
     </div>
-    
+
     <app-header [isMobileNavVisible]="mobileSidebarVisiblity" (mobileSidebarVisibility)="toggleMobileSidebarVisiblity($event)"></app-header>
     <router-outlet></router-outlet>
   </div>

@@ -19,10 +19,19 @@
         border-right: 1px solid #D8D8D8;
         display: inline-block;
         padding-right: 10px;
+
+        @media (max-width: 768px) {
+          border-right: none;
+          // padding-right: 0;
+        }
       }
     }
 
     .sort {
+      @media (max-width: 768px) {
+
+      }
+
       select {
         padding: 5px;
         border-radius: 5px;

@@ -4,11 +4,12 @@
     <app-top-menu></app-top-menu>
   </div>
 
-  <div *ngIf="!isMobileNavVisible" class="visible-xs-block see-more" (click)="toggleMobileNav()">
-    <i class="fa fa-ellipsis-h fa-2x" aria-hidden="true"></i>
+  <div *ngIf="!isMobileNavVisible" class="visible-xs-block see-more"
+       [ngClass]="skinnyHeader ? 'col-xs-3' : ''" (click)="toggleMobileNav()">
+    <i [ngClass]="!skinnyHeader ? 'fa-2x': ''" class="fa fa-ellipsis-h" aria-hidden="true"></i>
   </div>
 
-  <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'" class="title">
+  <div [ngClass]="skinnyHeader ? 'col-sm-4 col-xs-6' : 'col-sm-12'" class="title">
     <a routerLink="/">CanadianDrugs.ca</a>
   </div>
 

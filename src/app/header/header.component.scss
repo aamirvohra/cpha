@@ -3,6 +3,10 @@
   background-color: darkblue;
   color: white;
 
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
   > div {
     margin-bottom: 15px;
   }
@@ -22,21 +26,38 @@
 
     @media (max-width: 768px) {
       font-size: 2.5em;
-      margin: 40px auto;
+      // margin: 40px auto;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      // text-align: left;
     }
   }
 
   &.skinny-search {
 
     > div {
-      margin-bottom: 0;
+      margin-bottom: 10px;
+
+      @media (max-width: 768px) {
+        margin-bottom: 10px;
+      }
     }
 
     .title {
-      margin-top: 0px;
-      margin-bottom: 0px;
-      font-size: 1.6em;
+      margin: 0;
+      font-size: 2.5em;
       text-align: left;
+      padding: 0;
+
+      @media (max-width: 768px) {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }
