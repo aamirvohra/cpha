@@ -4,7 +4,6 @@ import { APIURLRepo } from '../config/api-url.repo';
 import data from '../test.json';
 import { Observable } from 'rxjs/Observable';
 import htmlData from '../test.html';
-import { observable } from 'rxjs/symbol/observable';
 import suggestionData from '../suggestion-search-response.json';
 
 @Injectable()
@@ -12,9 +11,13 @@ export class DrugLookupService {
 
   constructor(private http: Http) {
     for (const obj of data) {
+      obj.item = obj.item.replace('<b>', '');
+      obj.item = obj.item.replace('</b>', '');
+
       if (obj.manufacturers) {
         obj.item = obj.item + ' (' + obj.manufacturers + ')';
       }
+
 
       if (obj.suggestionType === 1) {
         obj.suggestion = 'Document'
