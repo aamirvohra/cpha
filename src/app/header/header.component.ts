@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
   @Input('isMobileNavVisible')
   protected isMobileNavVisible: boolean;
 
+  protected hideSearch: boolean;
+
   constructor(private router: Router) {
     this.isMobileNavVisible = false;
     this.mobileSidebarVisibility = new EventEmitter();
@@ -30,6 +32,11 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         (event: NavigationEnd) => {
           if (event.url !== '/') {
+            if (event.url === '/query/detail') {
+              this.hideSearch = true;
+              console.log(this.hideSearch);
+            }
+
             this.skinnyHeader = true;
             this.headerWrapper.nativeElement.classList.add('skinny-search');
           }

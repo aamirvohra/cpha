@@ -13,7 +13,7 @@
     <a routerLink="/">CanadianDrugs.ca</a>
   </div>
 
-  <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'">
+  <div *ngIf="!hideSearch" [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'">
     <app-search [skinnyHeader]="skinnyHeader"></app-search>
   </div>
 </div>
