@@ -18,6 +18,7 @@ import { TypeaheadModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { QueryListComponent } from './query/list/query-list.component';
 import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-nav.component';
+import { SafeHtml } from '../pipes/safe-html.directive';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-n
     SearchComponent,
     QueryListComponent,
     MobileSidebarNavComponent,
+    SafeHtml,
   ],
   imports: [
     BrowserModule,

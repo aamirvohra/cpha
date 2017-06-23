@@ -5,6 +5,7 @@ import data from '../test.json';
 import { Observable } from 'rxjs/Observable';
 import htmlData from '../test.html';
 import suggestionData from '../suggestion-search-response.json';
+import { DrugInfoHtmlParser } from '../parser/drug-info-html-parser';
 
 @Injectable()
 export class DrugLookupService {
@@ -42,6 +43,8 @@ export class DrugLookupService {
     return Observable.create(
       observer => {
         observer.next(htmlData);
+        const parser = new DrugInfoHtmlParser(htmlData);
+        parser.parse();
       }
     )
   }

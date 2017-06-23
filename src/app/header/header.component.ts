@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit {
           if (event.url !== '/') {
             if (event.url === '/query/detail') {
               this.hideSearch = true;
-              console.log(this.hideSearch);
             }
 
             this.skinnyHeader = true;
