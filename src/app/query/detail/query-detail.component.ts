@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchHelper } from '../../../services/search-helper';
 import { ActivatedRoute } from '@angular/router';
 import { DrugLookupService } from '../../../services/drug-lookup.service';
+import { DrugInfo } from '../../../models/drug-info';
 
 @Component({
   selector: 'app-query-detail',
@@ -10,7 +11,7 @@ import { DrugLookupService } from '../../../services/drug-lookup.service';
 })
 export class QueryDetailComponent implements OnInit {
 
-  protected info: any;
+  protected info: DrugInfo;
 
   constructor(private searchHelper: SearchHelper,
               private drugLookup: DrugLookupService,
@@ -34,6 +35,7 @@ export class QueryDetailComponent implements OnInit {
     this.drugLookup.detailedInfo().subscribe(
       data => {
         this.info = data;
+        console.log(this.info);
       }
     )
   }

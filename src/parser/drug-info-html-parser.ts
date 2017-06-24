@@ -28,10 +28,9 @@ export class DrugInfoHtmlParser {
   }
 
   parse() {
-    let drugInfo = this.parseDrugInfo();
+    const drugInfo = this.parseDrugInfo();
     drugInfo.contents = this.parseDrugContent();
-
-    console.log(drugInfo);
+    return drugInfo;
   }
 
   parseDrugInfo(): DrugInfo {

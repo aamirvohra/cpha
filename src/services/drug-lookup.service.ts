@@ -42,9 +42,9 @@ export class DrugLookupService {
   public detailedInfo() {
     return Observable.create(
       observer => {
-        observer.next(htmlData);
+        // observer.next(htmlData);
         const parser = new DrugInfoHtmlParser(htmlData);
-        parser.parse();
+        observer.next(parser.parse());
       }
     )
   }

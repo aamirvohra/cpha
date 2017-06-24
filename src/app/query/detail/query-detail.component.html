@@ -1,4 +1,37 @@
 <div class="row detail-wrapper">
-  <div class="col-sm-12" [innerHtml]="info">
+  <!--<div class="col-sm-12" [innerHtml]="info">-->
+  <!--</div>-->
+  <div class="col-md-2 hidden-xs table-contents">
+    <ul class="">
+      <li class="title">
+        TABLE OF CONTENTS
+      </li>
+
+      <li class="list-content" *ngFor="let drugContents of info.contents">
+        <a [href]="drugContents.anchorId">{{drugContents.text}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-10 drug-content">
+    <div class="overview">
+      <div class="title">
+        <span>{{info.brandName}}</span>
+      </div>
+
+      <div class="action-list">
+        <button>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+
+        <button class="hidden-xs">
+          <i class="fa fa-print" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="revision">
+      {{ info.revisionDate }}
+    </div>
   </div>
 </div>
