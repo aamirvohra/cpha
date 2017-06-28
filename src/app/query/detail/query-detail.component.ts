@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchHelper } from '../../../services/search-helper';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DrugLookupService } from '../../../services/drug-lookup.service';
 import { DrugInfo } from '../../../models/drug-info';
 
@@ -15,7 +15,8 @@ export class QueryDetailComponent implements OnInit {
 
   constructor(private searchHelper: SearchHelper,
               private drugLookup: DrugLookupService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     this.searchHelper._searchEvent.subscribe(
       (item: any) => {
         this.getDrugDetailedInformation(item);
@@ -38,6 +39,13 @@ export class QueryDetailComponent implements OnInit {
         console.log(this.info);
       }
     )
+  }
+
+  anchorNavigation(fragmentId) {
+    const element = document.querySelector(fragmentId);
+    if (element) {
+      element.scrollIntoView(element)
+    }
   }
 
 }

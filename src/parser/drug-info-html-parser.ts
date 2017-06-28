@@ -52,8 +52,19 @@ export class DrugInfoHtmlParser {
     $(this.htmlData).find(this.DRUG_CONTENT_WRAPPER_CLASS).each(
       function() {
         const drugContents = new DrugInfoContents();
-        drugContents.text = $(this).find(self.DRUG_CONTENT_NAVIGATOR_CLASS).text().trim();
-        drugContents.anchorId = $(this).find(self.DRUG_CONTENT_NAVIGATOR_CLASS).attr('href');
+        drugContents.text = $(this).find(
+          self.DRUG_CONTENT_NAVIGATOR_CLASS).text().trim();
+
+        drugContents.anchorId = $(this).find(
+          self.DRUG_CONTENT_NAVIGATOR_CLASS).attr('href');
+
+        // add fragment for navigation
+        // $(self.htmlData).find(
+        //   drugContents.anchorId).attr('name', drugContents.anchorId.replace('#', ''));
+
+        drugContents.htmlElement = $(self.htmlData).find(
+          drugContents.anchorId).prop('outerHTML');
+
         arrayContents.push(drugContents);
       }
     );

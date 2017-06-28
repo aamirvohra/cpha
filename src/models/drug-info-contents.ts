@@ -5,4 +5,5 @@
 export class DrugInfoContents {
   text: string;
   anchorId: string;
+  htmlElement: string;
 }
