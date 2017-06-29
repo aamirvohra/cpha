@@ -1,5 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import * as $ from 'jquery';
+
+const windowObject = window;
 
 @Component({
   selector: 'app-header',
@@ -21,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
   protected hideSearch: boolean;
 
+  // fixed header only for query detail page
+  // and mobile viewport
+  protected fixedHeader: boolean;
+
   constructor(private router: Router) {
     this.isMobileNavVisible = false;
     this.mobileSidebarVisibility = new EventEmitter();
@@ -34,6 +41,9 @@ export class HeaderComponent implements OnInit {
           if (event.url !== '/') {
             if (event.url === '/query/detail') {
               this.hideSearch = true;
+              this.fixedHeader = true;
+
+              this.registerOnScroll();
             }
 
             this.skinnyHeader = true;
@@ -50,6 +60,21 @@ export class HeaderComponent implements OnInit {
   toggleMobileNav() {
     this.isMobileNavVisible = !this.isMobileNavVisible;
     this.mobileSidebarVisibility.emit(this.isMobileNavVisible);
+  }
+
+  registerOnScroll() {
+    windowObject.addEventListener('scroll',
+      () => {
+        const scrollTop = $(windowObject).scrollTop();
+
+        if (scrollTop > 100) {
+          $('.header-wrapper').removeClass('scroll-up').addClass('scroll-down')
+        }
+        else {
+          $('.header-wrapper').removeClass('scroll-down').addClass('scroll-up')
+        }
+      }
+    )
   }
 
 }

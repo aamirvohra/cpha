@@ -1,4 +1,4 @@
-<div #headerWrapper class="header-wrapper row">
+<div #headerWrapper [ngClass]=" { 'fixed-header': fixedHeader }" class="header-wrapper row">
   <div [ngClass]="skinnyHeader ? 'col-sm-4' : 'col-sm-12'"
        class="pull-right hidden-xs">
     <app-top-menu></app-top-menu>

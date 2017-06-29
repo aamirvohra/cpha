@@ -12,9 +12,16 @@
       border-bottom: 1px solid #808080;
       padding: 5px 0;
 
+      &.scroll-down {
+        top: 0;
+      }
+
       @media (max-width: 768px) {
-        //position: fixed;
-        //min-height: 150px;
+        top: 60px;
+        position: fixed;
+        width: 96%;
+        height: 110px;
+        z-index: 15;
       }
 
       .title {
@@ -39,10 +46,24 @@
         float: right;
         color: #C0C0C0;
       }
+
+      .revision {
+        margin: 20px 0;
+
+        @media (max-width: 768px) {
+          // top: 150px;
+          // position: relative;
+        }
+      }
     }
 
-    .revision {
-      margin: 10px 0;
+    .info {
+      // position: absolute;
+      @media (max-width: 768px) {
+        margin-top: 190px;
+        position: relative;
+        z-index: 10;
+      }
     }
   }
 

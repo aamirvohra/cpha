@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SearchHelper } from '../../../services/search-helper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DrugLookupService } from '../../../services/drug-lookup.service';
 import { DrugInfo } from '../../../models/drug-info';
+import * as $ from 'jquery';
+
+const windowObject = window;
 
 @Component({
   selector: 'app-query-detail',
@@ -12,6 +15,9 @@ import { DrugInfo } from '../../../models/drug-info';
 export class QueryDetailComponent implements OnInit {
 
   protected info: DrugInfo;
+
+  @ViewChild('tableContents')
+  private tableContents: ElementRef;
 
   constructor(private searchHelper: SearchHelper,
               private drugLookup: DrugLookupService,
@@ -30,13 +36,13 @@ export class QueryDetailComponent implements OnInit {
         // do a search
       }
     );
+    this.registerOnScroll();
   }
 
   getDrugDetailedInformation(item) {
     this.drugLookup.detailedInfo().subscribe(
       data => {
         this.info = data;
-        console.log(this.info);
       }
     )
   }
@@ -48,4 +54,19 @@ export class QueryDetailComponent implements OnInit {
     }
   }
 
+  registerOnScroll() {
+    windowObject.addEventListener( 'scroll',
+      () => {
+        const scrollTop = $(windowObject).scrollTop();
+
+        if (scrollTop > 100) {
+          console.log(scrollTop);
+          $('.overview').removeClass('scroll-up').addClass('scroll-down')
+        }
+        else {
+          $('.overview').removeClass('scroll-down').addClass('scroll-up')
+        }
+      }
+    )
+  }
 }
