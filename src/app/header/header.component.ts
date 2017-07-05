@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   @Output()
   protected mobileSidebarVisibility: EventEmitter<boolean>;
 
-  protected skinnyHeader: boolean;
+  protected lightHeader: boolean;
 
   @ViewChild('headerWrapper')
   private headerWrapper: ElementRef;
@@ -22,15 +22,22 @@ export class HeaderComponent implements OnInit {
   @Input('isMobileNavVisible')
   protected isMobileNavVisible: boolean;
 
-  protected hideSearch: boolean;
+  // below flags are used for mobile view for routes other than homepage
+  protected displaySearchIcon: boolean;
+
+  // on search toggle, toggle search bar
+  protected isSearchVisible: boolean;
 
   // fixed header only for query detail page
   // and mobile viewport
-  protected fixedHeader: boolean;
+  // protected fixedHeader: boolean;
 
   constructor(private router: Router) {
     this.isMobileNavVisible = false;
     this.mobileSidebarVisibility = new EventEmitter();
+    this.displaySearchIcon = false;
+    this.isSearchVisible = true;
+    this.lightHeader = false;
   }
 
   ngOnInit() {
@@ -39,19 +46,18 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         (event: NavigationEnd) => {
           if (event.url !== '/') {
-            if (event.url === '/query/detail') {
-              this.hideSearch = true;
-              this.fixedHeader = true;
+            // if (event.url === '/query/detail') {
+            //   // this.fixedHeader = true;
+            //
+            //   // this.registerOnScroll();
+            // }
 
-              this.registerOnScroll();
-            }
-
-            this.skinnyHeader = true;
-            this.headerWrapper.nativeElement.classList.add('skinny-search');
+            this.lightHeader = true;
+            this.headerWrapper.nativeElement.classList.add('light-header');
           }
           else {
-            this.skinnyHeader = false;
-            this.headerWrapper.nativeElement.classList.remove('skinny-search');
+            this.lightHeader = false;
+            this.headerWrapper.nativeElement.classList.remove('light-header');
           }
         }
       )
@@ -62,19 +68,31 @@ export class HeaderComponent implements OnInit {
     this.mobileSidebarVisibility.emit(this.isMobileNavVisible);
   }
 
-  registerOnScroll() {
-    windowObject.addEventListener('scroll',
-      () => {
-        const scrollTop = $(windowObject).scrollTop();
+  toggleSearchIcon() {
+    this.displaySearchIcon = !this.displaySearchIcon;
 
-        if (scrollTop > 100) {
-          $('.header-wrapper').removeClass('scroll-up').addClass('scroll-down')
-        }
-        else {
-          $('.header-wrapper').removeClass('scroll-down').addClass('scroll-up')
-        }
-      }
-    )
+    // if search icon is visible means search bar should be hidden
+    if (this.displaySearchIcon) {
+      this.isSearchVisible = false;
+    }
+    else {
+      this.isSearchVisible = true;
+    }
   }
+
+  // registerOnScroll() {
+  //   windowObject.addEventListener('scroll',
+  //     () => {
+  //       const scrollTop = $(windowObject).scrollTop();
+  //
+  //       if (scrollTop > 50) {
+  //         $('.header-wrapper').removeClass('scroll-up').addClass('scroll-down')
+  //       }
+  //       else {
+  //         $('.header-wrapper').removeClass('scroll-down').addClass('scroll-up')
+  //       }
+  //     }
+  //   )
+  // }
 
 }

@@ -8,7 +8,7 @@
       // margin: 20px 5px;
     }
 
-    .overview {
+    .drug-overview-old {
       border-bottom: 1px solid #808080;
       padding: 5px 0;
 
@@ -17,11 +17,11 @@
       }
 
       @media (max-width: 768px) {
-        top: 60px;
-        position: fixed;
-        width: 96%;
-        height: 110px;
-        z-index: 15;
+        //top: 60px;
+        //position: fixed;
+        //width: 96%;
+        //height: 110px;
+        //z-index: 15;
       }
 
       .title {
@@ -30,8 +30,8 @@
         font-size: 1.5em;
 
         @media (max-width: 768px) {
-          display: block;
-          margin: 15px 0;
+          //display: block;
+          //margin: 15px 0;
         }
       }
 
@@ -57,12 +57,12 @@
       }
     }
 
-    .info {
+    .drug-info {
       // position: absolute;
       @media (max-width: 768px) {
-        margin-top: 190px;
-        position: relative;
-        z-index: 10;
+        //margin-top: 190px;
+        //position: relative;
+        //z-index: 10;
       }
     }
   }

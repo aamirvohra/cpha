@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { SearchHelper } from '../../services/search-helper';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,8 @@ import { Event, NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SearchComponent implements OnInit {
 
@@ -54,6 +55,10 @@ export class SearchComponent implements OnInit {
         this.mockData = data;
       }
     )
+  }
+
+  public clear() {
+    this.searchForm.controls.search.setValue(null);
   }
 
   search(autoCompleteItem?: TypeaheadMatch) {

@@ -27,6 +27,28 @@
     }
   }
 
+  .clear-search {
+    color: grey;
+    position: absolute;
+    font-size: 1.5em;
+    top: 9px;
+    right: 20px;
+
+    @media (max-width: 768px) {
+      top: 49px;
+      right: 20px;
+    }
+  }
+
+  /deep/ typeahead-container .dropdown-menu {
+    @media (max-width: 768px) {
+      max-width: 480px;
+      left: -24px;
+      top: -2px;
+      overflow: auto;
+    }
+  }
+
   //.input-group-lg > .input-group-addon {
   //  height: 47px !important;
   //}

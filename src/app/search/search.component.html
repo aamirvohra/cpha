@@ -8,6 +8,7 @@
              (typeaheadOnSelect)="onSelect($event)"
              autofocus>
       <!--<i [ngClass]="!skinnyHeader ? 'fa-2x' : ''" (click)="search()" class="fa fa-search"></i>-->
+      <i *ngIf="searchForm.controls?.search.value" (click)="clear()" class="fa fa-times clear-search"></i>
     </div>
   </form>
 </div>

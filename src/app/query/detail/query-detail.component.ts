@@ -36,7 +36,7 @@ export class QueryDetailComponent implements OnInit {
         // do a search
       }
     );
-    this.registerOnScroll();
+    // this.registerOnScroll();
   }
 
   getDrugDetailedInformation(item) {
@@ -54,19 +54,18 @@ export class QueryDetailComponent implements OnInit {
     }
   }
 
-  registerOnScroll() {
-    windowObject.addEventListener( 'scroll',
-      () => {
-        const scrollTop = $(windowObject).scrollTop();
-
-        if (scrollTop > 100) {
-          console.log(scrollTop);
-          $('.overview').removeClass('scroll-up').addClass('scroll-down')
-        }
-        else {
-          $('.overview').removeClass('scroll-down').addClass('scroll-up')
-        }
-      }
-    )
-  }
+  // registerOnScroll() {
+  //   windowObject.addEventListener( 'scroll',
+  //     () => {
+  //       const scrollTop = $(windowObject).scrollTop();
+  //
+  //       if (scrollTop > 50) {
+  //         $('.overview').removeClass('scroll-up').addClass('scroll-down')
+  //       }
+  //       else {
+  //         $('.overview').removeClass('scroll-down').addClass('scroll-up')
+  //       }
+  //     }
+  //   )
+  // }
 }
