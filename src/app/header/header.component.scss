@@ -40,6 +40,12 @@
     }
   }
 
+  .see-more {
+    @media (max-width: 768px) {
+      z-index: 1000;
+    }
+  }
+
   &.light-header {
 
     @media (max-width: 768px) {
@@ -60,6 +66,7 @@
       font-size: 2.5em;
       text-align: left;
       padding: 0;
+      z-index: 1000;
 
       @media (max-width: 768px) {
         font-size: 1.5em;

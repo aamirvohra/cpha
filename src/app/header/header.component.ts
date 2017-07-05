@@ -52,11 +52,17 @@ export class HeaderComponent implements OnInit {
             //   // this.registerOnScroll();
             // }
 
+            // we need light header in pages other than root
             this.lightHeader = true;
+            this.isSearchVisible  = true;
+            this.displaySearchIcon = false; // as search is visble no search icon visible at this point
             this.headerWrapper.nativeElement.classList.add('light-header');
           }
           else {
             this.lightHeader = false;
+            // make the search visible if navigated back to root from any other page
+            // @Todo also clear the text in search
+            this.isSearchVisible = true;
             this.headerWrapper.nativeElement.classList.remove('light-header');
           }
         }
