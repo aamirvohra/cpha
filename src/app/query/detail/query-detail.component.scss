@@ -4,99 +4,76 @@
     padding: 10px 15px 15px 15px;
   }
 
-  .drug-overview {
+  .content {
+    padding: 0 20px;
 
-    @media (max-width: 768px) {
-      // position: fixed;
-    }
-
-    //&.scroll-down {
-    //  @media (max-width: 768px) {
-    //    top: 0;
-    //    z-index: 1030;
-    //  }
-    //}
-    //
-    //&.scroll-up {
-    //  @media (max-width: 768px) {
-    //    top: 110px;
-    //  }
-    //}
-
-    > div {
-      @media (max-width: 768px) {
-        margin-bottom: 10px;
-      }
-    }
-
-    @media (max-width: 768px) {
+    .drug-overview {
       padding: 0;
       border-bottom: 1px solid #C0C0C0;
-    }
 
-    .drug-title {
+
       @media (max-width: 768px) {
-        padding: 0;
+        // position: fixed;
       }
 
-      h3 {
+      //&.scroll-down {
+      //  @media (max-width: 768px) {
+      //    top: 0;
+      //    z-index: 1030;
+      //  }
+      //}
+      //
+      //&.scroll-up {
+      //  @media (max-width: 768px) {
+      //    top: 110px;
+      //  }
+      //}
+
+      > div {
         @media (max-width: 768px) {
-          margin-top: 0;
+          margin-bottom: 10px;
         }
       }
-    }
 
-    .toc-xs-initiator {
-      @media (max-width: 768px) {
+      .drug-title {
         padding: 0;
-      }
-    }
+        margin-top: 20px;
+        margin-bottom: 10px;
 
-    .action-list {
-      @media (max-width: 768px) {
+        @media (max-width: 768px) {
+        }
+
+        h3 {
+          margin: 0;
+
+          @media (max-width: 768px) {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .toc-xs-initiator {
+        @media (max-width: 768px) {
+          padding: 0;
+        }
+      }
+
+      .action-list {
+        margin-bottom: 10px;
+        margin-top: 20px;
         text-align: right;
-        padding: 0;
-      }
-    }
 
-    .table-contents {
-      background-color: #D8D8D8;
-      min-height: 100vh;
-      padding: 10px;
-      font-size: 0.9em;
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-          padding: 7px;
-
-          &.title {
-            color: #808080;
-            font-weight: 700;
-          }
-
-          &.list-content {
-            border-bottom: 1px solid #808080;
-
-            button {
-
-            }
-          }
-
-          .btn-link {
-            color: black;
-            text-align: left;
-            text-decoration: none;
-          }
-
+        @media (max-width: 768px) {
+          margin-bottom: 0px;
+          margin-top:   0px;
+          padding: 0;
         }
       }
     }
   }
 
   .drug-info {
+    padding: 0 10px;
 
     @media (max-width: 768px) {
       margin-top: 5px;
@@ -111,69 +88,40 @@
     }
   }
 
-  .drug-content {
-    padding: 35px;
+  .table-contents {
+    background-color: #D8D8D8;
+    min-height: 100vh;
+    padding: 10px;
+    font-size: 0.9em;
 
-    @media (max-width: 768px) {
-      padding: 10px;
-      // margin: 20px 5px;
-    }
+    ul {
+      list-style: none;
+      padding: 0;
 
-    .drug-overview-old {
-      border-bottom: 1px solid #808080;
-      padding: 5px 0;
+      li {
+        padding: 7px;
 
-      &.scroll-down {
-        top: 0;
-      }
-
-      @media (max-width: 768px) {
-        //top: 60px;
-        //position: fixed;
-        //width: 96%;
-        //height: 110px;
-        //z-index: 15;
-      }
-
-      .title {
-        display: inline-block;
-        font-weight: bolder;
-        font-size: 1.5em;
-
-        @media (max-width: 768px) {
-          //display: block;
-          //margin: 15px 0;
+        &.title {
+          color: #808080;
+          font-weight: 700;
         }
-      }
 
-      .contents-action {
+        &.list-content {
+          border-bottom: 1px solid #808080;
+          //padding-left: 0;
+          //padding-right: 0;
+          button {
 
-        @media (max-width: 768px) {
-          display: inline-block !important;
+          }
         }
-      }
 
-      .action-list {
-        float: right;
-        color: #C0C0C0;
-      }
-
-      .revision {
-        margin: 20px 0;
-
-        @media (max-width: 768px) {
-          // top: 150px;
-          // position: relative;
+        .btn-link {
+          padding: 0;
+          color: black;
+          text-align: left;
+          text-decoration: none;
         }
-      }
-    }
 
-    .drug-info {
-      // position: absolute;
-      @media (max-width: 768px) {
-        //margin-top: 190px;
-        //position: relative;
-        //z-index: 10;
       }
     }
   }

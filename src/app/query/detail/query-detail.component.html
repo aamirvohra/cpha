@@ -1,18 +1,7 @@
 <div class="row detail-wrapper">
 
-  <div class="col-xs-12 drug-overview">
-    <div class="col-xs-12 drug-title">
-      <h3>{{info.brandName}}</h3>
-    </div>
-
-    <div class="visible-xs col-xs-4 toc-xs-initiator">
-      <button>
-        <i class="fa fa-bars" aria-hidden="true"></i>
-        <span>Contents</span>
-      </button>
-    </div>
-
-    <div class="col-md-2 hidden-xs table-contents">
+  <div class="col-md-2 hidden-xs table-contents">
+    <div>
       <ul>
         <li class="title">
           TABLE OF CONTENTS
@@ -23,70 +12,33 @@
         </li>
       </ul>
     </div>
-
-    <div class="col-xs-4 col-xs-offset-4 action-list">
-      <button>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-      </button>
-
-      <button class="hidden-xs">
-        <i class="fa fa-print" aria-hidden="true"></i>
-      </button>
-    </div>
   </div>
+  <div class="col-md-10 content">
+    <div class="col-xs-12 drug-overview">
+      <div class="col-xs-12 col-sm-4 drug-title">
+        <h3>{{info.brandName}}</h3>
+      </div>
 
-  <div class="col-xs-12 drug-info">
-    <div *ngFor="let drugContents of info.contents" [innerHtml]="drugContents.htmlElement | safeHtml">
+      <div class="visible-xs col-xs-4 toc-xs-initiator">
+        <button>
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span>Contents</span>
+        </button>
+      </div>
+
+      <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 action-list">
+        <button>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+
+        <button class="hidden-xs">
+          <i class="fa fa-print" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-xs-12 drug-info">
+      <div *ngFor="let drugContents of info.contents" [innerHtml]="drugContents.htmlElement | safeHtml">
+      </div>
   </div>
 </div>
-
-
-
-
-
-  <!--<div class="col-md-2 hidden-xs table-contents">-->
-    <!--<ul>-->
-      <!--<li class="title">-->
-        <!--TABLE OF CONTENTS-->
-      <!--</li>-->
-
-      <!--<li class="list-content" *ngFor="let drugContents of info.contents">-->
-        <!--<button class="btn-link" (click)="anchorNavigation(drugContents.anchorId)">{{drugContents.text}}</button>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
-
-  <!--<div class="col-md-10 drug-content">-->
-    <!--<div class="overview">-->
-      <!--<div class="title">-->
-        <!--<span>{{info.brandName}}</span>-->
-      <!--</div>-->
-
-      <!--<div class="contents-action visible-xs">-->
-        <!--<button>-->
-          <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
-          <!--<span>Contents</span>-->
-        <!--</button>-->
-      <!--</div>-->
-
-      <!--<div class="action-list">-->
-        <!--<button>-->
-          <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
-        <!--</button>-->
-
-        <!--<button class="hidden-xs">-->
-          <!--<i class="fa fa-print" aria-hidden="true"></i>-->
-        <!--</button>-->
-      <!--</div>-->
-
-      <!--<div class="revision">-->
-        <!--{{ info.revisionDate }}-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="drug-info">-->
-      <!--<div *ngFor="let drugContents of info.contents" [innerHtml]="drugContents.htmlElement | safeHtml">-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
