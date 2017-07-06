@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchHelper } from '../../../services/search-helper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DrugLookupService } from '../../../services/drug-lookup.service';
@@ -16,8 +16,8 @@ export class QueryDetailComponent implements OnInit {
 
   protected info: DrugInfo;
 
-  @ViewChild('tableContents')
-  private tableContents: ElementRef;
+  // only for mobile as other viewports will always display table of contents
+  private isTableOfContentsVisible: boolean;
 
   private lastScrollPos: number;
 
@@ -26,6 +26,7 @@ export class QueryDetailComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {
     this.lastScrollPos = 0;
+    this.isTableOfContentsVisible = false;
 
     this.searchHelper._searchEvent.subscribe(
       (item: any) => {
@@ -52,10 +53,30 @@ export class QueryDetailComponent implements OnInit {
   }
 
   anchorNavigation(fragmentId) {
+    // if mobile table of content is open lets close it
+    this.isTableOfContentsVisible = false;
+    this.hideTableOfContents();
+
     const element = document.querySelector(fragmentId);
     if (element) {
       element.scrollIntoView(element)
     }
+  }
+
+  toggleTableOfContents() {
+    this.isTableOfContentsVisible = !this.isTableOfContentsVisible;
+    // add class to style the contents for mobile
+
+    if (this.isTableOfContentsVisible) {
+      $('.table-contents').removeClass('hidden-xs').addClass('xs-table-contents');
+    }
+    else {
+      this.hideTableOfContents();
+    }
+  }
+
+  private hideTableOfContents() {
+    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-xs');
   }
 
   registerOnScroll() {
@@ -74,7 +95,7 @@ export class QueryDetailComponent implements OnInit {
           $('.drug-overview').removeClass('scroll-up').addClass('scroll-down')
         }
         else {
-          if (scrollTop < 100) {
+          if (scrollTop < 100) { /// ?????
             $('.drug-overview').removeClass('scroll-down').addClass('scroll-up');
           }
         }

@@ -124,6 +124,30 @@
 
       }
     }
+
+    &.xs-table-contents {
+      background-color: #e9e9e9;
+      position: absolute;
+      top: 207px;
+      left: 36px;
+      z-index: 1;
+      min-width: 85%;
+
+      ul {
+        li {
+          &.list-content {
+            border-bottom: none;
+          }
+
+          .btn-link {
+            padding: 0;
+            color: blue;
+            text-align: left;
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
 
 }
