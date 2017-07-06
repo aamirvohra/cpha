@@ -1,5 +1,116 @@
 .detail-wrapper {
 
+  @media (max-width: 768px) {
+    padding: 10px 15px 15px 15px;
+  }
+
+  .drug-overview {
+
+    @media (max-width: 768px) {
+      // position: fixed;
+    }
+
+    //&.scroll-down {
+    //  @media (max-width: 768px) {
+    //    top: 0;
+    //    z-index: 1030;
+    //  }
+    //}
+    //
+    //&.scroll-up {
+    //  @media (max-width: 768px) {
+    //    top: 110px;
+    //  }
+    //}
+
+    > div {
+      @media (max-width: 768px) {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 0;
+      border-bottom: 1px solid #C0C0C0;
+    }
+
+    .drug-title {
+      @media (max-width: 768px) {
+        padding: 0;
+      }
+
+      h3 {
+        @media (max-width: 768px) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .toc-xs-initiator {
+      @media (max-width: 768px) {
+        padding: 0;
+      }
+    }
+
+    .action-list {
+      @media (max-width: 768px) {
+        text-align: right;
+        padding: 0;
+      }
+    }
+
+    .table-contents {
+      background-color: #D8D8D8;
+      min-height: 100vh;
+      padding: 10px;
+      font-size: 0.9em;
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          padding: 7px;
+
+          &.title {
+            color: #808080;
+            font-weight: 700;
+          }
+
+          &.list-content {
+            border-bottom: 1px solid #808080;
+
+            button {
+
+            }
+          }
+
+          .btn-link {
+            color: black;
+            text-align: left;
+            text-decoration: none;
+          }
+
+        }
+      }
+    }
+  }
+
+  .drug-info {
+
+    @media (max-width: 768px) {
+      margin-top: 5px;
+    }
+
+    .maintitle {
+      font-weight: bold;
+
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+  }
+
   .drug-content {
     padding: 35px;
 
@@ -63,42 +174,6 @@
         //margin-top: 190px;
         //position: relative;
         //z-index: 10;
-      }
-    }
-  }
-
-  .table-contents {
-    background-color: #D8D8D8;
-    min-height: 100vh;
-    padding: 10px;
-    font-size: 0.9em;
-
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        padding: 7px;
-
-        &.title {
-          color: #808080;
-          font-weight: 700;
-        }
-
-        &.list-content {
-          border-bottom: 1px solid #808080;
-
-          button {
-
-          }
-        }
-
-        .btn-link {
-          color: black;
-          text-align: left;
-          text-decoration: none;
-        }
-
       }
     }
   }

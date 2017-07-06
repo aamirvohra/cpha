@@ -28,6 +28,8 @@ export class HeaderComponent implements OnInit {
   // on search toggle, toggle search bar
   protected isSearchVisible: boolean;
 
+  private lastScrollPos: number;
+
   // fixed header only for query detail page
   // and mobile viewport
   // protected fixedHeader: boolean;
@@ -38,6 +40,7 @@ export class HeaderComponent implements OnInit {
     this.displaySearchIcon = false;
     this.isSearchVisible = true;
     this.lightHeader = false;
+    this.lastScrollPos = 0;
   }
 
   ngOnInit() {
@@ -46,11 +49,11 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         (event: NavigationEnd) => {
           if (event.url !== '/') {
-            // if (event.url === '/query/detail') {
-            //   // this.fixedHeader = true;
-            //
-            //   // this.registerOnScroll();
-            // }
+            if (event.url === '/query/detail') {
+              // this.fixedHeader = true;
+
+              this.registerOnScroll();
+            }
 
             // we need light header in pages other than root
             this.lightHeader = true;
@@ -86,19 +89,21 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // registerOnScroll() {
-  //   windowObject.addEventListener('scroll',
-  //     () => {
-  //       const scrollTop = $(windowObject).scrollTop();
-  //
-  //       if (scrollTop > 50) {
-  //         $('.header-wrapper').removeClass('scroll-up').addClass('scroll-down')
-  //       }
-  //       else {
-  //         $('.header-wrapper').removeClass('scroll-down').addClass('scroll-up')
-  //       }
-  //     }
-  //   )
-  // }
+  registerOnScroll() {
+    windowObject.addEventListener('scroll',
+      () => {
+        const scrollTop = $(windowObject).scrollTop();
+
+        if (scrollTop > this.lastScrollPos) {
+          $('.header-wrapper').removeClass('scroll-up').addClass('scroll-down')
+        }
+        else {
+          $('.header-wrapper').removeClass('scroll-down').addClass('scroll-up')
+        }
+
+        this.lastScrollPos = scrollTop
+      }
+    )
+  }
 
 }

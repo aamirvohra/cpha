@@ -19,10 +19,14 @@ export class QueryDetailComponent implements OnInit {
   @ViewChild('tableContents')
   private tableContents: ElementRef;
 
+  private lastScrollPos: number;
+
   constructor(private searchHelper: SearchHelper,
               private drugLookup: DrugLookupService,
               private route: ActivatedRoute,
               private router: Router) {
+    this.lastScrollPos = 0;
+
     this.searchHelper._searchEvent.subscribe(
       (item: any) => {
         this.getDrugDetailedInformation(item);
@@ -36,7 +40,7 @@ export class QueryDetailComponent implements OnInit {
         // do a search
       }
     );
-    // this.registerOnScroll();
+    this.registerOnScroll();
   }
 
   getDrugDetailedInformation(item) {
@@ -54,18 +58,29 @@ export class QueryDetailComponent implements OnInit {
     }
   }
 
-  // registerOnScroll() {
-  //   windowObject.addEventListener( 'scroll',
-  //     () => {
-  //       const scrollTop = $(windowObject).scrollTop();
-  //
-  //       if (scrollTop > 50) {
-  //         $('.overview').removeClass('scroll-up').addClass('scroll-down')
-  //       }
-  //       else {
-  //         $('.overview').removeClass('scroll-down').addClass('scroll-up')
-  //       }
-  //     }
-  //   )
-  // }
+  registerOnScroll() {
+    windowObject.addEventListener('scroll',
+      () => {
+        const scrollTop = $(windowObject).scrollTop();
+
+        // if (scrollTop > this.lastScrollPos) {
+        //   $('.drug-overview').removeClass('scroll-up').addClass('scroll-down')
+        // }
+        // else {
+        //   $('.drug-overview').removeClass('scroll-down').addClass('scroll-up')
+        // }
+
+        if (scrollTop > this.lastScrollPos) {
+          $('.drug-overview').removeClass('scroll-up').addClass('scroll-down')
+        }
+        else {
+          if (scrollTop < 100) {
+            $('.drug-overview').removeClass('scroll-down').addClass('scroll-up');
+          }
+        }
+
+        this.lastScrollPos = scrollTop
+      }
+    )
+  }
 }
