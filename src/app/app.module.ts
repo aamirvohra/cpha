@@ -21,6 +21,7 @@ import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-n
 import { SafeHtml } from '../pipes/safe-html.directive';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { JsonTranslationLoader } from '../translation-loader';
+import { LocalStorage } from '../utils/local-storage';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -58,6 +59,7 @@ export function FSLoaderFactory() {
   providers: [
     DrugLookupService,
     SearchHelper,
+    LocalStorage,
   ],
   bootstrap: [
     AppComponent

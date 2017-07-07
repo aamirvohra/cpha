@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConstants } from '../../utils/app.constants';
+import { LocalStorage } from '../../utils/local-storage';
 
 @Component({
   selector: 'app-top-menu',
@@ -12,7 +13,8 @@ export class TopMenuComponent {
   protected languageChangeText: string;
   private currentLanguage: string;
 
-  constructor(private translationService: TranslateService) {
+  constructor(private translationService: TranslateService,
+              private localStorage: LocalStorage) {
     this.currentLanguage = this.translationService.currentLang;
     this.languageChangeText = this.getLanguageText();
   }
@@ -23,6 +25,8 @@ export class TopMenuComponent {
 
     this.currentLanguage = this.translationService.currentLang;
     this.languageChangeText = this.getLanguageText();
+
+    this.localStorage.setPreferredLang(this.currentLanguage);
   }
 
   getLanguageText() {
