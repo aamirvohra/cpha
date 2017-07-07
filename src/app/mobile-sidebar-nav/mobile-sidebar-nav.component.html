@@ -6,14 +6,14 @@
   <div class="nav-links">
     <div class="app-links">
       <ul class="nav nav-stacked">
-        <li>
+        <li routerLink="/">
           <a>Home</a>
         </li>
         <li>
           <a>Help</a>
         </li>
         <li>
-          <a>Français</a>
+          <a (click)="changeLang()">{{languageChangeText}}</a>
         </li>
       </ul>
     </div>
@@ -44,12 +44,12 @@
     <div class="social-networks">
       <ul class="nav nav-pills">
         <li>
-          <a>
+          <a (click)="openInNewTab(facebook_url)">
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a>
+          <a (click)="openInNewTab(twitter_url)">
             <i class="fa fa-twitter" aria-hidden="true"></i>
           </a>
         </li>

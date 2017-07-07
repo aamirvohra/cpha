@@ -13,6 +13,9 @@ export class TopMenuComponent {
   protected languageChangeText: string;
   private currentLanguage: string;
 
+  protected readonly twitter_url = AppConstants.TWITTER_URL;
+  protected readonly facebook_url = AppConstants.FACEBOOK_URL;
+
   constructor(private translationService: TranslateService,
               private localStorage: LocalStorage) {
     this.currentLanguage = this.translationService.currentLang;
@@ -31,6 +34,10 @@ export class TopMenuComponent {
 
   getLanguageText() {
     return this.currentLanguage === AppConstants.ENGLISH_CODE ? 'Français' : 'English';
+  }
+
+  openInNewTab(url) {
+    window.open(url, '_blank');
   }
 
 }

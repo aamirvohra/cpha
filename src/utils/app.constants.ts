@@ -10,6 +10,8 @@ export enum SupportedLanguages {
 export class AppConstants {
   static readonly ENGLISH_CODE = 'en';
   static readonly FRENCH_CODE = 'fr';
+  static readonly TWITTER_URL = 'https://twitter.com/CPhAAPhC';
+  static readonly FACEBOOK_URL = 'https://www.facebook.com/CPhA';
 
 
   static getLanguageCode(language: SupportedLanguages) {

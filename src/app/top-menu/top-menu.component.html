@@ -2,7 +2,9 @@
   <div class="row">
     <div class="pull-right list-items">
       <ul class="nav nav-pills">
-        <li>Home</li>
+        <li routerLink="/">
+          Home
+        </li>
         <li>Help</li>
         <li (click)="changeLang()">{{languageChangeText}}</li>
       </ul>
@@ -10,8 +12,12 @@
 
     <div class="pull-right social-networks">
       <ul class="nav nav-pills">
-        <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-        <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+        <li (click)="openInNewTab(facebook_url)">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </li>
+        <li (click)="openInNewTab(twitter_url)">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </li>
       </ul>
     </div>
   </div>
