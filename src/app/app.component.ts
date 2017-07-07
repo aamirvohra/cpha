@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AppConstants, SupportedLanguages } from '../utils/app.constants';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,10 @@ export class AppComponent {
 
   protected mobileSidebarVisiblity: boolean;
 
-  constructor() {
+  constructor(private translateService: TranslateService) {
+
+    this.translateService.setDefaultLang(AppConstants.getLanguageCode(SupportedLanguages.ENGLISH));
+    this.translateService.use(AppConstants.getLanguageCode(SupportedLanguages.ENGLISH));
     this.mobileSidebarVisiblity = false;
   }
 

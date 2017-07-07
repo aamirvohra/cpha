@@ -19,6 +19,12 @@ import { RouterModule } from '@angular/router';
 import { QueryListComponent } from './query/list/query-list.component';
 import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-nav.component';
 import { SafeHtml } from '../pipes/safe-html.directive';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { JsonTranslationLoader } from '../translation-loader';
+
+export function FSLoaderFactory() {
+  return new JsonTranslationLoader();
+}
 
 @NgModule({
   declarations: [
@@ -42,6 +48,12 @@ import { SafeHtml } from '../pipes/safe-html.directive';
     HttpModule,
     JsonpModule,
     TypeaheadModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: FSLoaderFactory,
+      }
+    })
   ],
   providers: [
     DrugLookupService,
@@ -51,4 +63,4 @@ import { SafeHtml } from '../pipes/safe-html.directive';
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {}
