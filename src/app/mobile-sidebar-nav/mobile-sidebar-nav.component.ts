@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { LocalStorage } from '../../utils/local-storage';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConstants } from '../../utils/app.constants';
@@ -6,9 +6,12 @@ import { AppConstants } from '../../utils/app.constants';
 @Component({
   selector: 'app-mobile-sidebar-nav',
   templateUrl: './mobile-sidebar-nav.component.html',
-  styleUrls: ['./mobile-sidebar-nav.component.scss']
+  styleUrls: ['./mobile-sidebar-nav.component.scss'],
 })
 export class MobileSidebarNavComponent {
+
+  @Output('menuClickEvent')
+  menuClickEvent = new EventEmitter();
 
   protected languageChangeText: string;
   private currentLanguage: string;
@@ -18,8 +21,14 @@ export class MobileSidebarNavComponent {
 
   constructor(private translationService: TranslateService,
               private localStorage: LocalStorage) {
+    this.menuClickEvent = new EventEmitter();
     this.currentLanguage = this.translationService.currentLang;
     this.languageChangeText = this.getLanguageText();
+  }
+
+  @HostListener('click', ['$event.target'])
+  onClick(event) {
+    this.menuClickEvent.emit(event);
   }
 
   changeLang() {

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConstants, SupportedLanguages } from '../utils/app.constants';
 import { LocalStorage } from '../utils/local-storage';
@@ -25,6 +25,17 @@ export class AppComponent {
 
   public toggleMobileSidebarVisiblity(value) {
     this.mobileSidebarVisiblity = value;
+  }
+
+  mobileMenuClickEvent() {
+    this.mobileSidebarVisiblity = false;
+  }
+
+
+  routerOutlerClick() {
+    if (this.mobileSidebarVisiblity) {
+      this.mobileSidebarVisiblity = false;
+    }
   }
 
 

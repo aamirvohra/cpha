@@ -6,28 +6,27 @@ body {
 
 .mobile-nav {
   position: fixed;
-  width: 50%;
+  width: 60%;
   left: 0;
   top: 0;
   // z-index: 1000;
   min-height: 100%;
 }
 
+.close-nav {
+  position: absolute;
+  left: 65%;
+  top: 5%;
+  z-index: 1;
+}
+
 .with-sidebar {
-  margin-left: 50%;
+  margin-left: 60%;
   opacity: 0.5;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow: hidden;
 
   &::-webkit-scrollbar {
     // display: none;
-  }
-
-  .close-nav {
-    position: absolute;
-    left: 55%;
-    top: 5%;
-    z-index: 1001;
   }
 }
 

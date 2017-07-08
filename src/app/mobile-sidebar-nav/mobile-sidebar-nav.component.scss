@@ -11,9 +11,22 @@
   .nav-links {
     padding: 15px;
 
+    .other-links {
+      padding-top: 10px;
+    }
+
+    .social-networks {
+      padding-top: 10px;
+
+      ul li {
+        text-align: center;
+        display: inline-block;
+      }
+    }
+
     > div {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
       border-bottom: 1px solid #D8D8D8;
 
       &:last-child {
