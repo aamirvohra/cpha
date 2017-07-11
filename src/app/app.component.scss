@@ -2,6 +2,34 @@ body {
   text-align: left;
   font-size: 14px;
   overflow-x: hidden;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  color: #000000;
+}
+
+a {
+  color: #0000BB;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  font-size: 1.714rem;
+}
+
+h2 {
+  font-size: 1.571rem;
+}
+
+h3 {
+  font-size: 1.286rem;
+}
+
+h4 {
+  font-size: 1.143rem;
 }
 
 .mobile-nav {
