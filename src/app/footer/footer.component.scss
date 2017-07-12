@@ -1,9 +1,9 @@
 .footer-wrapper {
-  color: gray;
   background-color: #EEEEEE;
   padding: 15px;
-  font-size: 12px;
-  border-top: 1px solid gray;
+  border-top: 2px solid #ccccff;
+  font-size: 0.857rem;
+  color: #666666;
 
   .footer-menu {
     margin-bottom: 5px;
@@ -11,39 +11,59 @@
     ul {
       li {
         border-right: 1px solid gray;
-        padding: 0 15px;
 
-        @media (max-width: 768px) {
-          padding: 0 10px 0 5px;
+        &:first-child a {
+          padding: 0 15px 0 0;
+
+          @media (max-width: 768px) {
+            padding: 0 10px 0 5px;
+          }
         }
-      }
 
-      li:first-child {
-        padding: 0 15px 0 0;
-
-        @media (max-width: 768px) {
-          padding: 0 10px 0 5px;
+        &:last-child {
+          border: none;
         }
-      }
 
-      li:last-child {
-        border: none;
+        a {
+          color: #666666;
+          padding: 0 15px;
+
+          @media (max-width: 768px) {
+            padding: 0 5px;
+          }
+        }
       }
     }
   }
 
   .footer-logo {
-    // padding-left: 15px;
+
     @media (max-width: 768px) {
-      float: none !important;
+      margin-top: 25px;
     }
 
-    > div {
+    @media (max-width: 991px) {
+      margin-top: 25px;
+    }
+
+    img {
+      float: right;
+
       @media (max-width: 768px) {
         float: none !important;
-        margin-bottom: 15px;
+      }
+
+      @media (max-width: 991px) {
+        float: none !important;
       }
     }
+
+    //> div {
+    //  @media (max-width: 768px) {
+    //    float: none !important;
+    //    margin-bottom: 15px;
+    //  }
+    //}
   }
 
   .footer-content {

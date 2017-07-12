@@ -1,6 +1,12 @@
 .menu-wrapper {
-  .row {
-    // margin: 10px 5px;
+  text-align: right;
+
+  @media (max-width: 991px) {
+    text-align: left;
+  }
+
+  > div > div {
+    display: inline-block;
   }
 
   ul {
@@ -17,11 +23,11 @@
     ul {
       li {
         border-right: 1px solid white;
-        padding: 0 15px;
-      }
+        padding: 0 16px 0 16px;
 
-      li:last-child {
-        border: none;
+        &:last-child {
+          border: none;
+        }
       }
     }
   }

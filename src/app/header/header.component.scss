@@ -1,14 +1,20 @@
 .header-wrapper {
-  padding: 20px;
+  padding: 30px;
   background-color: #010D62;
   color: white;
   transition: top 0.1s ease-in-out;
   //display: flex;
   //align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
 
   }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+
 
   &.scroll-down {
     @media (max-width: 768px) {
@@ -31,35 +37,44 @@
     padding: 10px;
   }
 
-  > div {
-    margin-bottom: 15px;
-  }
-
   .title {
-    margin-top: 40px;
+    margin-top: 90px;
     margin-bottom: 40px;
-    // margin: 40px 3%;
-    font-weight: bolder;
-    font-size: 4em;
+    font-size: 4.5rem;
     text-align: center;
+
+    @media (max-width: 991px) {
+      font-size: 4rem;
+      margin-top: 90px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.75rem;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
 
     a {
       color: white;
       text-decoration: none;
     }
+  }
+
+  .search {
+    margin-bottom: 26px;
+    margin-top: 40px;
 
     @media (max-width: 768px) {
-      font-size: 2.5em;
-      // margin: 40px auto;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      // text-align: left;
+      margin-bottom: 20px;
+      margin-top: 20px;
     }
   }
 
   .see-more {
     @media (max-width: 768px) {
       z-index: 1000;
+      padding-left: 5px;
     }
   }
 

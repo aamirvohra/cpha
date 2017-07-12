@@ -1,6 +1,6 @@
 <div #headerWrapper class="header-wrapper row">
   <div [ngClass]="lightHeader ? 'col-sm-4' : 'col-sm-12'"
-       class="pull-right hidden-xs">
+       class="hidden-xs">
     <app-top-menu></app-top-menu>
   </div>
 
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div [hidden]="!isSearchVisible" [ngClass]="lightHeader ? 'col-sm-4' : 'col-sm-12'">
+  <div [hidden]="!isSearchVisible" class="search" [ngClass]="lightHeader ? 'col-sm-4' : 'col-sm-12'">
     <app-search [skinnyHeader]="lightHeader"></app-search>
   </div>
 </div>
