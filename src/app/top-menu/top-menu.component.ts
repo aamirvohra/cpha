@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConstants } from '../../utils/app.constants';
 import { LocalStorage } from '../../utils/local-storage';
@@ -9,6 +9,9 @@ import { LocalStorage } from '../../utils/local-storage';
   styleUrls: ['./top-menu.component.scss']
 })
 export class TopMenuComponent {
+
+  @Input('lightHeader')
+  protected lightHeader: boolean;
 
   protected languageChangeText: string;
   private currentLanguage: string;

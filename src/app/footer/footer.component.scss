@@ -15,7 +15,7 @@
         &:first-child a {
           padding: 0 15px 0 0;
 
-          @media (max-width: 768px) {
+          @media (max-width: 767px) {
             padding: 0 10px 0 5px;
           }
         }
@@ -28,7 +28,7 @@
           color: #666666;
           padding: 0 15px;
 
-          @media (max-width: 768px) {
+          @media (max-width: 767px) {
             padding: 0 5px;
           }
         }
@@ -38,7 +38,7 @@
 
   .footer-logo {
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       margin-top: 25px;
     }
 
@@ -49,7 +49,7 @@
     img {
       float: right;
 
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         float: none !important;
       }
 
@@ -59,7 +59,7 @@
     }
 
     //> div {
-    //  @media (max-width: 768px) {
+    //  @media (max-width: 767px) {
     //    float: none !important;
     //    margin-bottom: 15px;
     //  }
@@ -68,7 +68,7 @@
 
   .footer-content {
     > div {
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         margin-bottom: 15px;
       }
     }

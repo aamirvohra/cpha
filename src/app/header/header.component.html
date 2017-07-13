@@ -1,18 +1,20 @@
 <div #headerWrapper class="header-wrapper row">
-  <div [ngClass]="lightHeader ? 'col-sm-4' : 'col-sm-12'"
+  <div [ngClass]="lightHeader ? 'col-md-push-8 col-md-4 hidden-sm' : ''"
        class="hidden-xs">
-    <app-top-menu></app-top-menu>
+    <app-top-menu [lightHeader]="lightHeader"></app-top-menu>
   </div>
 
-  <div *ngIf="!isMobileNavVisible" class="visible-xs-block col-xs-3 see-more" (click)="toggleMobileNav()">
+  <div *ngIf="!isMobileNavVisible" class="visible-xs-block col-xs-3 see-more" (click)="toggleMobileNav()"
+       [ngClass]="lightHeader ? 'visible-sm-block col-sm-4': ''">
     <i [ngClass]="!lightHeader ? 'fa-2x': ''" class="fa fa-ellipsis-h" aria-hidden="true"></i>
   </div>
 
-  <div [routerLink]="'/'" [ngClass]="lightHeader ? 'col-sm-4 col-xs-6' : 'col-sm-12'" class="title col-xs-12">
+  <div [routerLink]="'/'" [ngClass]="lightHeader ? 'col-md-4 col-md-pull-4 col-xs-6' : 'col-md-12'" class="title col-xs-12">
     <a>CanadianDrugs.ca</a>
   </div>
 
-  <div *ngIf="lightHeader" class="visible-xs col-xs-3 search-toggle" (click)="toggleSearchIcon()">
+  <div *ngIf="lightHeader" class="search-toggle visible-xs col-xs-3" (click)="toggleSearchIcon()"
+       [ngClass]="lightHeader ? 'visible-sm col-sm-4': ''">
     <div *ngIf="displaySearchIcon" class="search-activated">
       <i class="fa fa-2x fa-search" aria-hidden="true"></i>
     </div>
@@ -21,7 +23,7 @@
     </div>
   </div>
 
-  <div [hidden]="!isSearchVisible" class="search" [ngClass]="lightHeader ? 'col-sm-4' : 'col-sm-12'">
+  <div [hidden]="!isSearchVisible" class="search" [ngClass]="lightHeader ? 'col-md-4 col-md-pull-4' : 'col-md-12'">
     <app-search [skinnyHeader]="lightHeader"></app-search>
   </div>
 </div>

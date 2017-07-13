@@ -20,7 +20,7 @@
         display: inline-block;
         padding-right: 10px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
           border-right: none;
           // padding-right: 0;
         }
@@ -28,7 +28,7 @@
     }
 
     .sort {
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
 
       }
 

@@ -2,7 +2,7 @@
   text-align: right;
 
   @media (max-width: 991px) {
-    text-align: left;
+    text-align: center;
   }
 
   > div > div {
@@ -16,6 +16,12 @@
       float: left;
       padding: 0 10px;
       cursor: pointer;
+
+      i {
+        @media (min-width: 992px) {
+          font-size: 1.6rem;
+        }
+      }
     }
   }
 

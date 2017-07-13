@@ -6,25 +6,19 @@
   //display: flex;
   //align-items: center;
 
-  @media (max-width: 991px) {
-
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding: 10px;
   }
 
-
-
   &.scroll-down {
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       position: relative;
       top: -60px;
     }
   }
 
   &.scroll-up {
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       top: 0;
     }
   }
@@ -33,23 +27,20 @@
     text-align: right;
   }
 
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
-
   .title {
     margin-top: 90px;
     margin-bottom: 40px;
     font-size: 4.5rem;
     text-align: center;
+    outline: none;
 
     @media (max-width: 991px) {
       font-size: 4rem;
       margin-top: 90px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       font-size: 2.75rem;
       margin-top: 30px;
       margin-bottom: 20px;
@@ -65,14 +56,14 @@
     margin-bottom: 26px;
     margin-top: 40px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       margin-bottom: 20px;
       margin-top: 20px;
     }
   }
 
   .see-more {
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       z-index: 1000;
       padding-left: 5px;
     }
@@ -80,7 +71,11 @@
 
   &.light-header {
 
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
+      padding: 15px;
+    }
+
+    @media (max-width: 767px) {
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -88,7 +83,7 @@
     > div {
       margin-bottom: 10px;
 
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         margin-bottom: 10px;
       }
     }
@@ -99,15 +94,27 @@
       text-align: left;
       padding: 0;
       z-index: 1000;
+      outline: none;
 
-      @media (max-width: 768px) {
+      @media (max-width: 991px) {
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 767px) {
         font-size: 1.5em;
         margin-bottom: 10px;
       }
     }
 
     .search-toggle {
-      @media (max-width: 768px) {
+      @media (max-width: 991px) {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        z-index: 1000;
+      }
+
+      @media (max-width: 767px) {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -116,6 +123,20 @@
 
       .search-activated {
         text-align: right;
+      }
+    }
+
+    .search {
+      margin: 0;
+
+      @media (max-width: 991px) {
+        //margin-bottom: 20px;
+        // margin-top: 20px;
+      }
+
+      @media (max-width: 767px) {
+        //margin-bottom: 20px;
+        //margin-top: 20px;
       }
     }
   }

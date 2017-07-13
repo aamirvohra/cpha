@@ -1,33 +1,50 @@
 .nav-bar-wrapper {
-  background-color: darkblue;
+  background-color: #010D62;
   color: white;
-  font-size: 0.9em;
+  // font-size: 0.9em;
 
   .cpa-logo {
     background-color: #D8D8D8;
-    padding: 20px;
+    padding: 25px 20px;
+  }
+
+  hr {
+    color: #8086b1;
+    padding: 0 !important;
+    margin: 0 -20px;
   }
 
   .nav-links {
-    padding: 15px;
+
+    .app-links {
+      // padding: 30px 5px 22px 5px;
+      padding-top: 30px;
+    }
 
     .other-links {
-      padding-top: 10px;
+     //  padding-top: 10px;
     }
 
     .social-networks {
-      padding-top: 10px;
+      // padding-top: 10px;
+      padding-bottom: 0px;
+      width: 50%;
+      margin: 0 auto;
 
-      ul li {
+      ul {
         text-align: center;
-        display: inline-block;
+
+        li:first-child {
+          padding-right: 20px;
+        }
       }
     }
 
     > div {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #D8D8D8;
+      padding: 22px 20px;
+      //padding-top: 15px;
+      //padding-bottom: 15px;
+      // border-bottom: 1px solid #8086b1;
 
       &:last-child {
         border-bottom: none;
@@ -37,18 +54,25 @@
     .nav {
       li {
         cursor: pointer;
+        padding-bottom: 22px;
+
+        &:last-child {
+          padding-bottom: 0;
+        }
 
         a {
           color: white;
+          padding: 0;
         }
       }
     }
   }
 
   .copyright {
-    padding: 15px;
+    // padding: 5px 10px !important;
     text-align: center;
-    color: #C0C0C0;
+    color: #8086b1;
+    padding: 10px !important;
   }
 
   .nav {
