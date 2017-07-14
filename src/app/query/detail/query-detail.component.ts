@@ -68,7 +68,7 @@ export class QueryDetailComponent implements OnInit {
     // add class to style the contents for mobile
 
     if (this.isTableOfContentsVisible) {
-      $('.table-contents').removeClass('hidden-xs').addClass('xs-table-contents');
+      $('.table-contents').removeClass('hidden-sm').addClass('xs-table-contents');
     }
     else {
       this.hideTableOfContents();
@@ -76,7 +76,7 @@ export class QueryDetailComponent implements OnInit {
   }
 
   private hideTableOfContents() {
-    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-xs');
+    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-sm');
   }
 
   registerOnScroll() {
