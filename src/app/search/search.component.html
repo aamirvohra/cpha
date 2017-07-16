@@ -3,9 +3,10 @@
     <div [ngClass]="skinnyHeader ? 'skinny-search' : ''" class="search-bar form-group">
       <input type="text" class="form-control" placeholder="Search Medications"
              formControlName="search" (keyup.enter)="search()"
-             [typeahead]="mockData" [typeaheadOptionField]="'item'"
+             [typeahead]="autoCompleteDS" [typeaheadOptionField]="'item'"
              [typeaheadGroupField]="'suggestion'"
              (typeaheadOnSelect)="onSelect($event)"
+             [typeaheadWaitMs]="300"
              autofocus>
       <!--<i [ngClass]="!skinnyHeader ? 'fa-2x' : ''" (click)="search()" class="fa fa-search"></i>-->
       <i *ngIf="searchForm.controls?.search.value" (click)="clear()" class="fa fa-times clear-search"></i>
