@@ -15,8 +15,8 @@ import { Event, NavigationEnd, Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   public searchForm: FormGroup;
-  // protected autoCompleteDS: Observable<any>;
-  protected mockData: any;
+  protected autoCompleteDS: Observable<any>;
+  // protected mockData: any;
 
   @Input('skinnyHeader')
   protected skinnyHeader: boolean;
@@ -25,11 +25,23 @@ export class SearchComponent implements OnInit {
               private formBuilder: FormBuilder,
               private drugLookup: DrugLookupService,
               private router: Router) {
-    // this.autoCompleteDS = Observable.create(
-    //   observer => {
-    //     observer.next();
-    //   }
-    // ).mergeMap(
+    this.autoCompleteDS = Observable.create(
+      observer => {
+        // this.drugLookup.autoComplete().subscribe(
+        //   data => {
+        //     observer.next(data);
+        //   }
+        // )
+        this.drugLookup.autoComplete().subscribe(
+          data => {
+            console.log(data);
+            observer.next(data);
+          }
+        )
+
+      }
+    );
+    //   .mergeMap(
     //   this.drugLookup.autoComplete()
     // );
 
@@ -49,12 +61,6 @@ export class SearchComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       search: ['', Validators.required],
     });
-
-    this.drugLookup.autoComplete().subscribe(
-      data => {
-        this.mockData = data;
-      }
-    )
   }
 
   public clear() {

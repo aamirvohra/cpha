@@ -22,6 +22,7 @@ import { SafeHtml } from '../pipes/safe-html.directive';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { JsonTranslationLoader } from '../translation-loader';
 import { LocalStorage } from '../utils/local-storage';
+import { ApiGateway } from '../services/api.gateway';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -60,6 +61,7 @@ export function FSLoaderFactory() {
     DrugLookupService,
     SearchHelper,
     LocalStorage,
+    ApiGateway,
   ],
   bootstrap: [
     AppComponent
