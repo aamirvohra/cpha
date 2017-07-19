@@ -6,7 +6,8 @@ import htmlData from '../test.html';
 import suggestionData from '../suggestion-search-response.json';
 import { DrugInfoHtmlParser } from '../parser/drug-info-html-parser';
 import { ApiGateway } from './api.gateway';
-import { Request } from '@angular/http';
+import {Request, RequestMethod, Headers} from '@angular/http';
+import {URLSearchParams} from '@angular/http';
 
 @Injectable()
 export class DrugLookupService {
@@ -23,31 +24,43 @@ export class DrugLookupService {
   }
 
 
-  public autoComplete() {
+  public autoComplete(drugVal: string) {
     // return this.http.request(APIURLRepo.AUTOCOMPLETE_LOOK_UP_URL +
     //   '?_dc=1497726277808&publications=IFP&query=Adv&cursorPosition=3&page=1&start=0&limit=25');
 
     const urlParams = new URLSearchParams();
-    urlParams.set('query', '');
-    urlParams.set('_dc', '');
-    urlParams.set('publications', '');
-    urlParams.set('cursorPosition', '');
-    urlParams.set('page', '');
-    urlParams.set('start', '');
-    urlParams.set('limit', '');
+
+    urlParams.set('_dc', '1497726277808');
+    urlParams.set('publications', 'IFP');
+    urlParams.set('query', drugVal);
+    // urlParams.set('cursorPosition', '3');
+    urlParams.set('cursorPosition', drugVal.length.toString());
+    urlParams.set('page', '1');
+    urlParams.set('start', '0');
+    urlParams.set('limit', '25');
 
     // const request = new Request({
     //   params: urlParams
     // });
     // request.params = urlParams;
 
+    // const reqHeaders = new Headers();
+    // reqHeaders.append('Access-Control-Allow-Origin', '*');
+    // reqHeaders.append('Access-Control-Allow-Credentials', 'true');
+    // reqHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD');
+    // reqHeaders.append('Access-Control-Allow-Headers', 'origin, content-type, accept, authorization');
+
+
+
     const request = new Request({
       url: APIURLRepo.AUTOCOMPLETE_LOOK_UP_URL,
-      params: urlParams
+      method: RequestMethod.Get,
+      params: urlParams,
+      // headers: reqHeaders,
     });
 
-    // return this.apiGateway.request(request)
-    return this.fakeData()
+    // return this.fakeData()
+    return this.apiGateway.request(request)
       .map(
         data => {
           for (const obj of data) {
@@ -68,25 +81,55 @@ export class DrugLookupService {
 
           return data;
         }
-    );
+      );
   }
 
-  public detailedInfo() {
-    return Observable.create(
-      observer => {
-        // observer.next(htmlData);
-        const parser = new DrugInfoHtmlParser(htmlData);
-        observer.next(parser.parse());
-      }
-    )
+  public detailedInfo(docLocatorPath: string) {
+    const req = new Request({
+      method: RequestMethod.Get,
+      url: APIURLRepo.API_DOCUMENTS_URL + '/' + docLocatorPath
+    });
+
+    return this.apiGateway.request(req).map(
+      data => {
+        const parser = new DrugInfoHtmlParser(data.payload);
+        return parser.parse();
+      });
+    // return Observable.create(
+    //     observer => {
+    //       // observer.next(htmlData);
+    //       const parser = new DrugInfoHtmlParser(htmlData);
+    //       observer.next(parser.parse());
+    //     }
+    // )
   }
 
-  public getListInfo() {
-    return Observable.create(
-      observer => {
-        observer.next(suggestionData);
-      }
-    );
+  public getListInfo(query: string) {
+    // return Observable.create(
+    //     observer => {
+    //       observer.next(suggestionData);
+    //     }
+    // );
+
+    const urlParams = new URLSearchParams();
+
+    urlParams.set('_dc', '1497726277808');
+    urlParams.set('publications', 'IFP');
+    urlParams.set('query', query);
+
+    urlParams.set('cursorPosition', query.length.toString());
+    urlParams.set('page', '1');
+    urlParams.set('start', '0');
+    urlParams.set('limit', '25');
+
+    const request = new Request({
+      url: APIURLRepo.LOOK_UP_URL,
+      method: RequestMethod.Get,
+      params: urlParams,
+      // headers: reqHeaders,
+    });
+
+    return this.apiGateway.request(request);
   }
 
 }

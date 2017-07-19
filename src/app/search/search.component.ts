@@ -25,6 +25,10 @@ export class SearchComponent implements OnInit {
               private formBuilder: FormBuilder,
               private drugLookup: DrugLookupService,
               private router: Router) {
+    this.searchForm = this.formBuilder.group({
+      search: ['', Validators.required],
+    });
+
     this.autoCompleteDS = Observable.create(
       observer => {
         // this.drugLookup.autoComplete().subscribe(
@@ -32,16 +36,20 @@ export class SearchComponent implements OnInit {
         //     observer.next(data);
         //   }
         // )
-        this.drugLookup.autoComplete().subscribe(
+        this.drugLookup.autoComplete(this.searchForm.controls['search'] ?  this.searchForm.controls['search'].value : '').subscribe(
           data => {
-            console.log(data);
+            // console.log(data);
             observer.next(data);
           }
         )
 
       }
     );
-    //   .mergeMap(
+    // this.autoCompleteDS = Observable.create(
+    //   observer => {
+    //     observer.next();
+    //   }
+    // ).mergeMap(
     //   this.drugLookup.autoComplete()
     // );
 
@@ -58,9 +66,21 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchForm = this.formBuilder.group({
-      search: ['', Validators.required],
-    });
+
+    // this.autoCompleteDS = Observable.create(
+    //     observer => {
+    //       console.log(observer);
+    //       observer.next();
+    //     }
+    // ).mergeMap(
+    //     () => {
+    //       console.log('map');
+    //       this.drugLookup.autoComplete(this.searchForm.controls['search'].value)
+    //           .map(data => {
+    //             return data.json();
+    //           });
+    //     }
+    // );
   }
 
   public clear() {
@@ -68,6 +88,17 @@ export class SearchComponent implements OnInit {
   }
 
   search(autoCompleteItem?: TypeaheadMatch) {
+    // this.autoCompleteDS = Observable.create(
+    //       observer => {
+    //         observer.next();
+    //       }
+    //     ).mergeMap(
+    //     this.drugLookup.autoComplete(this.searchForm.controls['search'].value)
+    //         .map(data => {
+    //           return data.json();
+    //         })
+    // );
+
     if (this.searchForm.valid) {
 
       if (autoCompleteItem) {
@@ -76,12 +107,12 @@ export class SearchComponent implements OnInit {
           this.navigateToDetailPage();
         }
         else {
-          this.navigateToListPage();
+          this.navigateToListPage(this.searchForm.controls['search'].value);
         }
       }
       else {
         // this a suggestion search as no auto complete is provided
-        this.navigateToListPage();
+        this.navigateToListPage(this.searchForm.controls['search'].value);
       }
 
       // this.searchHelper.broadcastSearchEvent(item.item);
@@ -95,12 +126,16 @@ export class SearchComponent implements OnInit {
     this.navigate('query/detail');
   }
 
-  navigateToListPage() {
-    this.navigate('query/list');
+  navigateToListPage(queryParam: string) {
+    this.navigate('query/list', queryParam);
   }
 
-  navigate(url: string) {
-   this.router.navigate([url]);
+  navigate(url: string, queryParam?) {
+    this.router.navigate([url], {
+      queryParams: {
+        query: queryParam
+      }
+    });
   }
 
   onSelect(item?: TypeaheadMatch) {

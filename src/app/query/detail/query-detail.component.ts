@@ -28,24 +28,27 @@ export class QueryDetailComponent implements OnInit {
     this.lastScrollPos = 0;
     this.isTableOfContentsVisible = false;
 
-    this.searchHelper._searchEvent.subscribe(
-      (item: any) => {
-        this.getDrugDetailedInformation(item);
-      }
-    );
+    // this.searchHelper._searchEvent.subscribe(
+    //   (item: any) => {
+    //     this.getDrugDetailedInformation(item);
+    //   }
+    // );
   }
 
   ngOnInit() {
-    this.route.params.subscribe(
+    this.route.queryParams.subscribe(
       params => {
-        // do a search
+        console.log(params);
+        if (params.query) {
+          this.getDrugDetailedInformation(params.query);
+        }
       }
     );
     this.registerOnScroll();
   }
 
   getDrugDetailedInformation(item) {
-    this.drugLookup.detailedInfo().subscribe(
+    this.drugLookup.detailedInfo(item).subscribe(
       data => {
         this.info = data;
       }
@@ -68,7 +71,7 @@ export class QueryDetailComponent implements OnInit {
     // add class to style the contents for mobile
 
     if (this.isTableOfContentsVisible) {
-      $('.table-contents').removeClass('hidden-sm hidden-xs').addClass('xs-table-contents');
+      $('.table-contents').removeClass('hidden-xs').addClass('xs-table-contents');
     }
     else {
       this.hideTableOfContents();
@@ -76,7 +79,7 @@ export class QueryDetailComponent implements OnInit {
   }
 
   private hideTableOfContents() {
-    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-sm hidden-xs');
+    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-xs');
   }
 
   registerOnScroll() {

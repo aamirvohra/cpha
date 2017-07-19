@@ -3,7 +3,7 @@
     <div class="results-info">
       <div class="count">
       <span>
-        {{queryListData.totalCount}} results
+        {{queryListData ? queryListData.length : 'No '}} results
       </span>
       </div>
 
@@ -35,9 +35,9 @@
     </div>
 
     <div class="list-content">
-      <div *ngFor="let query of queryListData.results">
+      <div *ngFor="let query of queryListData">
         <div class="title">
-          <a>{{ query.documentTitle }}</a>
+          <a (click)="navigateToDetails(query.locator)">{{ query.documentTitle }}</a>
         </div>
 
         <div class="sub-title" [innerHtml]="query.documentChunk">

@@ -1,8 +1,9 @@
-<div class="row detail-wrapper">
-  <div class="col-md-2 hidden-sm hidden-xs table-contents">
+<div *ngIf="info" class="row detail-wrapper">
+
+  <div class="col-md-2 hidden-xs table-contents">
     <div>
       <ul>
-        <li class="hidden-sm hidden-xs title">
+        <li class="hidden-xs title">
           TABLE OF CONTENTS
         </li>
 
@@ -14,36 +15,30 @@
   </div>
   <div class="col-md-10 content">
     <div class="col-xs-12 drug-overview">
-      <div class="col-xs-12 col-sm-4 col-md-3 drug-title">
-        <h2>{{info.brandName}}</h2>
+      <div class="col-xs-12 col-sm-4 drug-title">
+        <h3>{{info.brandName}}</h3>
       </div>
 
-      <div class="visible-sm visible-xs col-xs-4 col-sm-7 toc-xs-initiator">
+      <div class="visible-xs col-xs-4 toc-xs-initiator">
         <button (click)="toggleTableOfContents()">
           <i class="fa fa-bars" aria-hidden="true"></i>
           <span>Contents</span>
         </button>
       </div>
 
-      <div class="col-xs-4 col-xs-offset-4 col-sm-1 col-sm-offset-0 col-md-3 col-md-offset-6 action-list">
+      <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 action-list">
         <button>
           <i class="fa fa-pencil" aria-hidden="true"></i>
         </button>
 
-        <button class="hidden-sm hidden-xs">
+        <button class="hidden-xs">
           <i class="fa fa-print" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
-    <div class="revision col-xs-12">
-      <span>
-        {{info.revisionDate}}
-      </span>
-    </div>
-
     <div class="col-xs-12 drug-info">
-      <div *ngFor="let drugContents of info.contents" [innerHtml]="drugContents.htmlElement | safeHtml"></div>
+      <div *ngFor="let drugContents of info.contents" [innerHtml]="drugContents.htmlElement | safeHtml">
+      </div>
     </div>
   </div>
-</div>
