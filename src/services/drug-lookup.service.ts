@@ -7,7 +7,7 @@ import suggestionData from '../suggestion-search-response.json';
 import { DrugInfoHtmlParser } from '../parser/drug-info-html-parser';
 import { ApiGateway } from './api.gateway';
 import { Request, RequestMethod, Headers, URLSearchParams } from '@angular/http';
-import { DrugLookup } from '../models/drug-lookup';
+import { DrugLookup, sort } from '../models/drug-lookup';
 
 @Injectable()
 export class DrugLookupService {
@@ -64,9 +64,10 @@ export class DrugLookupService {
       });
   }
 
-  public getListInfo(query: string) {
+  public getListInfo(query: string, sortBy: sort) {
     const lookupQuery = new DrugLookup();
     lookupQuery.query = query;
+    lookupQuery.sortBy = sortBy;
 
     const request = new Request({
       url: APIURLRepo.LOOK_UP_URL,

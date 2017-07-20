@@ -13,7 +13,8 @@
     border-radius: 5px;
     height: 60px;
     position: relative;
-    font-size: 1.429rem;
+    font-size: 1.143rem;
+    color: #000000;
 
     @media (max-width: 767px) {
       height: 34px;
@@ -73,6 +74,14 @@
     margin: 0;
     border-radius: 0;
     box-shadow: none;
+    min-width: 400px;
+
+    .dropdown-header {
+      font-size: 0.786rem;
+      text-transform: uppercase;
+      color: #666666;
+      font-weight: bold;
+    }
 
     @media (max-width: 767px) {
       max-width: 440px;

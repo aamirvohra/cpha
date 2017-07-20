@@ -27,30 +27,39 @@ export class QueryDetailComponent implements OnInit {
               private router: Router) {
     this.lastScrollPos = 0;
     this.isTableOfContentsVisible = false;
-
-    // this.searchHelper._searchEvent.subscribe(
-    //   (item: any) => {
-    //     this.getDrugDetailedInformation(item);
-    //   }
-    // );
   }
 
   ngOnInit() {
+    let fragmentId: string;
+    let docLocator: string;
+
     this.route.queryParams.subscribe(
       params => {
-        console.log(params);
         if (params.query) {
-          this.getDrugDetailedInformation(params.query);
+          const fragmentIndex = params.query.indexOf('#');
+          if (fragmentIndex !== -1) {
+            fragmentId = params.query.substring(fragmentIndex);
+            docLocator = params.query.substring(0, fragmentIndex);
+          }
+          else {
+            docLocator = params.query;
+          }
+
+          this.getDrugDetailedInformation(docLocator, fragmentId);
         }
       }
     );
     this.registerOnScroll();
   }
 
-  getDrugDetailedInformation(item) {
+  getDrugDetailedInformation(item, fragmentId?) {
     this.drugLookup.detailedInfo(item).subscribe(
       data => {
         this.info = data;
+
+        if (fragmentId) {
+          this.anchorNavigation(fragmentId);
+        }
       }
     )
   }

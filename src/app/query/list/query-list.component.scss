@@ -61,7 +61,8 @@
 
     .title {
       margin-bottom: 10px;
-      font-size: 1.2em;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
 
     .sub-title {
@@ -71,7 +72,12 @@
       margin-top: 10px;
       padding: 0;
 
-      .row {
+      > div {
+        &:first-child {
+          margin-top: 0px;
+        }
+
+        margin-top: 2px;
       }
     }
   }

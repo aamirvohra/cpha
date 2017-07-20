@@ -1,38 +1,41 @@
 <div class="list-wrapper row">
   <div class="col-sm-offset-2 col-sm-8">
-    <div class="results-info">
-      <div class="count">
-      <span>
-        {{queryListData ? queryListData.length : 'No '}} results
-      </span>
-      </div>
-
-      <div class="sort">
-        <span class="hidden-xs">
-          Sort by: &nbsp;
-        </span>
-        <select>
-          <option value="relevance">Relevance</option>
-        </select>
-      </div>
-
-      <div class="action-list">
-        <button>
-          <i class="fa fa-minus-square-o" aria-hidden="true"></i>
-          <span class="hidden-xs">
-            Collapse all
+    <form [formGroup]="queryListForm">
+      <div class="results-info">
+          <div class="count">
+          <span>
+            {{queryListData ? queryListData.length : 'No '}} results
           </span>
-        </button>
+          </div>
 
-        <button>
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </button>
+          <div class="sort">
+          <span class="hidden-xs">
+            Sort by: &nbsp;
+          </span>
+            <select formControlName="sortBy">
+              <option value="RELEVANCE">Relevance</option>
+              <option value="ALPHABETICAL">Alphabetical</option>
+            </select>
+          </div>
 
-        <button class="hidden-xs">
-          <i class="fa fa-print" aria-hidden="true"></i>
-        </button>
+          <div class="action-list">
+            <button>
+              <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+              <span class="hidden-xs">
+              Collapse all
+            </span>
+            </button>
+
+            <button>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+
+            <button class="hidden-xs">
+              <i class="fa fa-print" aria-hidden="true"></i>
+            </button>
+          </div>
       </div>
-    </div>
+    </form>
 
     <div class="list-content">
       <div *ngFor="let query of queryListData">
@@ -44,10 +47,8 @@
         </div>
 
         <div *ngIf="query.otherSections" class="additional-info row">
-          <div *ngFor="let sections of query.otherSections">
-            <div class="col-sm-2">
-              <a>{{sections.title}}</a>
-            </div>
+          <div *ngFor="let sections of query.otherSections" class="col-sm-4">
+            <a (click)="navigateToDetails(sections.locator)">{{sections.title}}</a>
           </div>
         </div>
       </div>
