@@ -1,5 +1,5 @@
 <div class="list-wrapper row">
-  <div class="col-sm-offset-2 col-sm-8">
+  <div class="col-md-offset-2 col-md-8 col-sm-12">
     <form [formGroup]="queryListForm">
       <div class="results-info">
           <div class="count">
@@ -19,18 +19,16 @@
           </div>
 
           <div class="action-list">
-            <button>
-              <i class="fa fa-minus-square-o" aria-hidden="true"></i>
-              <span class="hidden-xs">
-              Collapse all
-            </span>
+            <button (click)="toggleCollapse()">
+              <i class="fa" [ngClass]="isCollapsed ? 'fa-plus' : 'fa-minus-square-o'" aria-hidden="true"></i>
+              <span class="hidden-xs">{{ isCollapsed ? 'Expand All' : 'Collapse All' }}</span>
             </button>
 
-            <button>
+            <button (click)="toggleHighlight()">
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
 
-            <button class="hidden-xs">
+            <button class="hidden-xs hidden-sm">
               <i class="fa fa-print" aria-hidden="true"></i>
             </button>
           </div>
@@ -38,20 +36,21 @@
     </form>
 
     <div class="list-content">
-      <div *ngFor="let query of queryListData">
-        <div class="title">
-          <a (click)="navigateToDetails(query.locator)">{{ query.documentTitle }}</a>
-        </div>
-
-        <div class="sub-title" [innerHtml]="query.documentChunk">
-        </div>
-
-        <div *ngIf="query.otherSections" class="additional-info row">
-          <div *ngFor="let sections of query.otherSections" class="col-sm-4">
-            <a (click)="navigateToDetails(sections.locator)">{{sections.title}}</a>
+      <accordion *ngFor="let query of queryListData">
+        <accordion-group [isOpen]="!isCollapsed" [ngClass]="isCollapsed ? 'collapsed' : ''">
+          <div accordion-heading>
+            <a (click)="navigateToDetails(query.locator)">{{ query.documentTitle }}</a>
           </div>
-        </div>
-      </div>
+
+          <div class="sub-title" [innerHtml]="query.documentChunk"></div>
+
+          <div *ngIf="query.otherSections" class="additional-info row auto-clear">
+            <div *ngFor="let sections of query.otherSections" class="col-lg-4 col-sm-4 col-md-4 col-xs-12 fragment">
+              <a (click)="navigateToDetails(sections.locator)">{{sections.title}}</a>
+            </div>
+          </div>
+        </accordion-group>
+      </accordion>
     </div>
   </div>
 </div>

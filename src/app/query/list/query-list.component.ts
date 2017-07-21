@@ -13,6 +13,7 @@ export class QueryListComponent implements OnInit {
 
   private queryListData: any;
   protected queryListForm: FormGroup;
+  protected isCollapsed: boolean;
 
   constructor(private lookupService: DrugLookupService,
               private route: ActivatedRoute,
@@ -20,8 +21,10 @@ export class QueryListComponent implements OnInit {
               private formBuilder: FormBuilder) {
     this.queryListForm = this.formBuilder.group({
       sortBy: ['RELEVANCE'],
-      query: ['']
+      query: [''],
     });
+
+    this.isCollapsed = false;
 
     this.queryListForm.controls['sortBy'].valueChanges.subscribe(
       sortValue => {
@@ -57,6 +60,14 @@ export class QueryListComponent implements OnInit {
         query: docLocator
       }
     })
+  }
+
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
+  toggleHighlight() {
+    // TODO
   }
 
 }
