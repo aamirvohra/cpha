@@ -2,11 +2,13 @@
  * Created by avohra on 6/17/2017.
  */
 
+import { environment } from '../environments/environment';
+
 export class APIURLRepo {
 
-  private static readonly API_PROTOCOL: string = 'http';
+  private static readonly API_PROTOCOL: string = environment.API_PROTOCOL;
 
-  private static readonly API_DOMAIN_ENDPOINT: string = 'localhost:8080/cpha-rest-ws';
+  private static readonly API_DOMAIN_ENDPOINT: string = environment.API_ENDPOINT + '/' + environment.API_NAMESPACE;
 
   private static readonly API_DOCUMENT_NAMESPACE: string = 'document';
 

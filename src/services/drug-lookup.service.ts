@@ -57,13 +57,11 @@ export class DrugLookupService {
       url: APIURLRepo.API_DOCUMENTS_URL + '/' + docLocatorPath
     });
 
-    console.log(req.url);
-
     return this.apiGateway.request(req).map(
       data => {
         if (data.headers['Status-Code'] !== '404') {
           const parser = new DrugInfoHtmlParser(data.payload);
-          return par  ser.parse();
+          return parser.parse();
         }
       });
   }
