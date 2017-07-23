@@ -64,10 +64,12 @@ export class DrugLookupService {
       });
   }
 
-  public getListInfo(query: string, sortBy: sort) {
+  public getListInfo(query: string, sortBy: sort, pageNumber?: number) {
     const lookupQuery = new DrugLookup();
     lookupQuery.query = query;
     lookupQuery.sortBy = sortBy;
+    lookupQuery.page = pageNumber ? pageNumber.toString() : null;
+    lookupQuery.start = pageNumber ? ( (pageNumber - 1) * 25).toString() : null;
 
     const request = new Request({
       url: APIURLRepo.LOOK_UP_URL,

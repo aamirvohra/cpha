@@ -14,7 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchHelper } from '../services/search-helper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { AccordionModule, TypeaheadModule } from 'ngx-bootstrap';
+import { AccordionModule, PaginationModule, TypeaheadModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { QueryListComponent } from './query/list/query-list.component';
 import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-nav.component';
@@ -49,6 +49,7 @@ export function FSLoaderFactory() {
     APP_ROUTES,
     HttpModule,
     JsonpModule,
+    PaginationModule.forRoot(),
     TypeaheadModule.forRoot(),
     AccordionModule.forRoot(),
     TranslateModule.forRoot({

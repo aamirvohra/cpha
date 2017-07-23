@@ -3,6 +3,7 @@ import { DrugLookupService } from '../../../services/drug-lookup.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { sort } from '../../../models/drug-lookup';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-query-list',
@@ -15,6 +16,9 @@ export class QueryListComponent implements OnInit {
   protected queryListForm: FormGroup;
   protected isCollapsed: boolean;
 
+  protected currentPage: number;
+  // protected pageNumber: number;
+
   constructor(private lookupService: DrugLookupService,
               private route: ActivatedRoute,
               private router: Router,
@@ -25,6 +29,8 @@ export class QueryListComponent implements OnInit {
     });
 
     this.isCollapsed = false;
+    this.currentPage = 1;
+    // this.pageNumber = 0;
 
     this.queryListForm.controls['sortBy'].valueChanges.subscribe(
       sortValue => {
@@ -45,10 +51,12 @@ export class QueryListComponent implements OnInit {
     // fetch query list info
   }
 
-  getListData(query: string, sortBy: sort) {
-    this.lookupService.getListInfo(query, sortBy).subscribe(
+  getListData(query: string, sortBy: sort, pageNumber?: number) {
+    this.lookupService.getListInfo(query, sortBy, pageNumber).subscribe(
       data => {
         this.queryListData = data;
+
+        // this.pageNumber = Math.ceil(this.queryListData && this.queryListData.totalCount / 25);
       }
     )
   }
@@ -67,7 +75,21 @@ export class QueryListComponent implements OnInit {
   }
 
   toggleHighlight() {
-    // TODO
+    $('.MatchedText').each(
+      (int, el) => {
+        if ($(el).hasClass('removeHighlight')) {
+          $(el).removeClass('removeHighlight')
+        }
+        else {
+          $(el).addClass('removeHighlight')
+        }
+      }
+    )
+  }
+
+  pageChanged(pageEvent) {
+    this.getListData(this.queryListForm.controls['query'].value,
+      this.queryListForm.controls['sortBy'].value, pageEvent.page);
   }
 
 }
