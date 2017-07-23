@@ -65,7 +65,7 @@ export class QueryListComponent implements OnInit {
     console.log(docLocator);
     this.router.navigate(['query/detail'], {
       queryParams: {
-        query: docLocator
+        doc: docLocator
       }
     })
   }

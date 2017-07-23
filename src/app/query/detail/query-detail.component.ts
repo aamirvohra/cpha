@@ -35,14 +35,14 @@ export class QueryDetailComponent implements OnInit {
 
     this.route.queryParams.subscribe(
       params => {
-        if (params.query) {
-          const fragmentIndex = params.query.indexOf('#');
+        if (params.doc) {
+          const fragmentIndex = params.doc.indexOf('#');
           if (fragmentIndex !== -1) {
-            fragmentId = params.query.substring(fragmentIndex);
-            docLocator = params.query.substring(0, fragmentIndex);
+            fragmentId = params.doc.substring(fragmentIndex);
+            docLocator = params.doc.substring(0, fragmentIndex);
           }
           else {
-            docLocator = params.query;
+            docLocator = params.doc;
           }
 
           this.getDrugDetailedInformation(docLocator, fragmentId);

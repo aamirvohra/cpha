@@ -28,7 +28,7 @@
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
 
-            <button class="hidden-xs hidden-sm">
+            <button class="hidden-xs hidden-sm hidden-md hidden-lg">
               <i class="fa fa-print" aria-hidden="true"></i>
             </button>
           </div>
@@ -54,7 +54,7 @@
     </div>
 
     <div class="paginator">
-      <pagination [boundaryLinks]="true" [totalItems]="queryListData.totalCount" maxSize="10"
+      <pagination [boundaryLinks]="true" [totalItems]="queryListData.totalCount" [maxSize]="10"
                   firstText="&laquo;" lastText="&raquo;" itemsPerPage="25" [directionLinks]="false"
                   (pageChanged)="pageChanged($event)"></pagination>
     </div>

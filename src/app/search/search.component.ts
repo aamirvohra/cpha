@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { DrugLookupService } from '../../services/drug-lookup.service';
 import { TypeaheadMatch } from 'ngx-bootstrap';
-import { Event, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -24,63 +24,33 @@ export class SearchComponent implements OnInit {
   constructor(private searchHelper: SearchHelper,
               private formBuilder: FormBuilder,
               private drugLookup: DrugLookupService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
     this.searchForm = this.formBuilder.group({
       search: ['', Validators.required],
     });
 
     this.autoCompleteDS = Observable.create(
       observer => {
-        // this.drugLookup.autoComplete().subscribe(
-        //   data => {
-        //     observer.next(data);
-        //   }
-        // )
-        this.drugLookup.autoComplete(this.searchForm.controls['search'] ?  this.searchForm.controls['search'].value : '').subscribe(
-          data => {
-            // console.log(data);
-            observer.next(data);
-          }
-        )
-
+        this.drugLookup.autoComplete(this.searchForm.controls['search'] ?
+            this.searchForm.controls['search'].value : '')
+          .subscribe(
+            data => {
+              observer.next(data);
+            }
+            )
       }
     );
-    // this.autoCompleteDS = Observable.create(
-    //   observer => {
-    //     observer.next();
-    //   }
-    // ).mergeMap(
-    //   this.drugLookup.autoComplete()
-    // );
-
-    // this.router.events
-    //   .filter(event => event instanceof NavigationEnd)
-    //   .subscribe(
-    //     (event: NavigationEnd) => {
-    //       if (event.url !== '/') {
-    //         this.skinnyHeader = true;
-    //         console.log(this.skinnyHeader);
-    //       }
-    //     }
-    // )
   }
 
   ngOnInit() {
-
-    // this.autoCompleteDS = Observable.create(
-    //     observer => {
-    //       console.log(observer);
-    //       observer.next();
-    //     }
-    // ).mergeMap(
-    //     () => {
-    //       console.log('map');
-    //       this.drugLookup.autoComplete(this.searchForm.controls['search'].value)
-    //           .map(data => {
-    //             return data.json();
-    //           });
-    //     }
-    // );
+    this.route.queryParams.subscribe(
+      params => {
+        if (params.query) {
+          this.searchForm.controls['search'].setValue(params.query);
+        }
+      }
+    )
   }
 
   public clear() {
@@ -88,17 +58,6 @@ export class SearchComponent implements OnInit {
   }
 
   search(autoCompleteItem?: TypeaheadMatch) {
-    // this.autoCompleteDS = Observable.create(
-    //       observer => {
-    //         observer.next();
-    //       }
-    //     ).mergeMap(
-    //     this.drugLookup.autoComplete(this.searchForm.controls['search'].value)
-    //         .map(data => {
-    //           return data.json();
-    //         })
-    // );
-
     if (this.searchForm.valid) {
 
       if (autoCompleteItem) {
@@ -114,9 +73,6 @@ export class SearchComponent implements OnInit {
         // this a suggestion search as no auto complete is provided
         this.navigateToListPage(this.searchForm.controls['search'].value);
       }
-
-      // this.searchHelper.broadcastSearchEvent(item.item);
-      // this.router.navigate(['/query/detail'])
     }
   }
 
