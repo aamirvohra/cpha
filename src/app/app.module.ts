@@ -23,6 +23,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { JsonTranslationLoader } from '../translation-loader';
 import { LocalStorage } from '../utils/local-storage';
 import { ApiGateway } from '../services/api.gateway';
+import { ResultNotFoundComponent } from './result-not-found/result-not-found.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -41,6 +42,7 @@ export function FSLoaderFactory() {
     QueryListComponent,
     MobileSidebarNavComponent,
     SafeHtml,
+    ResultNotFoundComponent,
   ],
   imports: [
     BrowserModule,

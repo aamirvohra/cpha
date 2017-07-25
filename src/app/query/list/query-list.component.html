@@ -1,10 +1,10 @@
 <div class="list-wrapper row">
-  <div *ngIf="queryListData" class="col-md-offset-2 col-md-8 col-sm-12">
+  <div *ngIf="queryListTotalResult" class="col-md-offset-2 col-md-8 col-sm-12">
     <form [formGroup]="queryListForm">
       <div class="results-info">
           <div class="count">
           <span>
-            {{queryListData && queryListData.totalCount ? queryListData.totalCount : 'No '}} results
+            {{ queryListTotalResult ? queryListTotalResult  : 'No '}} results
           </span>
           </div>
 
@@ -36,7 +36,7 @@
     </form>
 
     <div class="list-content">
-      <accordion *ngFor="let query of queryListData.results">
+      <accordion *ngFor="let query of queryListResultData">
         <accordion-group [isOpen]="!isCollapsed" [ngClass]="isCollapsed ? 'collapsed' : ''">
           <div accordion-heading>
             <a (click)="navigateToDetails(query.locator)">{{ query.documentTitle }}</a>
@@ -53,11 +53,14 @@
       </accordion>
     </div>
 
-    <div class="paginator">
-      <pagination [boundaryLinks]="true" [totalItems]="queryListData.totalCount" [maxSize]="10"
+    <div *ngIf="queryListTotalResult" class="paginator">
+      <pagination [boundaryLinks]="true" [totalItems]="queryListTotalResult" [maxSize]="10"
                   firstText="&laquo;" lastText="&raquo;" itemsPerPage="25" [directionLinks]="false"
                   (pageChanged)="pageChanged($event)"></pagination>
     </div>
+  </div>
 
+  <div *ngIf="didYouMean" class="col-md-offset-2 col-md-8 col-sm-12 result-not-found">
+    <app-result-not-found [didYouMean]="didYouMean"></app-result-not-found>
   </div>
 </div>

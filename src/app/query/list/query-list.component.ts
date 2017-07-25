@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { sort } from '../../../models/drug-lookup';
 import * as $ from 'jquery';
+import { SearchHelper } from '../../../services/search-helper';
 
 @Component({
   selector: 'app-query-list',
@@ -12,7 +13,9 @@ import * as $ from 'jquery';
 })
 export class QueryListComponent implements OnInit {
 
-  private queryListData: any;
+  protected queryListResultData: any;
+  protected queryListTotalResult: number;
+  protected didYouMean: string;
   protected queryListForm: FormGroup;
   protected isCollapsed: boolean;
 
@@ -22,7 +25,8 @@ export class QueryListComponent implements OnInit {
   constructor(private lookupService: DrugLookupService,
               private route: ActivatedRoute,
               private router: Router,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private searchHelper: SearchHelper) {
     this.queryListForm = this.formBuilder.group({
       sortBy: ['RELEVANCE'],
       query: [''],
@@ -35,6 +39,17 @@ export class QueryListComponent implements OnInit {
     this.queryListForm.controls['sortBy'].valueChanges.subscribe(
       sortValue => {
         this.getListData(this.queryListForm.controls['query'].value, sortValue);
+      }
+    );
+
+    // when the user clicks on did you mean we can subscribe to it and update the list
+    this.searchHelper._searchEvent.subscribe(
+      suggestion => {
+        if (suggestion) {
+          this.queryListForm.controls['query'].setValue(suggestion);
+          this.getListData(this.queryListForm.controls['query'].value,
+            this.queryListForm.controls['sortBy'].value);
+        }
       }
     )
   }
@@ -54,15 +69,19 @@ export class QueryListComponent implements OnInit {
   getListData(query: string, sortBy: sort, pageNumber?: number) {
     this.lookupService.getListInfo(query, sortBy, pageNumber).subscribe(
       data => {
-        this.queryListData = data;
-
-        // this.pageNumber = Math.ceil(this.queryListData && this.queryListData.totalCount / 25);
+        this.queryListTotalResult = data.totalCount;
+        if (this.queryListTotalResult) {
+          this.queryListResultData = data.results;
+        }
+        else { // display no results found with did you mean
+          this.queryListResultData = null;
+          this.didYouMean = data.didYouMean;
+        }
       }
     )
   }
 
   navigateToDetails(docLocator: string) {
-    console.log(docLocator);
     this.router.navigate(['query/detail'], {
       queryParams: {
         doc: docLocator

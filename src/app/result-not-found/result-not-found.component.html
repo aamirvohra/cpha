@@ -1,0 +1,27 @@
+<div class="result-not-found-wrapper">
+  <div class="did-you-mean">
+    Did you mean?
+    <a (click)="suggestSearch()" [innerHtml]="didYouMean"></a>
+  </div>
+
+  <div class="info">
+    <div class="title">
+      <span>No results were found!</span>
+    </div>
+
+    <div>
+      Before searching again:
+      <ul class="search-tips">
+        <li>
+          Add or remove keywords on the search box.
+        </li>
+        <li>
+          Add * to some words for wildcard searches.
+        </li>
+        <li>
+          Remove quotes around searches.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

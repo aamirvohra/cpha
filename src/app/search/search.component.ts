@@ -16,7 +16,6 @@ export class SearchComponent implements OnInit {
 
   public searchForm: FormGroup;
   protected autoCompleteDS: Observable<any>;
-  // protected mockData: any;
 
   @Input('skinnyHeader')
   protected skinnyHeader: boolean;
@@ -38,9 +37,18 @@ export class SearchComponent implements OnInit {
             data => {
               observer.next(data);
             }
-            )
+          )
       }
     );
+
+    // when the user clicks on did you mean we can subscribe to it and update the list
+    this.searchHelper._searchEvent.subscribe(
+      suggestion => {
+        if (suggestion) {
+          this.searchForm.controls['search'].setValue(suggestion);
+        }
+      }
+    )
   }
 
   ngOnInit() {

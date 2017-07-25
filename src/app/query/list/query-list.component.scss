@@ -6,10 +6,6 @@
     padding: 0;
   }
 
-  > div {
-
-  }
-
   .results-info {
     padding: 5px;
     border-bottom: 1px solid #D8D8D8;
@@ -160,6 +156,13 @@
     .pagination-page.active a {
       background-color: #010d62;
       color: white;
+    }
+  }
+
+  .result-not-found {
+
+    @media (max-width: 991px) {
+      margin-top: 20px;
     }
   }
 }
