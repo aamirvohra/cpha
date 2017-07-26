@@ -1,4 +1,4 @@
-<div *ngIf="info" class="row detail-wrapper">
+<div *ngIf="records" class="row detail-wrapper">
 
   <div class="col-md-2 hidden-xs table-contents">
     <div>
@@ -7,7 +7,7 @@
           TABLE OF CONTENTS
         </li>
 
-        <li class="list-content" *ngFor="let drugContents of info.contents">
+        <li class="list-content" *ngFor="let drugContents of records.contents">
           <button class="btn-link" (click)="anchorNavigation(drugContents.anchorId)">{{drugContents.text}}</button>
         </li>
       </ul>
@@ -16,7 +16,7 @@
   <div class="col-md-10 content">
     <div class="col-xs-12 drug-overview">
       <div class="col-xs-12 col-sm-4 drug-title">
-        <h3>{{info.brandName}}</h3>
+        <!--<h3>{{info.brandName}}</h3>-->
       </div>
 
       <div class="visible-xs col-xs-4 toc-xs-initiator">
@@ -37,8 +37,27 @@
       </div>
     </div>
 
-    <div class="col-xs-12 drug-info">
-      <div *ngFor="let drugContents of info.contents" [innerHtml]="drugContents.htmlElement | safeHtml">
+    <div class="drug-sub-category col-xs-12" *ngIf="records.records.length > 1">
+      <div *ngFor="let drugRecord of records.records" class="category col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div>
+          {{ drugRecord.brandName }}
+        </div>
+        <div>
+          {{ drugRecord.genericName }}
+        </div>
+        <div>
+          {{ drugRecord.therapeuticClass }}
+        </div>
+        <div>
+        {{ drugRecord.manufacturers }}
+        </div>
       </div>
     </div>
+
+    <div class="col-xs-12 drug-info">
+      <div *ngFor="let drugContents of records.contents" [innerHtml]="drugContents.htmlElement | safeHtml">
+      </div>
+    </div>
+
   </div>
+</div>

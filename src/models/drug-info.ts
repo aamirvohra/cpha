@@ -5,11 +5,15 @@ import { DrugInfoContents } from './drug-info-contents';
 
 
 export class DrugInfo {
-  cphaDrugId: string;
   brandName: string;
   genericName: string;
   therapeuticClass: string;
   manufacturers: string;
+}
+
+export class DrugRecords {
+  cphaDrugId: string;
+  records: Array<DrugInfo>;
   revisionDate: string;
   contents: Array<DrugInfoContents>;
 }

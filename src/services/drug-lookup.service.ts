@@ -3,6 +3,7 @@ import { APIURLRepo } from '../config/api-url.repo';
 import data from '../test.json';
 import { Observable } from 'rxjs/Observable';
 import htmlData from '../test.html';
+import multiDrugInfo from '../test2.html';
 import suggestionData from '../suggestion-search-response.json';
 import { DrugInfoHtmlParser } from '../parser/drug-info-html-parser';
 import { ApiGateway } from './api.gateway';
@@ -57,13 +58,21 @@ export class DrugLookupService {
       url: APIURLRepo.API_DOCUMENTS_URL + '/' + docLocatorPath
     });
 
-    return this.apiGateway.request(req).map(
-      data => {
-        if (data.headers['Status-Code'] !== '404') {
-          const parser = new DrugInfoHtmlParser(data.payload);
-          return parser.parse();
-        }
-      });
+    // return this.apiGateway.request(req).map(
+    //   data => {
+    //     if (data.headers['Status-Code'] !== '404') {
+    //       const parser = new DrugInfoHtmlParser(data.payload);
+    //       return parser.parse();
+    //     }
+    //   });
+
+    return Observable.create(
+      obs => {
+        const parser = new DrugInfoHtmlParser(multiDrugInfo);
+        // const parser = new DrugInfoHtmlParser(htmlData);
+        return obs.next(parser.parse())
+      }
+    )
   }
 
   public getListInfo(query: string, sortBy: sort, pageNumber?: number) {

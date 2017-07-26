@@ -1,5 +1,5 @@
 <div class="list-wrapper row">
-  <div *ngIf="queryListTotalResult" class="col-md-offset-2 col-md-8 col-sm-12">
+  <div *ngIf="queryListTotalResult && !didYouMean" class="col-md-offset-2 col-md-8 col-sm-12">
     <form [formGroup]="queryListForm">
       <div class="results-info">
           <div class="count">
@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <div *ngIf="didYouMean" class="col-md-offset-2 col-md-8 col-sm-12 result-not-found">
+  <div *ngIf="didYouMean && !queryListTotalResult" class="col-md-offset-2 col-md-8 col-sm-12 result-not-found">
     <app-result-not-found [didYouMean]="didYouMean"></app-result-not-found>
   </div>
 </div>
