@@ -19,6 +19,7 @@ export class DrugInfoHtmlParser {
 
   private readonly DRUG_CONTENT_WRAPPER_CLASS = '.dita-topic .dita-nav-subtopics-ifp li';
   private readonly DRUG_CONTENT_NAVIGATOR_CLASS = 'a.navigator-section';
+  private readonly DRUG_NESTED_NAVIGATOR_CLASS = this.DRUG_CONTENT_NAVIGATOR_CLASS + ' span.MatchedText';
 
 
   private htmlData: any;
@@ -83,6 +84,7 @@ export class DrugInfoHtmlParser {
     $(this.htmlData).find(this.DRUG_CONTENT_WRAPPER_CLASS).each(
       function() {
         const drugContents = new DrugInfoContents();
+
         drugContents.text = $(this).find(
           self.DRUG_CONTENT_NAVIGATOR_CLASS).text().trim();
 

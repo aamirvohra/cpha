@@ -1,3 +1,7 @@
+.MatchedText {
+  background-color: yellow;
+}
+
 .detail-wrapper {
   padding: 15px;
 
@@ -106,11 +110,31 @@
     }
   }
 
+  .revision-date {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 0.929rem;
+    padding: 0;
+    color: #666666;
+  }
+
   .drug-sub-category {
-
-
     .category {
       background-color: #F5F5F5;
+      padding: 25px;
+      margin-bottom: 10px;
+
+      > div {
+        font-size: 0.929rem;
+        line-height: 1.2em;
+      }
+
+      .title {
+        font-size: 0.929rem;
+        color: #666666;
+      }
+
+
     }
   }
 

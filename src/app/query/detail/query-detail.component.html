@@ -16,7 +16,7 @@
   <div class="col-md-10 content">
     <div class="col-xs-12 drug-overview">
       <div class="col-xs-12 col-sm-4 drug-title">
-        <!--<h3>{{info.brandName}}</h3>-->
+        <!--<h1>{{info.brandName}}</h1>-->
       </div>
 
       <div class="visible-xs col-xs-4 toc-xs-initiator">
@@ -37,21 +37,27 @@
       </div>
     </div>
 
-    <div class="drug-sub-category col-xs-12" *ngIf="records.records.length > 1">
-      <div *ngFor="let drugRecord of records.records" class="category col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div>
-          {{ drugRecord.brandName }}
+    <div class="col-xs-12 revision-date">
+      <span>{{records.revisionDate}}</span>
+    </div>
+
+    <div class="drug-sub-category row" *ngIf="records.records.length > 1">
+      <div *ngFor="let drugRecord of records.records" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="category">
+          <div class="title">
+            {{ drugRecord.brandName }}
+          </div>
+          <div>
+            {{ drugRecord.genericName }}
+          </div>
+          <div>
+            {{ drugRecord.therapeuticClass }}
+          </div>
+          <div>
+            {{ drugRecord.manufacturers }}
+          </div>
         </div>
-        <div>
-          {{ drugRecord.genericName }}
         </div>
-        <div>
-          {{ drugRecord.therapeuticClass }}
-        </div>
-        <div>
-        {{ drugRecord.manufacturers }}
-        </div>
-      </div>
     </div>
 
     <div class="col-xs-12 drug-info">
