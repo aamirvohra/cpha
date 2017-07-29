@@ -36,18 +36,44 @@ export class DrugInfoHtmlParser {
     if (this.hasSubCategories()) {
       drug.subCategoryDrug = this.collectSubCategoryInfo();
     }
-    else {
-      drug.drugInfo = this.getBasicDrugInfo();
-    }
+
+    drug.topLevelDrugContents = this.getTopLevelDrugContents();
+    drug.drugInfo = this.getBasicDrugInfo();
+    drug.revisionDate = this.getElementText(this.REVISION_DATE);
+
+    return drug;
   }
 
   hasSubCategories(): boolean {
     if ($(this.htmlData).find(this.DRUG_CONTENT_WRAPPER_CLASS
-        + ' ' + this.DRUG_NESTED_NAVIGATOR_CLASS).length){
+        + ' ' + this.DRUG_NESTED_NAVIGATOR_CLASS).length) {
       return true;
     }
 
     return false;
+  }
+
+  getTopLevelDrugContents(): Array<DrugContents> {
+    const drugContents = [];
+    const self = this;
+
+    $(this.htmlData).find(this.DRUG_CONTENT_WRAPPER_CLASS).each(
+      function(index) {
+
+        if (index !== 0 && $(this).find('a').text().indexOf(self.DRUG_SUBCATEGORY_IDENTIFIER) !== -1) {
+          return false;
+        }
+
+        const drugContent = new DrugContents();
+        drugContent.header = $(this).find('a').text().replace(self.DRUG_SUBCATEGORY_IDENTIFIER, '').trim();
+        drugContent.anchorIdReference =  $(this).find('a').attr('href');
+        drugContent.htmlElement = $(self.htmlData).find(
+          drugContent.anchorIdReference).prop('outerHTML');
+
+        drugContents.push(drugContent);
+      }
+    );
+    return drugContents;
   }
 
   collectSubCategoryInfo(): Array<SubCategoryDrug> {
@@ -62,7 +88,7 @@ export class DrugInfoHtmlParser {
         // be for top-level drug info
         if (index !== 0 && $(this).find('a').text().indexOf(self.DRUG_SUBCATEGORY_IDENTIFIER) !== -1) {
           subCategory = new SubCategoryDrug();
-          subCategory.drugInfo = new BasicDrugInfo();
+          // subCategory.drugInfo = new BasicDrugInfo();
           subCategory.contents = [];
 
           subCategories.push(subCategory);
@@ -72,7 +98,7 @@ export class DrugInfoHtmlParser {
           subContents.header = $(this).find('a').text().replace(self.DRUG_SUBCATEGORY_IDENTIFIER, '').trim();
           subContents.anchorIdReference =  $(this).find('a').attr('href');
           subContents.htmlElement = $(self.htmlData).find(
-            subContents.anchorIdReference).attr('name', subContents.anchorIdReference.replace('#', ''));
+            subContents.anchorIdReference).prop('outerHTML');
 
           subCategory.contents.push(subContents);
         }
@@ -82,8 +108,24 @@ export class DrugInfoHtmlParser {
     return subCategories;
   }
 
-  getBasicDrugInfo(): BasicDrugInfo {
+  getBasicDrugInfo(): Array<BasicDrugInfo> {
+    const drugInfoRecords: Array<BasicDrugInfo> = [];
+    const self = this;
+    $(this.htmlData).find(this.DRUG_BRAND_INFO_WRAPPER_CLASS).each(
+      function() {
+        drugInfoRecords.push(self.parseDrugInfo(this));
+      }
+    );
+
+    return drugInfoRecords;
+  }
+
+  parseDrugInfo(brandElement: HTMLElement): BasicDrugInfo {
     const drugInfo = new BasicDrugInfo();
+    drugInfo.brandName = this.getElementText(this.DRUG_BRAND_NAME, brandElement);
+    drugInfo.genericName = this.getElementText(this.DRUG_GENERIC_NAME, brandElement);
+    drugInfo.therapeuticClass = this.getElementText(this.DRUG_THERAPEUTIC_CLASS, brandElement);
+    drugInfo.manufacturers = this.getElementText(this.MANUFACTURER, brandElement);
     return drugInfo;
   }
 
@@ -116,15 +158,6 @@ export class DrugInfoHtmlParser {
   //   );
   //
   //   return record;
-  // }
-
-  // parseDrugInfo(brandElement: HTMLElement): DrugInfo {
-  //   const drugInfo = new DrugInfo();
-  //   drugInfo.brandName = this.getElementText(this.DRUG_BRAND_NAME, brandElement);
-  //   drugInfo.genericName = this.getElementText(this.DRUG_GENERIC_NAME, brandElement);
-  //   drugInfo.therapeuticClass = this.getElementText(this.DRUG_THERAPEUTIC_CLASS, brandElement);
-  //   drugInfo.manufacturers = this.getElementText(this.MANUFACTURER, brandElement);
-  //   return drugInfo;
   // }
 
   // parseDrugInfo(): DrugInfo {

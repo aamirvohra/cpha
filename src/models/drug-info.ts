@@ -4,12 +4,14 @@
 
 export class Drug {
   cphaDrugId: string;
-  drugInfo: BasicDrugInfo;
+  drugInfo: Array<BasicDrugInfo>;
+  topLevelDrugContents: Array<DrugContents>;
   subCategoryDrug: Array<SubCategoryDrug>;
+  revisionDate: string;
 }
 
 export class SubCategoryDrug {
-  drugInfo: BasicDrugInfo;
+  // drugInfo: BasicDrugInfo;
   contents: Array<DrugContents>;
 }
 
@@ -19,7 +21,6 @@ export class BasicDrugInfo {
   genericName: string;
   therapeuticClass: string;
   manufacturers: string;
-  revisionDate: string;
 }
 export class DrugContents {
   header: string;

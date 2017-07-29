@@ -3,6 +3,7 @@ import { SearchHelper } from '../../../services/search-helper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DrugLookupService } from '../../../services/drug-lookup.service';
 import * as $ from 'jquery';
+import { Drug } from '../../../models/drug-info';
 
 const windowObject = window;
 
@@ -13,8 +14,7 @@ const windowObject = window;
 })
 export class QueryDetailComponent implements OnInit {
 
-  // protected info: DrugInfo;
-  // protected records: DrugRecords;
+  protected drug: Drug;
 
   // only for mobile as other viewports will always display table of contents
   private isTableOfContentsVisible: boolean;
@@ -55,7 +55,8 @@ export class QueryDetailComponent implements OnInit {
   getDrugDetailedInformation(item, fragmentId?) {
     this.drugLookup.detailedInfo(item).subscribe(
       data => {
-        // this.records = data;
+        console.log(data);
+        this.drug = data;
 
         if (fragmentId) {
           this.anchorNavigation(fragmentId);
