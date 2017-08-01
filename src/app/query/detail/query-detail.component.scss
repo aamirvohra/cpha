@@ -1,7 +1,3 @@
-.MatchedText {
-  background-color: yellow;
-}
-
 .detail-wrapper {
   padding: 15px;
 
@@ -118,6 +114,10 @@
     color: #666666;
   }
 
+  .MatchedText {
+    background-color: yellow;
+  }
+
   .drug-sub-category {
     .category {
       background-color: #F5F5F5;
@@ -145,11 +145,38 @@
       margin-top: 5px;
     }
 
-    .maintitle {
-      font-weight: bold;
+    /deep/ .dita-topic {
 
-      @media (max-width: 767px) {
-        font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      color: #000000;
+      line-height: 1.4em;
+
+      h3 {
+        font-size: 1.286rem;
+        padding-top: 5px;
+      }
+
+      h4 {
+        font-size: 1.143rem;
+        padding-top: 5px;
+      }
+
+      .dita-li {
+        padding-bottom: 5px;
+      }
+
+      .part-title {
+        font-weight: bold;
+        color: #0000BB !important;
+
+        @media (max-width: 767px) {
+          font-size: 20px;
+        }
+      }
+
+      .maintitle {
+        font-weight: bold;
       }
     }
   }
@@ -171,6 +198,29 @@
       li {
         padding: 7px;
         // border-top: 1px solid #CCCCCC;
+
+        .nested-menu {
+
+          &.collapsed {
+            display: none;
+          }
+
+          li {
+            padding: 3px;
+
+            .btn-link {
+              color: #666666;
+            }
+          }
+        }
+
+        .fa {
+          color: #0000BB;
+
+          &.fa-arrow-right {
+            color: #666666;
+          }
+        }
 
         &.title {
           color: #666666;

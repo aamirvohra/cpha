@@ -117,4 +117,12 @@ export class QueryDetailComponent implements OnInit {
       }
     )
   }
+
+  toggleNestedMenu(event) {
+    const parentNode = event.currentTarget.parentNode;
+
+    $(parentNode).find('.nested-menu').hasClass('collapsed') ?
+      ($(parentNode).find('.nested-menu').removeClass('collapsed'), $(parentNode).find('.fa').addClass('fa-arrow-down').removeClass('fa-arrow-right')) :
+      ($(parentNode).find('.nested-menu').addClass('collapsed'), $(parentNode).find('.fa').addClass('fa-arrow-right').removeClass('fa-arrow-down')) ;
+  }
 }

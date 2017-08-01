@@ -1,30 +1,45 @@
 <div *ngIf="drug" class="row detail-wrapper">
 
-  <div class="col-md-2 hidden-xs table-contents">
+  <div class="col-md-4 hidden-sm table-contents">
     <div>
       <ul>
-        <li class="hidden-xs title">
+        <li class="hidden-sm title">
           TABLE OF CONTENTS
         </li>
-        <li class="list-content" *ngFor="let drugContent of drug.topLevelDrugContents">
-          <button class="btn-link" (click)="anchorNavigation(drugContent.anchorIdReference)">{{drugContent.header}}</button>
-        </li>
-        <!--<ul ngIf="drug.subCategoryDrug" *ngFor="let subCategory of drug.subCategoryDrug['contents']">-->
-          <!--<li>-->
-            <!--<button class="btn-link" (click)="anchorNavigation(subCategory['anchorIdReference'])">-->
-              <!--{{subCategory['header']}}</button>-->
-          <!--</li>-->
-        <!--</ul>-->
+        <ng-container *ngFor="let drugContent of drug.topLevelDrugContents; let i = index">
+          <li *ngIf="i > 0" class="list-content">
+            <button class="btn-link" (click)="anchorNavigation(drugContent.anchorIdReference)">{{drugContent.header}}</button>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="drug.subCategoryDrug">
+          <li class="list-content row" *ngFor="let subCategory of drug.subCategoryDrug">
+            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+              <button class="btn-link" (click)="anchorNavigation(subCategory.contents[0].anchorIdReference)">
+                {{subCategory.contents[0].header}}
+              </button>
+              <ul class="nested-menu collapsed">
+                <ng-container *ngFor="let contents of subCategory.contents; let i = index">
+                  <li *ngIf="i > 0">
+                    <button class="btn-link" (click)="anchorNavigation(contents.anchorIdReference)">{{contents.header}}</button>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2" (click)="toggleNestedMenu($event)">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>
-  <div class="col-md-10 content">
+  <div class="col-md-8 content">
     <div class="col-xs-12 drug-overview">
       <div class="col-xs-12 col-sm-4 drug-title">
         <!--<h1>{{info.brandName}}</h1>-->
       </div>
 
-      <div class="visible-xs col-xs-4 toc-xs-initiator">
+      <div class="visible-xs visible-sm col-xs-4 toc-xs-initiator">
         <button (click)="toggleTableOfContents()">
           <i class="fa fa-bars" aria-hidden="true"></i>
           <span>Contents</span>
@@ -62,14 +77,18 @@
             {{ drugRecord.manufacturers }}
           </div>
         </div>
-        </div>
+      </div>
+      <div class="clearfix visible-sm-block"></div>
     </div>
 
     <div class="col-xs-12 drug-info">
       <div *ngFor="let drugContents of drug.topLevelDrugContents" [innerHtml]="drugContents.htmlElement | safeHtml">
       </div>
 
-      <div *ngFor="let drugContents of drug.subCategoryDrug['contents']" [innerHtml]="drugContents['htmlElement'] | safeHtml">
+      <div *ngFor="let drugContents of drug.subCategoryDrug">
+        <div *ngFor="let contents of drugContents.contents" [innerHtml]="contents['htmlElement'] | safeHtml">
+
+        </div>
       </div>
     </div>
 
