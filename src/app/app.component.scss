@@ -107,3 +107,8 @@ button {
   .auto-clear .col-xs-4:nth-child(3n+1){clear:left;}
   .auto-clear .col-xs-6:nth-child(odd){clear:left;}
 }
+
+@media print {
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+}

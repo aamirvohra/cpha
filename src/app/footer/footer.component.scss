@@ -5,6 +5,10 @@
   font-size: 0.857rem;
   color: #666666;
 
+  @media print {
+    display: none !important;
+  }
+
   .footer-menu {
     margin-bottom: 5px;
 

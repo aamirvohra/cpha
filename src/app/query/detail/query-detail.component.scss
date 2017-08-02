@@ -23,6 +23,17 @@
       padding: 0;
       border-bottom: 2px solid #CCCCCC;
 
+      @media print {
+        border-bottom: none !important;
+        width: 100% !important;
+      }
+
+      .drug-title {
+        @media print {
+          width: 100% !important;
+        }
+      }
+
       &.scroll-down {
         @media (max-width: 767px) {
           top: 0;
@@ -79,6 +90,10 @@
           margin-top: 0;
         }
 
+        @media print {
+          display: none !important;
+        }
+
         button {
           background-color: #F5F5F5;
           border: 1px solid #CCCCCC !important;
@@ -103,6 +118,10 @@
           margin-top:   0;
           padding: 0;
         }
+
+        @media print {
+          display: none !important;
+        }
       }
     }
   }
@@ -116,10 +135,26 @@
   }
 
   .drug-sub-category {
+
+    @media print {
+      border: 1px solid black;
+      width: 65% !important;
+    }
+
+    > div {
+      @media print {
+        width: 100%!important;
+      }
+    }
+
     .category {
       background-color: #F5F5F5;
       padding: 25px;
       margin-bottom: 10px;
+
+      @media print {
+        padding: 10px;
+      }
 
       > div {
         font-size: 0.929rem;
@@ -161,6 +196,10 @@
 
       .MatchedText {
         background-color: yellow;
+
+        @media print {
+          color: inherit !important;
+        }
       }
 
       .removeHighlight {

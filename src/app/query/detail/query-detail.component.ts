@@ -138,4 +138,8 @@ export class QueryDetailComponent implements OnInit {
       }
     )
   }
+
+  print() {
+    window.print();
+  }
 }
