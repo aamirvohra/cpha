@@ -67,7 +67,7 @@
       }
 
       .toc-xs-initiator {
-
+        margin-top: 20px;
         @media (max-width: 991px) {
           text-align: right;
           padding-right: 0;
@@ -76,6 +76,7 @@
         @media (max-width: 767px) {
           padding: 0;
           text-align: left;
+          margin-top: 0;
         }
 
         button {
@@ -86,7 +87,7 @@
 
       .action-list {
         //margin-bottom: 10px;
-        //margin-top: 20px;
+        margin-top: 20px;
         padding-bottom: 11px;
         padding-right: 0;
         text-align: right;color: #666666;
@@ -112,10 +113,6 @@
     font-size: 0.929rem;
     padding: 0;
     color: #666666;
-  }
-
-  .MatchedText {
-    background-color: yellow;
   }
 
   .drug-sub-category {
@@ -160,6 +157,14 @@
       h4 {
         font-size: 1.143rem;
         padding-top: 5px;
+      }
+
+      .MatchedText {
+        background-color: yellow;
+      }
+
+      .removeHighlight {
+        background-color: transparent;
       }
 
       .dita-li {
@@ -258,7 +263,7 @@
 
       @media (max-width: 767px) {
         position: absolute;
-        top: 178px;
+        top: 160px;
         left: 10px;
         z-index: 1;
         min-width: 96%;

@@ -81,7 +81,7 @@ export class QueryDetailComponent implements OnInit {
     // add class to style the contents for mobile
 
     if (this.isTableOfContentsVisible) {
-      $('.table-contents').removeClass('hidden-xs').addClass('xs-table-contents');
+      $('.table-contents').removeClass('hidden-sm hidden-xs').addClass('xs-table-contents');
     }
     else {
       this.hideTableOfContents();
@@ -89,7 +89,7 @@ export class QueryDetailComponent implements OnInit {
   }
 
   private hideTableOfContents() {
-    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-xs');
+    $('.table-contents').removeClass('xs-table-contents').addClass('hidden-sm hidden-xs');
   }
 
   registerOnScroll() {
@@ -124,5 +124,18 @@ export class QueryDetailComponent implements OnInit {
     $(parentNode).find('.nested-menu').hasClass('collapsed') ?
       ($(parentNode).find('.nested-menu').removeClass('collapsed'), $(parentNode).find('.fa').addClass('fa-arrow-down').removeClass('fa-arrow-right')) :
       ($(parentNode).find('.nested-menu').addClass('collapsed'), $(parentNode).find('.fa').addClass('fa-arrow-right').removeClass('fa-arrow-down')) ;
+  }
+
+  toggleHighlight() {
+    $('.MatchedText').each(
+      (int, el) => {
+        if ($(el).hasClass('removeHighlight')) {
+          $(el).removeClass('removeHighlight')
+        }
+        else {
+          $(el).addClass('removeHighlight')
+        }
+      }
+    )
   }
 }
