@@ -68,7 +68,7 @@ export class DrugLookupService {
 
     return Observable.create(
       obs => {
-          const parser = new DrugInfoHtmlParser(multiDrugInfo);
+        const parser = new DrugInfoHtmlParser(multiDrugInfo);
         // const parser = new DrugInfoHtmlParser(htmlData);
         return obs.next(parser.parse())
       }

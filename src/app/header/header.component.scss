@@ -3,11 +3,13 @@
   background-color: #010D62;
   color: white;
   transition: top 0.1s ease-in-out;
-  //display: flex;
-  //align-items: center;
 
   @media (max-width: 767px) {
     padding: 10px;
+  }
+
+  @media print {
+    padding: 0 !important;
   }
 
   &.scroll-down {
@@ -56,6 +58,11 @@
     a {
       color: white;
       text-decoration: none;
+
+      @media print {
+        font-size: 3rem;
+        color: #010D62 !important;
+      }
     }
   }
 
@@ -105,7 +112,7 @@
 
     .title {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.5rem;
       text-align: left;
       padding: 0;
       z-index: 1000;

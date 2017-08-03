@@ -55,7 +55,6 @@ export class QueryDetailComponent implements OnInit {
   getDrugDetailedInformation(item, fragmentId?) {
     this.drugLookup.detailedInfo(item).subscribe(
       data => {
-        console.log(data);
         this.drug = data;
 
         if (fragmentId) {

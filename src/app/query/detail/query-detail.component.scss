@@ -5,17 +5,15 @@
     padding: 10px;
   }
 
+  @media print {
+    padding: 0 !important;
+  }
+
   .content {
     padding-top: 5px;
     padding-left: 30px;
 
     @media (max-width: 767px) {
-      padding: 0;
-    }
-
-    .revision {
-      color: #666666;
-      margin: 20px 0 28px 0;
       padding: 0;
     }
 
@@ -26,11 +24,13 @@
       @media print {
         border-bottom: none !important;
         width: 100% !important;
+        margin-top: 20px !important;
       }
 
       .drug-title {
         @media print {
           width: 100% !important;
+          font-weight: bold;
         }
       }
 
@@ -39,7 +39,7 @@
           top: 0;
           position: fixed;
           z-index: 1030;
-          width: 96%;
+          width: 94%;
           background: #fff;
         }
       }
@@ -61,7 +61,7 @@
         //margin-top: 20px;
         //margin-bottom: 10px;
 
-        h2 {
+        h1, h2 {
           font-weight: bold;
         }
 
@@ -132,6 +132,20 @@
     font-size: 0.929rem;
     padding: 0;
     color: #666666;
+
+    @media print {
+      margin-top: 0 !important;
+      margin-bottom: 20px !important;
+      color: #999999 !important;
+      font-size: 1.2rem;
+    }
+
+    span {
+      @media print {
+        color: #999999 !important;
+        font-size: 1rem;
+      }
+    }
   }
 
   .drug-sub-category {
@@ -139,6 +153,7 @@
     @media print {
       border: 1px solid black;
       width: 65% !important;
+      margin-left: 0;
     }
 
     > div {
@@ -293,7 +308,7 @@
     &.xs-table-contents {
       @media (max-width: 991px) {
         position: absolute;
-        top: 169px;
+        top: 189px;
         left: 45px;
         z-index: 1;
         min-width: 90.5%;
@@ -302,7 +317,7 @@
 
       @media (max-width: 767px) {
         position: absolute;
-        top: 160px;
+        top: 211px;
         left: 10px;
         z-index: 1;
         min-width: 96%;
