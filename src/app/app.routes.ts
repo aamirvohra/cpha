@@ -7,11 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { QueryComponent } from './query/query.component';
 import { QueryDetailComponent } from './query/detail/query-detail.component';
 import { QueryListComponent } from './query/list/query-list.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const ROUTES: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutUsComponent,
   },
   {
     path: 'query',
@@ -27,7 +32,7 @@ const ROUTES: Routes = [
       {
         path: 'detail',
         component: QueryDetailComponent,
-      },
+      }
     ]
 
   },

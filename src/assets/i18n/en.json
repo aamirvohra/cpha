@@ -1,4 +1,13 @@
 {
-	"Title": "What is Lorem Ipsum?",
-	"para": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktoppublishing software like Aldus PageMaker including versions of Lorem Ipsum."
+	"About": {
+		"AboutCPHA": "About the Canadian Pharmacists Association",
+		"AboutMeds": "About My Meds Canada",
+		"CPHADescription": "The Canadian Pharmacists Association (CPhA) is the national voluntary organization of pharmacistscommitted to advancing the health and well-being of Canadians through excellence in pharmacist care.CPhA is the trusted source of education, information, tools and resources to support safe and effectivemedication use and optimal drug therapy outcomes for pharmacists, physicians, nurses and other health care practitioners.CPhA is responsible for developing partnerships with key stakeholders and other health care providers to improve theavailability and quality of drug and therapeutic information at a national level,while addressing the challenges of providing optimal drug therapy to Canadians.",
+		"MyMedsDescription": "MyMedsCanada was developed to provide pharmacists and their patientswith access to current, Canadian drug information.",
+		"PageTitle": "About Us"
+	},
+	"Home": {
+		"Title": "What is Lorem Ipsum?",
+		"para": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktoppublishing software like Aldus PageMaker including versions of Lorem Ipsum."
+	}
 }
