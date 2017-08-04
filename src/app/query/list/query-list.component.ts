@@ -72,6 +72,7 @@ export class QueryListComponent implements OnInit {
         this.queryListTotalResult = data.totalCount;
         if (this.queryListTotalResult) {
           this.queryListResultData = data.results;
+          this.didYouMean = null;
         }
         else { // display no results found with did you mean
           this.queryListResultData = null;
