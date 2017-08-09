@@ -125,18 +125,18 @@ export class QueryDetailComponent implements OnInit {
       ($(parentNode).find('.nested-menu').addClass('collapsed'), $(parentNode).find('.fa').addClass('fa-arrow-right').removeClass('fa-arrow-down')) ;
   }
 
-  toggleHighlight() {
-    $('.MatchedText').each(
-      (int, el) => {
-        if ($(el).hasClass('removeHighlight')) {
-          $(el).removeClass('removeHighlight')
-        }
-        else {
-          $(el).addClass('removeHighlight')
-        }
-      }
-    )
-  }
+  // toggleHighlight() {
+  //   $('.MatchedText').each(
+  //     (int, el) => {
+  //       if ($(el).hasClass('removeHighlight')) {
+  //         $(el).removeClass('removeHighlight')
+  //       }
+  //       else {
+  //         $(el).addClass('removeHighlight')
+  //       }
+  //     }
+  //   )
+  // }
 
   print() {
     window.print();

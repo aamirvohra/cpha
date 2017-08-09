@@ -7,7 +7,7 @@
           TABLE OF CONTENTS
         </li>
         <ng-container *ngFor="let drugContent of drug.topLevelDrugContents; let i = index">
-          <li *ngIf="i > 0" class="list-content">
+          <li class="list-content">
             <button class="btn-link" (click)="anchorNavigation(drugContent.anchorIdReference)">{{drugContent.header}}</button>
           </li>
         </ng-container>
@@ -47,9 +47,9 @@
       </div>
 
       <div class="col-xs-4 col-xs-offset-4 col-sm-1 col-sm-offset-0 col-md-1 col-md-offset-3 action-list">
-        <button (click)="toggleHighlight()">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </button>
+        <!--<button (click)="toggleHighlight()">-->
+          <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+        <!--</button>-->
 
         <button class="hidden-xs hidden-sm" (click)="print()">
           <i class="fa fa-print" aria-hidden="true"></i>

@@ -9,4 +9,5 @@ export const environment = {
   API_PROTOCOL: 'http',
   API_ENDPOINT: 'localhost:8080',
   API_NAMESPACE: 'cpha-rest-ws',
+  STATIC_CONTENT_NAMESPACE: 'static',
 };

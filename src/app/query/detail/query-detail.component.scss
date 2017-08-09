@@ -209,13 +209,13 @@
         padding-top: 5px;
       }
 
-      .MatchedText {
-        background-color: yellow;
-
-        @media print {
-          color: inherit !important;
-        }
-      }
+      //.MatchedText {
+      //  background-color: yellow;
+      //
+      //  @media print {
+      //    color: inherit !important;
+      //  }
+      //}
 
       .removeHighlight {
         background-color: transparent;

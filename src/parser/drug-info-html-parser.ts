@@ -4,6 +4,8 @@
 
 import * as $ from 'jquery';
 import { BasicDrugInfo, Drug, DrugContents, SubCategoryDrug } from '../models/drug-info';
+import { AppConstants } from '../utils/app.constants';
+import { environment } from '../environments/environment';
 
 export class DrugInfoHtmlParser {
 
@@ -18,8 +20,11 @@ export class DrugInfoHtmlParser {
 
   private readonly DRUG_CONTENT_WRAPPER_CLASS = '.dita-topic .dita-nav-subtopics-ifp li';
   private readonly DRUG_CONTENT_NAVIGATOR_CLASS = 'a.navigator-section';
-  private readonly DRUG_NESTED_NAVIGATOR_CLASS = this.DRUG_CONTENT_NAVIGATOR_CLASS + ' span.MatchedText';
+  // private readonly DRUG_NESTED_NAVIGATOR_CLASS = this.DRUG_CONTENT_NAVIGATOR_CLASS + ' span.MatchedText';
+  private readonly DRUG_NESTED_NAVIGATOR_CLASS = this.DRUG_CONTENT_NAVIGATOR_CLASS;
   private readonly DRUG_SUBCATEGORY_IDENTIFIER = 'Information for the Patient:';
+
+  private readonly DRUG_IMAGE_CLASS = '.contentImg';
 
 
   private htmlData: any;
@@ -41,7 +46,52 @@ export class DrugInfoHtmlParser {
     drug.drugInfo = this.getBasicDrugInfo();
     drug.revisionDate = this.getElementText(this.REVISION_DATE);
 
+    this.resetLinks(drug);
+
     return drug;
+  }
+
+  public resetLinks(drug: Drug) {
+    const self = this;
+    drug.topLevelDrugContents.forEach(
+      function(drugContent: DrugContents) {
+        self.reset(drugContent.htmlElement);
+      }
+    )
+  }
+
+  public reset(el) {
+    // const elements = [];
+
+    $(el).find(this.DRUG_IMAGE_CLASS).each(
+      function() {
+        let srcURL;
+
+        if ($(this).attr('src').indexOf(AppConstants.ENGLISH_CODE) !== -1) {
+          srcURL = $(this).attr('src').substring($(this).attr('src').indexOf(AppConstants.ENGLISH_CODE));
+        }
+        else if ($(this).attr('src').indexOf(AppConstants.FRENCH_CODE) !== -1) {
+          srcURL = $(this).attr('src').substring($(this).attr('src').indexOf(AppConstants.FRENCH_CODE));
+        }
+
+        srcURL = environment.API_NAMESPACE + '/' + environment.STATIC_CONTENT_NAMESPACE + '/' + srcURL;
+
+        // $(this).attr('src', srcURL);
+        $(this)[0].attributes.src.nodeValue = srcURL;
+        // $(this).attr('src', function(index, element) {
+        //   console.log($(this));
+        //   element.replace($(this).attr('src'), srcURL);
+        // })
+        // elements.push({ replace: $(this).attr('src'), replaceWith: srcURL });
+      }
+    );
+
+    // elements.forEach( function(element) {
+    //   $(el).replace(element.replace, element.replaceWith);
+    //   console.log(el);
+    // });
+    //
+    // console.log(el);
   }
 
   hasSubCategories(): boolean {
@@ -128,77 +178,6 @@ export class DrugInfoHtmlParser {
     drugInfo.manufacturers = this.getElementText(this.MANUFACTURER, brandElement);
     return drugInfo;
   }
-
-  // parse() {
-  //   const drug = new Drug();
-  //   drug.cphaDrugId = $(this.htmlData).find('div[id^="cpha_"]').attr('id');
-
-    // const basicDrugInfo = this.parseDrugInfo();
-    // const drugsRecord = new DrugRecords();
-    // drugsRecord.cphaDrugId = $(this.htmlData).find('div[id^="cpha_"]').attr('id');
-    // drugsRecord.revisionDate = this.getElementText(this.REVISION_DATE);
-    // drugsRecord.records = this.parseDrugRecords();
-    // drugsRecord.contents = this.parseDrugContent();
-
-    // return drugsRecord;
-    // console.log(drugsRecord);
-    // const drugInfo = this.parseDrugInfo();
-    // drugInfo.contents = this.parseDrugContent();
-    // return drugInfo;
-  // }
-
-  // parseDrugRecords(): Array<DrugInfo> {
-  //   const record: Array<DrugInfo> = [];
-  //   const self = this;
-  //   // loop through all brands and collect the basic info
-  //   $(this.htmlData).find(this.DRUG_BRAND_INFO_WRAPPER_CLASS).each(
-  //     function() {
-  //       record.push(self.parseDrugInfo(this));
-  //     }
-  //   );
-  //
-  //   return record;
-  // }
-
-  // parseDrugInfo(): DrugInfo {
-  //   const drugInfo = new DrugInfo();
-  //   drugInfo.cphaDrugId = $(this.htmlData).find('div[id^="cpha_"]').attr('id');
-  //   drugInfo.brandName = this.getElementText(this.DRUG_BRAND_INFO_WRAPPER_CLASS + this.SPACER + this.DRUG_BRAND_NAME);
-  //   drugInfo.genericName = this.getElementText(this.DRUG_BRAND_INFO_WRAPPER_CLASS + this.SPACER + this.DRUG_GENERIC_NAME);
-  //   drugInfo.therapeuticClass = this.getElementText(this.DRUG_BRAND_INFO_WRAPPER_CLASS + this.SPACER + this.DRUG_THERAPEUTIC_CLASS);
-  //   drugInfo.manufacturers = this.getElementText(this.DRUG_BRAND_INFO_WRAPPER_CLASS + this.SPACER + this.MANUFACTURER);
-  //   drugInfo.revisionDate = this.getElementText(this.REVISION_DATE);
-  //
-  //   return drugInfo;
-  // }
-
-
-  // parseDrugContent(): Array<DrugInfoContents> {
-  //   const arrayContents: Array<DrugInfoContents> = [];
-  //   const self = this;
-  //   $(this.htmlData).find(this.DRUG_CONTENT_WRAPPER_CLASS).each(
-  //     function() {
-  //       const drugContents = new DrugInfoContents();
-  //
-  //       drugContents.text = $(this).find(
-  //         self.DRUG_CONTENT_NAVIGATOR_CLASS).text().trim();
-  //
-  //       drugContents.anchorId = $(this).find(
-  //         self.DRUG_CONTENT_NAVIGATOR_CLASS).attr('href');
-  //
-  //       // add fragment for navigation
-  //       // $(self.htmlData).find(
-  //       //   drugContents.anchorId).attr('name', drugContents.anchorId.replace('#', ''));
-  //
-  //       drugContents.htmlElement = $(self.htmlData).find(
-  //         drugContents.anchorId).prop('outerHTML');
-  //
-  //       arrayContents.push(drugContents);
-  //     }
-  //   );
-  //
-  //   return arrayContents;
-  // }
 
   private getElementText(classString: string, element?) {
     return this.elementFinder(classString, element).text().trim();
