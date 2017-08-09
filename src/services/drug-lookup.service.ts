@@ -58,21 +58,21 @@ export class DrugLookupService {
       url: APIURLRepo.API_DOCUMENTS_URL + '/' + docLocatorPath
     });
 
-    // return this.apiGateway.request(req).map(
-    //   data => {
-    //     if (data.headers['Status-Code'] !== '404') {
-    //       const parser = new DrugInfoHtmlParser(data.payload);
-    //       return parser.parse();
-    //   }
-    // });
-
-    return Observable.create(
-      obs => {
-        const parser = new DrugInfoHtmlParser(multiDrugInfo);
-        // const parser = new DrugInfoHtmlParser(htmlData);
-        return obs.next(parser.parse())
+    return this.apiGateway.request(req).map(
+      data => {
+        if (data.headers['Status-Code'] !== '404') {
+          const parser = new DrugInfoHtmlParser(data.payload);
+          return parser.parse();
       }
-    )
+    });
+
+    // return Observable.create(
+    //   obs => {
+    //     const parser = new DrugInfoHtmlParser(multiDrugInfo);
+    //     // const parser = new DrugInfoHtmlParser(htmlData);
+    //     return obs.next(parser.parse())
+    //   }
+    // )
   }
 
   public getListInfo(query: string, sortBy: sort, pageNumber?: number) {
