@@ -14,6 +14,8 @@ export class APIURLRepo {
 
   public static readonly API_DOCUMENTS_NAMESPACE: string = 'documents';
 
+  public static readonly STATIC_CONTENT_NAMESPACE: string = 'static';
+
   public static readonly API_DOCUMENT_URL: string = APIURLRepo.API_PROTOCOL + '://' +
     APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENT_NAMESPACE ;
 
@@ -26,5 +28,8 @@ export class APIURLRepo {
 
   public static readonly EXACT_DRUG_LOOK_UP: string = APIURLRepo.API_PROTOCOL + '://' +
     APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENTS_NAMESPACE ;
+
+  public static readonly RESOURCE_URL = APIURLRepo.API_PROTOCOL + '://' +
+    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.STATIC_CONTENT_NAMESPACE
 
 }

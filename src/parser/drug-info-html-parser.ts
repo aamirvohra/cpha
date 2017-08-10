@@ -5,7 +5,7 @@
 import * as $ from 'jquery';
 import { BasicDrugInfo, Drug, DrugContents, SubCategoryDrug } from '../models/drug-info';
 import { AppConstants } from '../utils/app.constants';
-import { environment } from '../environments/environment';
+import { APIURLRepo } from '../config/api-url.repo';
 
 export class DrugInfoHtmlParser {
 
@@ -31,7 +31,7 @@ export class DrugInfoHtmlParser {
 
   constructor(data: string) {
     const parser = new DOMParser();
-    this.htmlData = parser.parseFromString(data, 'text/html');
+    this.htmlData = parser.parseFromString(this.resetLinks(data), 'text/html');
   }
 
   parse() {
@@ -46,24 +46,13 @@ export class DrugInfoHtmlParser {
     drug.drugInfo = this.getBasicDrugInfo();
     drug.revisionDate = this.getElementText(this.REVISION_DATE);
 
-    this.resetLinks(drug);
-
     return drug;
   }
 
-  public resetLinks(drug: Drug) {
-    const self = this;
-    drug.topLevelDrugContents.forEach(
-      function(drugContent: DrugContents) {
-        self.reset(drugContent.htmlElement);
-      }
-    )
-  }
+  public resetLinks(data: string) {
+    const links = [];
 
-  public reset(el) {
-    // const elements = [];
-
-    $(el).find(this.DRUG_IMAGE_CLASS).each(
+    $(data).find(this.DRUG_IMAGE_CLASS).each(
       function() {
         let srcURL;
 
@@ -74,24 +63,20 @@ export class DrugInfoHtmlParser {
           srcURL = $(this).attr('src').substring($(this).attr('src').indexOf(AppConstants.FRENCH_CODE));
         }
 
-        srcURL = environment.API_NAMESPACE + '/' + environment.STATIC_CONTENT_NAMESPACE + '/' + srcURL;
-
-        // $(this).attr('src', srcURL);
-        $(this)[0].attributes.src.nodeValue = srcURL;
-        // $(this).attr('src', function(index, element) {
-        //   console.log($(this));
-        //   element.replace($(this).attr('src'), srcURL);
-        // })
-        // elements.push({ replace: $(this).attr('src'), replaceWith: srcURL });
+        srcURL = APIURLRepo.RESOURCE_URL + '/' + srcURL;
+        links.push({ replace: $(this).attr('src'), replaceWith: srcURL });
+        // links.push({ replace: $(this).prop('outerHTML'), replaceWith: '<img class="dita-image contentImg" src="' + srcURL + '">' });
       }
     );
 
-    // elements.forEach( function(element) {
-    //   $(el).replace(element.replace, element.replaceWith);
-    //   console.log(el);
-    // });
-    //
-    // console.log(el);
+    links.forEach(
+      function(link) {
+        // data = data.replace(link.replace, link.replaceWith);
+        data = data.replace(link.replace, link.replaceWith);
+      }
+    );
+
+    return data;
   }
 
   hasSubCategories(): boolean {
