@@ -57,9 +57,11 @@ export class QueryDetailComponent implements OnInit {
       data => {
         this.drug = data;
 
-        if (fragmentId) {
-          this.anchorNavigation(fragmentId);
-        }
+        setTimeout( () => {
+          if (fragmentId) {
+            this.anchorNavigation(fragmentId);
+          }
+        }, 100);
       }
     )
   }
@@ -70,6 +72,7 @@ export class QueryDetailComponent implements OnInit {
     this.hideTableOfContents();
 
     const element = document.querySelector(fragmentId);
+
     if (element) {
       element.scrollIntoView(element)
     }
