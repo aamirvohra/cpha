@@ -9,6 +9,7 @@ import { QueryDetailComponent } from './query/detail/query-detail.component';
 import { QueryListComponent } from './query/list/query-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 const ROUTES: Routes = [
   {
@@ -22,6 +23,10 @@ const ROUTES: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent,
   },
   {
     path: 'query',

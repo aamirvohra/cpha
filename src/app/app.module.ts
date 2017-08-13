@@ -26,6 +26,7 @@ import { ApiGateway } from '../services/api.gateway';
 import { ResultNotFoundComponent } from './result-not-found/result-not-found.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -47,6 +48,7 @@ export function FSLoaderFactory() {
     ResultNotFoundComponent,
     AboutUsComponent,
     ContactComponent,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,
