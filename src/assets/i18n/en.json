@@ -12,7 +12,7 @@
 	},
 	"Contact": {
 		"ContactDescription": "MyMedsCanada.ca is managed and maintained by the Canadian Pharmacists Association (CPhA). For technical support and product feedback contact us by selecting one of the following methods.",
-		"ContactInfo": "<b>Tel.</b>: Toll free 1-800-917-9489, outside of Canada 1-613-523-7877 <br><b>Email</b>: support@pharmacists.ca Website: Provide comments using the feedback form <br><b>Fax</b>: Toll free 1-800-601-1904, outside of Canada 1-613-523-0445",
+		"ContactInfo": "<b>Tel.</b>: Toll free <a href='tel:1-800-917-9489'>1-800-917-9489</a>, outside of Canada <a href='tel:1-613-523-7877'>1-613-523-7877</a> <br><b>Email</b>: <a href='mailto:support@pharmacists.ca'>support@pharmacists.ca</a> Website: Provide comments using the feedback form <br><b>Fax</b>: Toll free 1-800-601-1904, outside of Canada 1-613-523-0445",
 		"ContactMethod": "<b>Customer Service</b>: Weekdays, 8:30 am to 4:30 pm ET (excluding statutory holidays). Website communications, email and voicemail sent outside the hours of operation will be reviewed the next business day. <b>NOTE: We do not give medical advice, nor do we provide medical or diagnostic services.</b>",
 		"MailingAddress": "<b>Mail</b>: <br> Canadian Pharmacists Association <br> Attn: Customer Service <br> 1785 Alta Vista Drive <br> Ottawa, ON  K1G 3Y6 <br> CANADA",
 		"PageTitle": "Contact Us"
