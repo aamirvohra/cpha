@@ -4,6 +4,7 @@
 
 
 import { URLSearchParams } from '@angular/http';
+import { LocalStorage } from '../utils/local-storage';
 
 export type sort = 'RELEVANCE' | 'ALPHABETICAL'
 
@@ -13,6 +14,7 @@ export interface DrugLookupInterface {
   start: string;
   limit: string;
   sortBy: sort;
+  locale: string;
 }
 
 export class DrugLookup implements DrugLookupInterface {
@@ -21,6 +23,7 @@ export class DrugLookup implements DrugLookupInterface {
   start: string;
   limit: string;
   sortBy: sort;
+  locale: string;
 
 
   static getLookupQueryParams(queryObj: DrugLookup): URLSearchParams {
@@ -32,6 +35,7 @@ export class DrugLookup implements DrugLookupInterface {
     urlParams.set('start', queryObj.start ? queryObj.start : '0');
     urlParams.set('limit', queryObj.limit ? queryObj.limit : '25');
     urlParams.set('sortBy', queryObj.sortBy ? queryObj.sortBy : 'RELEVANCE');
+    urlParams.set('locale', LocalStorage.getPreferredLang());
 
     return urlParams;
   }

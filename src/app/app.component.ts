@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConstants, SupportedLanguages } from '../utils/app.constants';
 import { LocalStorage } from '../utils/local-storage';
@@ -10,17 +10,31 @@ import { LocalStorage } from '../utils/local-storage';
   encapsulation: ViewEncapsulation.None
 
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
 
   protected mobileSidebarVisiblity: boolean;
 
   constructor(private translateService: TranslateService,
               private localStorage: LocalStorage) {
-    this.translateService.setDefaultLang(AppConstants.getLanguageCode(SupportedLanguages.ENGLISH));
+
+    if (!LocalStorage.getPreferredLang()) {
+      this.translateService.setDefaultLang(AppConstants.getLanguageCode(SupportedLanguages.ENGLISH));
+      localStorage.setPreferredLang(this.translateService.getDefaultLang());
+    }
 
     this.translateService.use(this.localStorage.preferredLang.getValue());
+
+
     this.mobileSidebarVisiblity = false;
+  }
+
+  ngOnInit() {
+    this.translateService.onLangChange.subscribe(
+      () => {
+        location.reload();
+      }
+    )
   }
 
   public toggleMobileSidebarVisiblity(value) {
@@ -32,7 +46,7 @@ export class AppComponent {
   }
 
 
-  routerOutlerClick() {
+  routerOutletClick() {
     if (this.mobileSidebarVisiblity) {
       this.mobileSidebarVisiblity = false;
     }

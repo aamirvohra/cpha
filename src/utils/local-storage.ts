@@ -12,6 +12,10 @@ export class LocalStorage {
 
   public preferredLang: BehaviorSubject<string>;
 
+  public static getPreferredLang() {
+    return localStorage.getItem(LocalStorage.PREFERRED_LANG);
+  }
+
   constructor() {
     this.preferredLang = new BehaviorSubject(localStorage.getItem(LocalStorage.PREFERRED_LANG));
   }

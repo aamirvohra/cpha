@@ -17,19 +17,18 @@ export class APIURLRepo {
   public static readonly STATIC_CONTENT_NAMESPACE: string = 'static';
 
   public static readonly API_DOCUMENT_URL: string = APIURLRepo.API_PROTOCOL + '://' +
-    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENT_NAMESPACE ;
+    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENT_NAMESPACE;
 
   public static readonly API_DOCUMENTS_URL: string = APIURLRepo.API_PROTOCOL + '://' +
-    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENTS_NAMESPACE ;
+    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENTS_NAMESPACE;
 
   public static readonly LOOK_UP_URL: string = APIURLRepo.API_DOCUMENT_URL + '/search';
 
   public static readonly AUTOCOMPLETE_LOOK_UP_URL: string = APIURLRepo.LOOK_UP_URL + '/autocomplete';
 
   public static readonly EXACT_DRUG_LOOK_UP: string = APIURLRepo.API_PROTOCOL + '://' +
-    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENTS_NAMESPACE ;
+    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.API_DOCUMENTS_NAMESPACE;
 
   public static readonly RESOURCE_URL = APIURLRepo.API_PROTOCOL + '://' +
-    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.STATIC_CONTENT_NAMESPACE
-
+    APIURLRepo.API_DOMAIN_ENDPOINT + '/' + APIURLRepo.STATIC_CONTENT_NAMESPACE;
 }

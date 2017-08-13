@@ -4,8 +4,9 @@
 
 import * as $ from 'jquery';
 import { BasicDrugInfo, Drug, DrugContents, SubCategoryDrug } from '../models/drug-info';
-import { AppConstants } from '../utils/app.constants';
+import { AppConstants, SupportedLanguages } from '../utils/app.constants';
 import { APIURLRepo } from '../config/api-url.repo';
+import { LocalStorage } from '../utils/local-storage';
 
 export class DrugInfoHtmlParser {
 
@@ -22,7 +23,9 @@ export class DrugInfoHtmlParser {
   private readonly DRUG_CONTENT_NAVIGATOR_CLASS = 'a.navigator-section';
   // private readonly DRUG_NESTED_NAVIGATOR_CLASS = this.DRUG_CONTENT_NAVIGATOR_CLASS + ' span.MatchedText';
   private readonly DRUG_NESTED_NAVIGATOR_CLASS = this.DRUG_CONTENT_NAVIGATOR_CLASS;
-  private readonly DRUG_SUBCATEGORY_IDENTIFIER = 'Information for the Patient:';
+  private DRUG_SUBCATEGORY_IDENTIFIER: string = '';
+  private readonly DRUG_SUBCATEGORY_IDENTIFIER_EN = 'Information for the Patient:';
+  private readonly DRUG_SUBCATEGORY_IDENTIFIER_FR = 'Renseignements pour les patients sur les médicaments :';
 
   private readonly DRUG_IMAGE_CLASS = '.contentImg';
 
@@ -30,6 +33,15 @@ export class DrugInfoHtmlParser {
   private htmlData: any;
 
   constructor(data: string) {
+    const preferredLang = LocalStorage.getPreferredLang();
+
+    if (preferredLang === SupportedLanguages.FRENCH.toString()) {
+      this.DRUG_SUBCATEGORY_IDENTIFIER = this.DRUG_SUBCATEGORY_IDENTIFIER_FR;
+    }
+    else {
+      this.DRUG_SUBCATEGORY_IDENTIFIER = this.DRUG_SUBCATEGORY_IDENTIFIER_EN;
+    }
+
     const parser = new DOMParser();
     this.htmlData = parser.parseFromString(this.resetLinks(data), 'text/html');
   }

@@ -3,7 +3,7 @@ import { APIURLRepo } from '../config/api-url.repo';
 import data from '../test.json';
 import { Observable } from 'rxjs/Observable';
 import htmlData from '../test.html';
-import multiDrugInfo from '../test2.html';
+import multiDrugInfo from '../test3_fr.html';
 import suggestionData from '../suggestion-search-response.json';
 import { DrugInfoHtmlParser } from '../parser/drug-info-html-parser';
 import { ApiGateway } from './api.gateway';
