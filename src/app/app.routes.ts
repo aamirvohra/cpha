@@ -10,6 +10,7 @@ import { QueryListComponent } from './query/list/query-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { PoliciesAndPermissionsComponent } from './policies-and-permissions/policies-and-permissions.component';
 
 const ROUTES: Routes = [
   {
@@ -27,6 +28,10 @@ const ROUTES: Routes = [
   {
     path: 'privacy',
     component: PrivacyComponent,
+  },
+  {
+    path: 'policies-permissions',
+    component: PoliciesAndPermissionsComponent,
   },
   {
     path: 'query',

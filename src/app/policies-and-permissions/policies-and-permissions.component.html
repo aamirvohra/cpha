@@ -1,0 +1,56 @@
+<div class="row static-page-wrapper policy-wrapper">
+  <div class="col-md-offset-1 col-md-10 col-sm-12">
+    <div>
+      <h1>{{ 'Policies.PageTitle' | translate }}</h1>
+    </div>
+
+    <div class="copyrightPermissions">
+      <h3>{{ 'Policies.CopyrightTitle' | translate }}</h3>
+
+      <div>
+        {{ 'Policies.CopyrightContent' | translate }}
+      </div>
+    </div>
+
+    <div class="contentUse">
+      <h3>{{ 'Policies.ContentUseTitle' | translate }}</h3>
+
+      <div>
+        <p>
+          {{ 'Policies.ContentUseContent_Para1' | translate }}
+        </p>
+
+        <p>
+          {{ 'Policies.ContentUseContent_Para2' | translate }}
+        </p>
+      </div>
+    </div>
+
+    <div class="trademarks">
+      <h3>{{ 'Policies.TrademarksTitle' | translate }}</h3>
+
+      <div>
+        {{ 'Policies.TrademarksContent' | translate }}
+      </div>
+    </div>
+
+    <div class="WhenToAskPermission">
+      <h3>{{ 'Policies.WhenToAskPermissionTitle' | translate }}</h3>
+
+      <div>
+        <p [innerHtml]="'Policies.WhenToAskPermissionContent_Para1' | translate"></p>
+        <p [innerHtml]="'Policies.WhenToAskPermissionContent_Para2' | translate"></p>
+      </div>
+    </div>
+
+    <div class="permissionRequests">
+      <h3>{{ 'Policies.PermissionRequestsTitle' | translate }}</h3>
+
+      <div>
+        <p [innerHtml]="'Policies.PermissionRequestsContent_Para1' | translate"></p>
+        <p [innerHtml]="'Policies.PermissionRequestsContent_Para2' | translate"></p>
+      </div>
+    </div>
+
+  </div>
+</div>

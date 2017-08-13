@@ -21,6 +21,22 @@
 		"Title": "What is Lorem Ipsum?",
 		"para": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktoppublishing software like Aldus PageMaker including versions of Lorem Ipsum."
 	},
+	"Policies": {
+		"ContentUseContent_Para1": "CPhA authorizes you to view and print a single copy of the material solely for your personal, noncommercial use. Title to the Content remains with CPhA or its licensors. Any use of the Content not expressly permitted by the Terms and Conditions is a breach of these Terms and Conditions and may violate copyright, trademark, and other laws. Content and features are subject to change or termination without notice in the editorial discretion of CPhA. All rights not expressly granted herein are reserved to CPhA and its licensors",
+		"ContentUseContent_Para2": "If you violate any of these Terms and Conditions, your permission to use the Content automatically terminates and you must immediately destroy any copies you have made of any portion of the Content.",
+		"ContentUseTitle": "Use of Content",
+		"CopyrightContent": "All text, data on file, documentation and software contained in this site are the property of the Canadian Pharmacists Association (CPhA) and subject to Canadian copyright and intellectual property laws. Reproduction, adaptation, storage, translation or retransmission of any part without expressed permission is prohibited. Limited excerpts may be used for personal use only, provided our copyright notice appears with the material in each instance.",
+		"CopyrightTitle": "Copyright and Permissions",
+		"PageTitle": "Policies and Permissions",
+		"TrademarksContent": "The names \"Canadian Pharmacists Association\" (CPhA), \"Association des pharmaciens du Canada\", (APhC), MyMedsCanada, MesMédicamentsCanadiens and its logos are trademarks of the Canadian Pharmacists Association. These marks may not be used without the express written permission of CPhA.",
+		"TrademarksTitle": "Trademarks",
+		"PermissionRequestsContent_Para1": "To request permission to use CPhA material, complete the Permission Request form (en français) and return it by email to <a href=\"mailto:permissions@pharmacists.ca\">permissions@pharmacists.ca</a>.",
+		"PermissionRequestsContent_Para2": "For inquiries on the use of the Permission Request form, email: <a href=\"mailto:permissions@pharmacists.ca\">permissions@pharmacists.ca</a>.",
+		"PermissionRequestsTitle": "Permission Requests",
+		"WhenToAskPermissionContent_Para1": "All of CPhA’s content, in print and digital, is protected by copyright law.  If you are using a small amount of CPhA content for research, private study, education, parody, satire, criticism, review or news reporting, and your use is fair (e.g., not for profit), then you do not require permission but you must attribute the source (reference it).",
+		"WhenToAskPermissionContent_Para2": "If you are using CPhA content for any other purpose, whether in print or digital, you must ask permission as well as attribute the source.  Email us your request at <a href=\"mailto:permissions@pharmacists.ca\">permissions@pharmacists.ca</a>.",
+		"WhenToAskPermissionTitle": "When to Ask Permission"
+	},
 	"Privacy": {
 		"BrowserInfo": "Browser version and operating system;",
 		"Clicks": "Click-throughs;",

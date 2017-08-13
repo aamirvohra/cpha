@@ -27,6 +27,7 @@ import { ResultNotFoundComponent } from './result-not-found/result-not-found.com
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { PoliciesAndPermissionsComponent } from './policies-and-permissions/policies-and-permissions.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -49,6 +50,7 @@ export function FSLoaderFactory() {
     AboutUsComponent,
     ContactComponent,
     PrivacyComponent,
+    PoliciesAndPermissionsComponent,
   ],
   imports: [
     BrowserModule,
