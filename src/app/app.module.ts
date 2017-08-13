@@ -28,6 +28,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { PoliciesAndPermissionsComponent } from './policies-and-permissions/policies-and-permissions.component';
+import { FaqComponent } from './faq/faq.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -51,6 +52,7 @@ export function FSLoaderFactory() {
     ContactComponent,
     PrivacyComponent,
     PoliciesAndPermissionsComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,

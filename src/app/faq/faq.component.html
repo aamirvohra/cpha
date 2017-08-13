@@ -1,0 +1,105 @@
+<div class="row static-page-wrapper faq-wrapper">
+  <div class="col-md-offset-1 col-md-10 col-sm-12">
+    <div>
+      <h1>{{ 'Faq.Title' | translate }}</h1>
+    </div>
+
+    <div class="faq-list-wrapper">
+      <ol>
+        <li>
+          <b>{{ 'Faq.Search' | translate }}</b>
+          <div>
+            {{ 'Faq.SearchAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.NotFoundMedication' | translate }}</b>
+          <div [innerHtml]="'Faq.NotFoundMedicationAnswers' | translate | safeHtml">
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.ManySearch' | translate }}</b>
+          <div>
+            {{ 'Faq.ManySearchAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.IFP' | translate }}</b>
+          <div [innerHtml]="'Faq.IFPAnswers' | translate | safeHtml">
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.IFPMany' | translate }}</b>
+          <div>
+            {{ 'Faq.IFPManyAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.IFPQuestions' | translate }}</b>
+          <div>
+            {{ 'Faq.IFPQuestionsAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.InformationSource' | translate }}</b>
+          <div>
+            {{ 'Faq.InformationSourceAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.MoreInfo' | translate }}</b>
+          <div>
+            {{ 'Faq.MoreInfoAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.Print' | translate }}</b>
+          <div>
+            {{ 'Faq.PrintAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.Track' | translate }}</b>
+          <div>
+            {{ 'Faq.TrackAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.WebsiteCreator' | translate }}</b>
+          <div>
+            {{ 'Faq.WebsiteCreatorAnswers' | translate }}
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.Contact' | translate }}</b>
+          <div [innerHtml]="'Faq.ContactAnswers' | translate | safeHtml">
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.ContentUpdated' | translate }}</b>
+          <div [innerHtml]="'Faq.ContentUpdatedAnswers' | translate | safeHtml">
+          </div>
+        </li>
+
+        <li>
+          <b>{{ 'Faq.DifferenceBetweenMyMedsAndCPS' | translate }}</b>
+          <div>
+            {{ 'Faq.DifferenceBetweenMyMedsAndCPSAnswers' | translate }}
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { PoliciesAndPermissionsComponent } from './policies-and-permissions/policies-and-permissions.component';
+import { FaqComponent } from './faq/faq.component';
 
 const ROUTES: Routes = [
   {
@@ -32,6 +33,10 @@ const ROUTES: Routes = [
   {
     path: 'policies-permissions',
     component: PoliciesAndPermissionsComponent,
+  },
+  {
+    path: 'faq',
+    component: FaqComponent,
   },
   {
     path: 'query',
