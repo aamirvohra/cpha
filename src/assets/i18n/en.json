@@ -55,6 +55,13 @@
 		"WebsiteCreator": "Who created/maintains MyMedsCanada.ca?",
 		"WebsiteCreatorAnswers": "This site was created and is maintained by the Canadian Pharmacists Association (CPhA)."
 	},
+	"Feedback": {
+		"Content_Para1": "Use the form below to send us a comment on MyMedsCanada.ca, or to inform us of a problem.   When you have completed the form, click on the Submit button.",
+		"Content_Para2": "Customer Service is available Monday to Friday from 8:30am to 4:30pm EST.   Please note that the Customer Service desk is closed on weekends and statutory holidays.   Requests sent outside the hours of operation will be reviewed the next business day.",
+		"Content_Para3": "Help is also available in our FAQ by clicking on the Help button at the top of the page.",
+		"Content_Para4": "<b>Note:  THIS SITE DOES NOT PROVIDE MEDCIAL ADVICE</b>.  The content on this site is for education and information purposes only.  CPhA makes every effort to keep the content current.  It does not warrant the accuracy, completeness or timeliness of the information. For more detailed drug information, please visit the manufacturers’ site.  NOTE: Information may be changed or updated without notice. MyMedsCanada.ca may also make improvements and/or changes in the products and/or services described in this information at any time without notice.",
+		"Title": "Feedback"
+	},
 	"Home": {
 		"Title": "What is Lorem Ipsum?",
 		"para": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktoppublishing software like Aldus PageMaker including versions of Lorem Ipsum."

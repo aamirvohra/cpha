@@ -30,6 +30,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { PoliciesAndPermissionsComponent } from './policies-and-permissions/policies-and-permissions.component';
 import { FaqComponent } from './faq/faq.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -55,6 +56,7 @@ export function FSLoaderFactory() {
     PoliciesAndPermissionsComponent,
     FaqComponent,
     DisclaimerComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
