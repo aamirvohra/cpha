@@ -17,6 +17,13 @@
 		"MailingAddress": "",
 		"PageTitle": ""
 	},
+	"Disclaimer": {
+		"MedicalAdviceContent": "",
+		"MedicalDisclaimersContent_Para1": "",
+		"MedicalDisclaimersContent_Para2": "",
+		"MedicalDisclaimersTitle": "",
+		"Title": ""
+	},
 	"Faq": {
 		"Contact": "",
 		"ContactAnswers": "",

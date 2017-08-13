@@ -17,15 +17,22 @@
 		"MailingAddress": "<b>Mail</b>: <br> Canadian Pharmacists Association <br> Attn: Customer Service <br> 1785 Alta Vista Drive <br> Ottawa, ON  K1G 3Y6 <br> CANADA",
 		"PageTitle": "Contact Us"
 	},
+	"Disclaimer": {
+		"MedicalAdviceContent": "<b>THE SITE DOES NOT PROVIDE MEDICAL ADVICE</b>. The content on this site is for education and information purposes only. CPhA makes every effort to keep the content current. It does not warrant the accuracy, completeness or timeliness of the information. For more detailed drug information, please visit the manufacturers’ site. NOTE: Information may be changed or updated without notice. MyMedsCanada.ca may also make improvements and/or changes in the products and/or services described in this information at any time without notice.",
+		"MedicalDisclaimersContent_Para1": "The information on this site is for Canadian audiences only. MyMedsCanada.ca is designed to offer you Health Canada-approved information for general educational purposes only, and should always be discussed with your doctor or other qualified health care professional before being acted on. Never disregard any advice given to you by your doctor or other qualified health care professional. Always seek the advice of a doctor or other licensed health care professional regarding any questions you have about your medical condition(s) and treatment(s). This content is not a substitute for medical advice.",
+		"MedicalDisclaimersContent_Para2": "Neither CPhA, MyMedsCanada.ca nor the content providers (e.g., manufacturers), make any representation concerning the content when used in any other country. While information on this site has been obtained from sources believed to be reliable, neither we nor the content providers warrant the accuracy of content, or other data of any nature contained on this website. We do not give medical advice, nor do we provide medical or diagnostic services. Neither we nor the content providers guarantee that the content on this website covers all possible uses, directions, precautions, drug interactions, or adverse effects that may be associated with any therapeutic treatment.",
+		"MedicalDisclaimersTitle": "Medical Disclaimers",
+		"Title": "Disclaimer"
+	},
 	"Faq": {
 		"Contact": "Can I contact CPhA?",
-		"ContactAnswers": "Yes. Please refer to the <a href='\/contact'>Contact Us</a> page.",
+		"ContactAnswers": "Yes. Please refer to the <a href='/contact'>Contact Us</a> page.",
 		"ContentUpdated": " How often is the content on this site updated?",
 		"ContentUpdatedAnswers": "Content is updated weekly. Information for the Patient monographs are added or updated as they become available. ",
 		"DifferenceBetweenMyMedsAndCPS": "What is the difference between MyMedsCanada.ca and CPS?",
 		"DifferenceBetweenMyMedsAndCPSAnswers": "The Compendium of Pharmaceuticals and Specialties (CPS) web app has drug product monographs for health care professionals. MyMedsCanada.ca contains only the part of the product monograph that is intended for patients.",
 		"IFP": "What is an Information for the Patient monograph?",
-		"IFPAnswers": "The Information for the Patient (IFP) monograph tells people how to use the drug safely and effectively. For more details please see the <a href='\/about'>About</a. page.",
+		"IFPAnswers": "The Information for the Patient (IFP) monograph tells people how to use the drug safely and effectively. For more details please see the <a href='/about'>About</a. page.",
 		"IFPMany": " Why are there so many medication names listed in an Information for the Patient monograph?",
 		"IFPManyAnswers": "Drug manufacturers sometimes group several drug products together in one monograph if there is a lot of information that is the same for multiple drug products.",
 		"IFPQuestions": "I have questions about what it says about my medication in the IFP. Who should I talk to?",

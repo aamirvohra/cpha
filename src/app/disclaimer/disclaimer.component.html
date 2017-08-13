@@ -1,0 +1,26 @@
+<div class="row static-page-wrapper disclaimer-wrapper">
+  <div class="col-md-offset-1 col-md-10 col-sm-12">
+    <div>
+      <h1>{{ 'Disclaimer.Title' | translate }}</h1>
+    </div>
+
+    <div>
+      <div [innerHtml]="'Disclaimer.MedicalAdviceContent' | translate">
+      </div>
+    </div>
+
+    <div>
+      <h3>{{ 'Disclaimer.MedicalDisclaimersTitle' | translate }}</h3>
+      <div>
+        <p>
+          {{ 'Disclaimer.MedicalDisclaimersContent_Para1' | translate }}
+        </p>
+
+        <p>
+          {{ 'Disclaimer.MedicalDisclaimersContent_Para2' | translate }}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
