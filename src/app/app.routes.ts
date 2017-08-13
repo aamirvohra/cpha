@@ -8,6 +8,7 @@ import { QueryComponent } from './query/query.component';
 import { QueryDetailComponent } from './query/detail/query-detail.component';
 import { QueryListComponent } from './query/list/query-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
 
 const ROUTES: Routes = [
   {
@@ -17,6 +18,10 @@ const ROUTES: Routes = [
   {
     path: 'about',
     component: AboutUsComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: 'query',

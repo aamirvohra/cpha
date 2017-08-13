@@ -25,6 +25,7 @@ import { LocalStorage } from '../utils/local-storage';
 import { ApiGateway } from '../services/api.gateway';
 import { ResultNotFoundComponent } from './result-not-found/result-not-found.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -45,6 +46,7 @@ export function FSLoaderFactory() {
     SafeHtml,
     ResultNotFoundComponent,
     AboutUsComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
