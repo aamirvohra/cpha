@@ -237,6 +237,54 @@
       .maintitle {
         font-weight: bold;
       }
+
+      .dita-table {
+
+        thead {
+          background-color: #A3BBF0;
+
+          tr {
+            @media print {
+              border: 1px dotted white !important;
+            }
+
+            th {
+              text-align: center;
+              border-right: 1px solid white;
+              padding: 8px 5px;
+
+              @media print {
+                border: 1px dotted white !important;
+              }
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            border: 1px dotted white;
+
+            @media print {
+              border: 1px dotted white !important;
+            }
+
+            td {
+              padding: 8px 5px;
+              border-right: 1px solid white;
+              background-color: #C0C0C0;
+            }
+          }
+        }
+      }
+
+      .dita-note {
+        border: 2px solid black;
+        padding: 10px;
+
+        .warningtitle {
+          font-weight: bold;
+        }
+      }
     }
   }
 
