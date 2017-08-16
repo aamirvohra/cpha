@@ -1,6 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as $ from 'jquery';
+import { LocalStorage } from '../../utils/local-storage';
+import { AppConstants } from '../../utils/app.constants';
 
 const windowObject = window;
 
@@ -30,6 +32,10 @@ export class HeaderComponent implements OnInit {
 
   private lastScrollPos: number;
 
+  private readonly assets: string = 'assets';
+
+  protected logoURL: string;
+
   // fixed header only for query detail page
   // and mobile viewport
   // protected fixedHeader: boolean;
@@ -41,6 +47,9 @@ export class HeaderComponent implements OnInit {
     this.isSearchVisible = true;
     this.lightHeader = false;
     this.lastScrollPos = 0;
+
+    this.logoURL = LocalStorage.getPreferredLang() === AppConstants.ENGLISH_CODE ?
+      this.assets + '/my-meds-logo.jpg' : this.assets + '/my-meds-logo_fr.jpg';
   }
 
   ngOnInit() {
