@@ -199,6 +199,12 @@
       color: #000000;
       line-height: 1.4em;
 
+      .contentImg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
       h3 {
         font-size: 1.286rem;
         padding-top: 5px;
