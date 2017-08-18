@@ -244,8 +244,16 @@
         font-weight: bold;
       }
 
-      .dita-table {
+      .scrollable-container {
+        max-height: 400px;
+        overflow: auto;
 
+        @media print {
+          max-height: none;
+        }
+      }
+
+      .dita-table {
         thead {
           background-color: #A3BBF0;
           color: white;
