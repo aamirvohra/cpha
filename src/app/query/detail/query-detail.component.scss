@@ -242,10 +242,11 @@
 
         thead {
           background-color: #A3BBF0;
+          color: white;
 
           tr {
             @media print {
-              border: 1px dotted white !important;
+              border: 1px solid #CCCCCC;
             }
 
             th {
@@ -254,7 +255,7 @@
               padding: 8px 5px;
 
               @media print {
-                border: 1px dotted white !important;
+                border: 1px solid #CCCCCC;
               }
             }
           }
@@ -262,16 +263,16 @@
 
         tbody {
           tr {
-            border: 1px dotted white;
+            border: 2px solid #CCCCCC;
 
             @media print {
-              border: 1px dotted white !important;
+              border: 1px solid #CCCCCC;
             }
 
             td {
               padding: 8px 5px;
-              border-right: 1px solid white;
-              background-color: #C0C0C0;
+              border-right: 1px solid #CCCCCC;
+              background-color: #F5F5F5;
             }
           }
         }

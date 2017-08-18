@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { SearchHelper } from '../../../services/search-helper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DrugLookupService } from '../../../services/drug-lookup.service';
@@ -24,9 +24,18 @@ export class QueryDetailComponent implements OnInit {
   constructor(private searchHelper: SearchHelper,
               private drugLookup: DrugLookupService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private elRef: ElementRef, private renderer: Renderer2) {
     this.lastScrollPos = 0;
     this.isTableOfContentsVisible = false;
+
+    // dynamic set anchorNavigation on internal anchor linking
+    renderer.listen(elRef.nativeElement, 'click', (event) => {
+      const className = event.target.className;
+      if (className.indexOf('inner_link') !== -1) {
+        this.anchorNavigation(event.target.getAttribute('nav'));
+      }
+    });
   }
 
   ngOnInit() {

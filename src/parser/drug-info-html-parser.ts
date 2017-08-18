@@ -114,8 +114,13 @@ export class DrugInfoHtmlParser {
         const drugContent = new DrugContents();
         drugContent.header = $(this).find('a').text().replace(self.DRUG_SUBCATEGORY_IDENTIFIER, '').trim();
         drugContent.anchorIdReference =  $(this).find('a').attr('href');
-        drugContent.htmlElement = $(self.htmlData).find(
+
+        let htmlData = $(self.htmlData).find(
           drugContent.anchorIdReference).prop('outerHTML');
+
+        htmlData = self.removeHyperLinks(htmlData);
+
+        drugContent.htmlElement = htmlData;
 
         drugContents.push(drugContent);
       }
@@ -146,6 +151,8 @@ export class DrugInfoHtmlParser {
           subContents.anchorIdReference =  $(this).find('a').attr('href');
           subContents.htmlElement = $(self.htmlData).find(
             subContents.anchorIdReference).prop('outerHTML');
+
+          self.removeHyperLinks(subContents.htmlElement);
 
           subCategory.contents.push(subContents);
         }
@@ -196,6 +203,39 @@ export class DrugInfoHtmlParser {
     }
 
     return $(this.htmlData).find(classString);
+  }
+
+  private removeHyperLinks(reference: string) {
+    const linksRecord = [];
+
+    $(reference).find('.inner_link').each(
+      function() {
+        const original = $(this).clone().wrap('<div/>').parent().html();
+        const hrefAnchor = $(this).attr('href');
+        $(this).removeAttr('href');
+        $(this).removeAttr('onclick');
+        $(this).attr('nav', hrefAnchor);
+
+        let clonedVersion = $(this).clone().wrap('<div/>').parent().html();
+        clonedVersion = clonedVersion.replace('click', '(click)');
+
+        linksRecord.push({
+          replace: original,
+          replaceWith: clonedVersion,
+        })
+      }
+    );
+
+    if (linksRecord.length) {
+      linksRecord.forEach(
+        function(link) {
+          // data = data.replace(link.replace, link.replaceWith);
+          reference = reference.replace(link.replace, link.replaceWith);
+        }
+      );
+    }
+
+    return reference;
   }
 
 }
