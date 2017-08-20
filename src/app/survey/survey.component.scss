@@ -1,0 +1,23 @@
+/deep/ .modal {
+  position: absolute;
+  top: 50%;
+  padding: 20px;
+
+  .modal-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-contents {
+    margin: 10px 0;
+
+    label {
+      font-size: 1.2rem;
+    }
+  }
+
+  .submit-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

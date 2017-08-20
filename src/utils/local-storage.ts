@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class LocalStorage {
 
   private static readonly PREFERRED_LANG: string = 'pref_lang';
+  private static readonly SURVEY_USER_TYPE: string = 'survey_user_type';
 
   public preferredLang: BehaviorSubject<string>;
 
@@ -24,5 +25,13 @@ export class LocalStorage {
     localStorage.setItem(LocalStorage.PREFERRED_LANG, lang);
 
     this.preferredLang.next(lang);
+  }
+
+  setSurveyUserType(userType: string) {
+    localStorage.setItem(LocalStorage.SURVEY_USER_TYPE, userType)
+  }
+
+  getServeyUserType(): string {
+    return localStorage.getItem(LocalStorage.SURVEY_USER_TYPE);
   }
 }

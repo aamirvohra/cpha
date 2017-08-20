@@ -23,3 +23,7 @@
 <div [ngClass]="mobileSidebarVisiblity ? 'with-sidebar' : ''">
   <app-footer></app-footer>
 </div>
+
+<div *ngIf="displaySurvey">
+  <app-survey></app-survey>
+</div>

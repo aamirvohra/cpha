@@ -1,0 +1,22 @@
+<ng-template class="modal fade" [config]="{backdrop: 'static'}" bsModal #template>
+  <div class="modal-body">
+    <form [formGroup]="surveyForm">
+      <div class="row">
+        <h3>Please choose the following options:</h3>
+        <div class="col-sm-12 form-contents">
+          <label class="checkbox-inline">
+            <input formControlName="userType" type="radio" id="physician" value="physician"> Physician
+          </label>
+          <label class="checkbox-inline">
+            <input formControlName="userType" type="radio" id="patient" value="patient"> Patient
+          </label>
+        </div>
+
+        <div class="col-sm-6 col-sm-offset-3 submit-btn">
+          <button class="btn btn-primary btn-block" type="submit" (click)="submitSurveyForm()"
+                  [disabled]="surveyForm.pristine || surveyForm.invalid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

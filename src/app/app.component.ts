@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConstants, SupportedLanguages } from '../utils/app.constants';
 import { LocalStorage } from '../utils/local-storage';
@@ -13,6 +13,8 @@ import { LocalStorage } from '../utils/local-storage';
 export class AppComponent implements OnInit {
   title = 'app';
 
+  protected displaySurvey: boolean;
+
   protected mobileSidebarVisiblity: boolean;
 
   constructor(private translateService: TranslateService,
@@ -21,6 +23,10 @@ export class AppComponent implements OnInit {
     if (!LocalStorage.getPreferredLang()) {
       this.translateService.setDefaultLang(AppConstants.getLanguageCode(SupportedLanguages.ENGLISH));
       localStorage.setPreferredLang(this.translateService.getDefaultLang());
+    }
+
+    if (! this.localStorage.getServeyUserType()) {
+      this.displaySurvey = true;
     }
 
     this.translateService.use(this.localStorage.preferredLang.getValue());
@@ -34,8 +40,9 @@ export class AppComponent implements OnInit {
       () => {
         location.reload();
       }
-    )
+    );
   }
+
 
   public toggleMobileSidebarVisiblity(value) {
     this.mobileSidebarVisiblity = value;
@@ -51,6 +58,4 @@ export class AppComponent implements OnInit {
       this.mobileSidebarVisiblity = false;
     }
   }
-
-
 }

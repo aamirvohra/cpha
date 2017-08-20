@@ -12,9 +12,9 @@ import { QueryComponent } from './query/query.component';
 import { QueryDetailComponent } from './query/detail/query-detail.component';
 import { SearchComponent } from './search/search.component';
 import { SearchHelper } from '../services/search-helper';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { AccordionModule, PaginationModule, TypeaheadModule } from 'ngx-bootstrap';
+import { AccordionModule, ModalModule, PaginationModule, TypeaheadModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { QueryListComponent } from './query/list/query-list.component';
 import { MobileSidebarNavComponent } from './mobile-sidebar-nav/mobile-sidebar-nav.component';
@@ -31,6 +31,7 @@ import { PoliciesAndPermissionsComponent } from './policies-and-permissions/poli
 import { FaqComponent } from './faq/faq.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { SurveyComponent } from './survey/survey.component';
 
 export function FSLoaderFactory() {
   return new JsonTranslationLoader();
@@ -57,11 +58,13 @@ export function FSLoaderFactory() {
     FaqComponent,
     DisclaimerComponent,
     FeedbackComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     APP_ROUTES,
     HttpModule,
     JsonpModule,
@@ -73,7 +76,8 @@ export function FSLoaderFactory() {
         provide: TranslateLoader,
         useFactory: FSLoaderFactory,
       }
-    })
+    }),
+    ModalModule.forRoot(),
   ],
   providers: [
     DrugLookupService,
