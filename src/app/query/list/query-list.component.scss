@@ -64,9 +64,15 @@
       }
     }
 
-    /deep/ .panel {
+    /deep/ .panel-group {
+      margin-bottom: 0 !important;
+    }
+
+    /deep/ .panel-open {
       padding: 20px 0;
-      // margin-bottom: 20px;
+    }
+
+    /deep/ .panel {
       border: none;
       box-shadow: none;
 
