@@ -13,9 +13,9 @@ import { LocalStorage } from '../utils/local-storage';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  protected displaySurvey: boolean;
+  public displaySurvey: boolean;
 
-  protected mobileSidebarVisiblity: boolean;
+  public mobileSidebarVisiblity: boolean;
 
   constructor(private translateService: TranslateService,
               private localStorage: LocalStorage) {

@@ -10,7 +10,7 @@ import * as frTranslation from './assets/i18n/fr.json';
 
 export class JsonTranslationLoader implements TranslateLoader {
 
-  constructor(private prefix: string = '/assets/i18n/',
+  constructor(private prefix: string = 'assets/i18n/',
               private suffix: string = '.json') {}
 
   public getTranslation(lang: string): Observable<any> {
